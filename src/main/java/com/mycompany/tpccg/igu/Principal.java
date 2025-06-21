@@ -176,15 +176,18 @@ public class Principal extends javax.swing.JFrame {
         VerPropiedades verPropiedades = new VerPropiedades();
         verPropiedades.setVisible(true);
         verPropiedades.setLocationRelativeTo(null); // centra al medio la interfaz
-
     }//GEN-LAST:event_jBVerPropiedadesActionPerformed
 
     private void jBVerFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVerFacturasActionPerformed
-        // TODO add your handling code here:
+        VerFacturas verFacturas = new VerFacturas();
+        verFacturas.setVisible(true);
+        verFacturas.setLocationRelativeTo(null); // centra al medio la interfaz
     }//GEN-LAST:event_jBVerFacturasActionPerformed
 
     private void jBClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBClientesActionPerformed
-        // TODO add your handling code here:
+        VerClientes verClientes = new VerClientes();
+        verClientes.setVisible(true);
+        verClientes.setLocationRelativeTo(null); // centra al medio la interfaz
     }//GEN-LAST:event_jBClientesActionPerformed
 
     /**

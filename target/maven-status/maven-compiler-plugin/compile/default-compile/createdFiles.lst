@@ -1,5 +1,6 @@
 com\mycompany\tpccg\TPCCG.class
 com\mycompany\tpccg\controllers\PropiedadJpaController.class
+com\mycompany\tpccg\igu\VerClientes.class
 com\mycompany\tpccg\igu\Principal$4.class
 com\mycompany\tpccg\igu\VerPropiedades$5.class
 com\mycompany\tpccg\igu\VerTipoPropiedades.class
@@ -23,4 +24,5 @@ com\mycompany\tpccg\igu\Principal$2.class
 com\mycompany\tpccg\controllers\ControladoraControllers.class
 com\mycompany\tpccg\model\Propiedad.class
 com\mycompany\tpccg\model\Cliente.class
+com\mycompany\tpccg\igu\VerFacturas.class
 com\mycompany\tpccg\igu\VerPropiedades$3.class
