@@ -19,7 +19,7 @@ public class VerPropiedades extends javax.swing.JFrame {
 
     public VerPropiedades() {
         initComponents();
-        //controlLogica = new ControladoraLogica();
+        controlLogica = new ControladoraLogica();
     }
 
     /**
@@ -224,7 +224,7 @@ public class VerPropiedades extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        //CargarTablaPropiedades();
+        CargarTablaPropiedades();
     }//GEN-LAST:event_formWindowOpened
 
     private void jBAdministrarTipoPropiedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAdministrarTipoPropiedadesActionPerformed
