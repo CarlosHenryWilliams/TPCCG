@@ -7,6 +7,7 @@ C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año
 C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\igu\VerClientes.java
 C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\controllers\exceptions\IllegalOrphanException.java
 C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\controllers\ControladoraControllers.java
+C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\igu\AgregarTipoPropiedades.java
 C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\controllers\PropiedadJpaController.java
 C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\igu\Principal.java
 C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\igu\VerPropiedades.java
@@ -17,5 +18,6 @@ C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año
 C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\model\Cliente.java
 C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\controllers\ClienteJpaController.java
 C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\controllers\exceptions\PreexistingEntityException.java
+C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\igu\ModificarTipoPropiedades.java
 C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\model\ControladoraLogica.java
 C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\TPCCG.java

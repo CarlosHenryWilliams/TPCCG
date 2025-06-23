@@ -27,7 +27,8 @@ public class ModificarPropiedad extends javax.swing.JFrame {
         initComponents();
         this.idPropiedad = idPropiedadQueLlega;
         controlLogica = new ControladoraLogica();
-      //  cargarDatosFormulario(idPropiedad);
+        CargarTipoPropiedades();
+        cargarDatosFormulario(idPropiedad);
     }
 
     /**
@@ -55,6 +56,14 @@ public class ModificarPropiedad extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowIconified(java.awt.event.WindowEvent evt) {
+                formWindowIconified(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPContenedorGeneral.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -239,8 +248,8 @@ public class ModificarPropiedad extends javax.swing.JFrame {
         int cantAmbientesCasa = Integer.parseInt((String) cmbCantAmbientes.getSelectedItem());
         Double precioCasa = Double.parseDouble(txtPrecio.getText());
 
-     //   controlLogica.agregarPropiedad(direccionCasa, tipoPropiedadCasa, cantAmbientesCasa, precioCasa);
-      //  mostrarMensaje("Propiedad Agregada Correctamente", "Info", "Se ha agregado con exito"); // Llama al metodo Mostrar Mensaje
+         controlLogica.modificarPropiedad(this.idPropiedad, direccionCasa, tipoPropiedadCasa, cantAmbientesCasa, precioCasa);
+         mostrarMensaje("Propiedad Modfiicada Correctamente", "Info", "Se ha modificado la propiedad con exito"); // Llama al metodo Mostrar Mensaje
         this.dispose(); // cierro la ventana agregarPropiedad
 
         // Llamo nuevamente a la interfaz verPropiedades
@@ -249,6 +258,16 @@ public class ModificarPropiedad extends javax.swing.JFrame {
         verPropiedades.setLocationRelativeTo(null);
 
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void formWindowIconified(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowIconified
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowIconified
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        //  CargarTipoPropiedades();
+
+    }//GEN-LAST:event_formWindowOpened
 
     public void mostrarMensaje(String mensaje, String tipo, String titulo) {
 
@@ -284,55 +303,40 @@ public class ModificarPropiedad extends javax.swing.JFrame {
     private void cargarDatosFormulario(int idPropiedad1) {
         Propiedad propiedad = controlLogica.traerPropiedad(idPropiedad);
 
+ 
+
         txtDireccion.setText(propiedad.getDireccion());
         txtPrecio.setText(String.valueOf(propiedad.getPrecio()));
 
-        switch (propiedad.getTipoPropiedad().getDescripcion()) {
-            case "Rural": cmbTipoPropiedad.setSelectedIndex(1); break;
-            case "Urbana": cmbTipoPropiedad.setSelectedIndex(2); break;
-            case "Departamento": cmbTipoPropiedad.setSelectedIndex(3); break;
+        // Recorrer combob box para buscar el valor igual al que llego y setearlo en ese indice CMB AMBIENTES
+        for (int i = 0; i < cmbCantAmbientes.getItemCount(); i++) {
+            System.out.println(cmbCantAmbientes.getItemAt(i));
+            System.out.println(propiedad.getAmbientes());
+
+            if (cmbCantAmbientes.getItemAt(i).equals(String.valueOf(propiedad.getAmbientes()))) { // si es igual lo setea
+                System.out.println("ENTRO DETECTO QUE SON IGUALES");
+                cmbCantAmbientes.setSelectedIndex(i);
+            }
         }
 
-        switch (propiedad.getAmbientes()) {
-            case 1:
-                cmbCantAmbientes.setSelectedIndex(1);
-                break;
-            case 2:
-                cmbCantAmbientes.setSelectedIndex(2);
-                break;
-            case 3:
-                cmbCantAmbientes.setSelectedIndex(3);
-                break;
-            case 4:
-                cmbCantAmbientes.setSelectedIndex(4);
-                break;
-            case 5:
-                cmbCantAmbientes.setSelectedIndex(5);
-                break;
-            case 6:
-                cmbCantAmbientes.setSelectedIndex(6);
-                break;
-            case 7:
-                cmbCantAmbientes.setSelectedIndex(7);
-                break;
-            case 8:
-                cmbCantAmbientes.setSelectedIndex(8);
-                break;
-            case 9:
-                cmbCantAmbientes.setSelectedIndex(9);
-                break;
-            case 10:
-                cmbCantAmbientes.setSelectedIndex(10);
-                break;
-            case 11:
-                cmbCantAmbientes.setSelectedIndex(11);
-                break;
-            case 12:
-                cmbCantAmbientes.setSelectedIndex(12);
-                break;
+        // Recorrer combob box para buscar el valor igual al que llego y setearlo en ese indice CMB TIPO PROPIEDAD
+        for (int i = 0; i < cmbTipoPropiedad.getItemCount(); i++) {
+
+            if (cmbTipoPropiedad.getItemAt(i).equals(propiedad.getTipoPropiedad().getDescripcion())) { // si es igual lo setea
+                cmbTipoPropiedad.setSelectedIndex(i);
+            }
+        }
+
+        
+    }
+
+    private void CargarTipoPropiedades() {
+
+        List<TipoPropiedad> listaTipoPropiedades = controlLogica.traerTipoPropiedades();
+        for (TipoPropiedad tipoPropi : listaTipoPropiedades) {
+            cmbTipoPropiedad.addItem(tipoPropi.getDescripcion());
         }
 
     }
-    
-    
+
 }

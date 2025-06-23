@@ -45,15 +45,25 @@ public class ControladoraLogica {
 
     public void agregarPropiedad(String direccionCasa, TipoPropiedad tipoPropiedadCasa, int cantAmbientesCasa, Double precioCasa) {
         Propiedad propiedad = new Propiedad();
-        
+
         propiedad.setDireccion(direccionCasa);
         propiedad.setTipoPropiedad(tipoPropiedadCasa);
         propiedad.setAmbientes(cantAmbientesCasa);
         propiedad.setPrecio(precioCasa);
         propiedad.setVendida(Boolean.FALSE);
-        
+
         controlControllers.agregarPropiedad(propiedad);
 
+    }
+
+    public void modificarPropiedad(int idPropiedad, String direccionCasa, TipoPropiedad tipoPropiedadCasa, int cantAmbientesCasa, Double precioCasa) {
+        Propiedad propiedadAModificar = traerPropiedad(idPropiedad);
+        propiedadAModificar.setDireccion(direccionCasa);
+        propiedadAModificar.setTipoPropiedad(tipoPropiedadCasa);
+        propiedadAModificar.setAmbientes(cantAmbientesCasa);
+        propiedadAModificar.setPrecio(precioCasa);
+        
+        controlControllers.modificarPropiedad(propiedadAModificar);
     }
 
     public void borrarPropiedad(int idPropiedadSeleccionado) {
@@ -61,7 +71,7 @@ public class ControladoraLogica {
     }
 
     public Propiedad traerPropiedad(int idPropiedad) {
-       return controlControllers.traerPropiedad(idPropiedad);
+        return controlControllers.traerPropiedad(idPropiedad);
     }
 
 }

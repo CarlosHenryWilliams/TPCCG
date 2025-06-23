@@ -59,4 +59,12 @@ public class ControladoraControllers {
         return propiedadJPA.findPropiedad(idPropiedad);
     }
 
+    public void modificarPropiedad(Propiedad propiedadAModificar) {
+        try {
+            propiedadJPA.edit(propiedadAModificar);
+        } catch (Exception ex) {
+            System.out.println("Ha ocurrido un error al modificar la propiedad: " + ex.getMessage());
+        }
+    }
+
 }

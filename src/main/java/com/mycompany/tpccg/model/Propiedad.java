@@ -28,7 +28,7 @@ public class Propiedad implements Serializable {
     private Boolean vendida;
     @ManyToOne
     @JoinColumn(name="idTipoPropiedad")
-    private TipoPropiedad tipoPropiedad;
+    private TipoPropiedad tipoPropiedad; 
 
     public Propiedad() {
     }

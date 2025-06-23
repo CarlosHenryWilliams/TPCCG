@@ -261,7 +261,7 @@ public class VerPropiedades extends javax.swing.JFrame {
 
     private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
         // TODO add your handling code here:
-     //  Controlar que la tabla no este vacia
+        //  Controlar que la tabla no este vacia
         if (tablaPropiedades.getRowCount() > 0) {  // controlamos que la tabla no este vacia o sea que haya mas de un registro
             // Controlar que la columna este seleccionada
             if (tablaPropiedades.getSelectedRow() != -1) { // -1 significa que no hay ninguna seleccionada
@@ -282,19 +282,19 @@ public class VerPropiedades extends javax.swing.JFrame {
     }//GEN-LAST:event_jBEliminarActionPerformed
 
     private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
-   
- //  Controlar que la tabla no este vacia
+
+        //  Controlar que la tabla no este vacia
         if (tablaPropiedades.getRowCount() > 0) {  // controlamos que la tabla no este vacia o sea que haya mas de un registro
             // Controlar que la columna este seleccionada
             if (tablaPropiedades.getSelectedRow() != -1) { // -1 significa que no hay ninguna seleccionada
 
                 // explicacion ----- getValueAt (traeme el valor de ) la fila seleccionada y la columna 0; pasamos a String porque lo trae en forma de objeto y a ese string lo pasamos a int
-              int idPropiedadSeleccionado = Integer.parseInt(String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 0)));
-                System.out.println("ID DE LA PROPIEDAD" + idPropiedadSeleccionado  );
+                int idPropiedadSeleccionado = Integer.parseInt(String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 0)));
+                this.dispose();
                 ModificarPropiedad modificarPropiedad = new ModificarPropiedad(idPropiedadSeleccionado);
                 modificarPropiedad.setVisible(true);
                 modificarPropiedad.setLocationRelativeTo(null);
-             
+
             } else {
                 mostrarMensaje("No se ha seleccionado ninguna fila", "Error", "Error al no seleccionar");
             }
@@ -302,9 +302,7 @@ public class VerPropiedades extends javax.swing.JFrame {
             mostrarMensaje("La tabla se encuentra vacia", "Error", "Tabla Vacia");
         }
 
-        
-        
-        
+
     }//GEN-LAST:event_jBEditarActionPerformed
     public void mostrarMensaje(String mensaje, String tipo, String titulo) {
 
@@ -337,6 +335,7 @@ public class VerPropiedades extends javax.swing.JFrame {
 
     private void CargarTablaPropiedades() {
 
+        // SETEAR MODELO TABLA
         DefaultTableModel modeloTablaPropiedades = new DefaultTableModel() {
 
             // que fila y columnas no sea editable
@@ -356,6 +355,7 @@ public class VerPropiedades extends javax.swing.JFrame {
         if (listaPropiedades != null) {
 
             for (Propiedad propiedad : listaPropiedades) {
+
                 if (propiedad.getVendida() == true) {
                     variableVendida = "Si";
                 } else {
@@ -364,6 +364,7 @@ public class VerPropiedades extends javax.swing.JFrame {
 
                 Object[] objeto = {propiedad.getIdPropiedad(), propiedad.getTipoPropiedad().getDescripcion(), propiedad.getDireccion(),
                     propiedad.getAmbientes(), propiedad.getPrecio(), variableVendida};
+
                 modeloTablaPropiedades.addRow(objeto);
 
             }

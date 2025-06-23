@@ -157,7 +157,7 @@ public class AgregarPropiedad extends javax.swing.JFrame {
                         .addComponent(btnLimpiar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAgregarPropiedad)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
         jPContenedorFormularioLayout.setVerticalGroup(
             jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,9 +171,9 @@ public class AgregarPropiedad extends javax.swing.JFrame {
                     .addComponent(jLFormCantAmb)
                     .addComponent(cmbCantAmbientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
-                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLFormTipoProp)
-                    .addComponent(cmbTipoPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmbTipoPropiedad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLFormTipoProp))
                 .addGap(20, 20, 20)
                 .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLFormPrecio)
@@ -226,14 +226,15 @@ public class AgregarPropiedad extends javax.swing.JFrame {
     private void btnAgregarPropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPropiedadActionPerformed
         // TODO add your handling code here:
         String direccionCasa = txtDireccion.getText();
-
-        String tipoPropiedadCasaDescripcion = (String) cmbTipoPropiedad.getSelectedItem();
+        
+        String tipoPropiedadCasaDescripcion = (String) cmbTipoPropiedad.getSelectedItem(); // rural
+        
         TipoPropiedad tipoPropiedadCasa = new TipoPropiedad();
         // Recorro  para igualar un tipoPropiedad con la descripcion y cargarlo a tipoPropiedadCasa
         List<TipoPropiedad> listaTipoPropiedades = controlLogica.traerTipoPropiedades();
         for (TipoPropiedad tipoPropi : listaTipoPropiedades) {
 
-            if (tipoPropiedadCasaDescripcion.equals(tipoPropi.getDescripcion())) {
+            if (tipoPropiedadCasaDescripcion.equals(tipoPropi.getDescripcion())) { // me fijo que el tipo propiedad coincida
                 tipoPropiedadCasa = tipoPropi; // seteo el tipo de propeidad
             }
 

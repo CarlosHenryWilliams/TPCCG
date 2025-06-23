@@ -38,6 +38,11 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
         jBAgregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPContenedorGeneral.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -200,6 +205,10 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
         modificarTipoPropiedades.setVisible(true);
         modificarTipoPropiedades.setLocationRelativeTo(null); // centra al medio la interfaz
     }//GEN-LAST:event_jBEditarActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
 
 
 
