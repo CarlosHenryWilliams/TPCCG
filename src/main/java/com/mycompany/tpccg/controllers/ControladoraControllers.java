@@ -72,4 +72,12 @@ public class ControladoraControllers {
         tipoPropiJPA.create(tipoPropiedad);
     }
 
+    public void borrarTipoPropiedad(int idTipoPropiedadSeleccionado) {
+        try {
+            tipoPropiJPA.destroy(idTipoPropiedadSeleccionado);
+        } catch (NonexistentEntityException ex) {
+            System.out.println("Ha ocurrido un error al eliminar el tipo de propiedad: " + ex.getMessage());
+        }
+    }
+
 }

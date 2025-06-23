@@ -80,4 +80,8 @@ public class ControladoraLogica {
         controlControllers.agregarTipoPropiedad(tipoPropiedad);
     }
 
+    public void borrarTipoPropiedad(int idTipoPropiedadSeleccionado) {
+        controlControllers.borrarTipoPropiedad(idTipoPropiedadSeleccionado);
+    }
+
 }

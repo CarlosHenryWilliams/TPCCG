@@ -7,6 +7,8 @@ package com.mycompany.tpccg.igu;
 import com.mycompany.tpccg.model.ControladoraLogica;
 import com.mycompany.tpccg.model.TipoPropiedad;
 import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -127,6 +129,11 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
         jBEliminar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jBEliminar.setForeground(new java.awt.Color(255, 255, 255));
         jBEliminar.setText("ELIMINAR");
+        jBEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminarActionPerformed(evt);
+            }
+        });
 
         jBAgregar.setBackground(new java.awt.Color(0, 153, 153));
         jBAgregar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -221,6 +228,29 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
         CargarTablaTipoPropiedades();
     }//GEN-LAST:event_formWindowOpened
 
+    private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
+        //  Controlar que la tabla no este vacia
+        if (tablaTipoPropiedades.getRowCount() > 0) {  // controlamos que la tabla no este vacia o sea que haya mas de un registro
+            // Controlar que la columna este seleccionada
+            if (tablaTipoPropiedades.getSelectedRow() != -1) { // -1 significa que no hay ninguna seleccionada
+
+                // explicacion ----- getValueAt (traeme el valor de ) la fila seleccionada y la columna 0; pasamos a String porque lo trae en forma de objeto y a ese string lo pasamos a int
+                int idTipoPropiedadSeleccionado = Integer.parseInt(String.valueOf(tablaTipoPropiedades.getValueAt(tablaTipoPropiedades.getSelectedRow(), 0)));
+                controlLogica.borrarTipoPropiedad(idTipoPropiedadSeleccionado);
+                mostrarMensaje("Tipo de Propiedad Eliminado Correctamente", "Info", "Eliminacion Exitosa"); // Llama al metodo Mostrar Mensaje
+                CargarTablaTipoPropiedades();
+            } else {
+                mostrarMensaje("No se ha seleccionado ninguna fila", "Error", "Error al no seleccionar");
+            }
+        } else {
+            mostrarMensaje("La tabla se encuentra vacia", "Error", "Tabla Vacia");
+        }
+        // TODO add your handling code here:
+        
+        
+        
+    }//GEN-LAST:event_jBEliminarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBAgregar;
@@ -267,5 +297,19 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
         }
 
         tablaTipoPropiedades.setModel(modeloTablaTipoPropiedades);
+    }
+    
+        public void mostrarMensaje(String mensaje, String tipo, String titulo) {
+
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        if (tipo.equals("Info")) {
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        } else if (tipo.equals("Error")) {
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        }
+        JDialog dialog = optionPane.createDialog(titulo);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+
     }
 }
