@@ -4,6 +4,11 @@
  */
 package com.mycompany.tpccg.igu;
 
+import com.mycompany.tpccg.model.ControladoraLogica;
+import com.mycompany.tpccg.model.Factura;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author marti
@@ -13,8 +18,11 @@ public class VerFacturas extends javax.swing.JFrame {
     /**
      * Creates new form verFacturas
      */
+    ControladoraLogica controlLogica;
+
     public VerFacturas() {
         initComponents();
+       controlLogica = new ControladoraLogica();
     }
 
     /**
@@ -31,9 +39,14 @@ public class VerFacturas extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPContenedorTabla = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaFacturas = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPContenedorGeneral.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -62,7 +75,7 @@ public class VerFacturas extends javax.swing.JFrame {
 
         jPContenedorTabla.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaFacturas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -73,7 +86,7 @@ public class VerFacturas extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaFacturas);
 
         javax.swing.GroupLayout jPContenedorTablaLayout = new javax.swing.GroupLayout(jPContenedorTabla);
         jPContenedorTabla.setLayout(jPContenedorTablaLayout);
@@ -125,6 +138,11 @@ public class VerFacturas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+          CargarTablaFacturas();
+    }//GEN-LAST:event_formWindowOpened
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -132,6 +150,45 @@ public class VerFacturas extends javax.swing.JFrame {
     private javax.swing.JPanel jPContenedorTabla;
     private javax.swing.JPanel jPHeader;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablaFacturas;
     // End of variables declaration//GEN-END:variables
+
+    private void CargarTablaFacturas() {
+        
+        DefaultTableModel modeloTablaFacturas =   new DefaultTableModel() {
+
+            // que fila y columnas no sea editable
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        // setear nombre de las columnas
+        String nombreColumnas[] = {"IdFactura", "NombreComprador", "DNI", "IdPropiedad","Direccion", "TipoPropiedad", "Ambientes", "Precio", "Fecha"};
+        modeloTablaFacturas.setColumnIdentifiers(nombreColumnas);
+
+        // traer propiedades
+        List<Factura> listaFacturas = controlLogica.traerFacturas();
+
+        String variableVendida = "";
+        if (listaFacturas != null) {
+
+            for (Factura factura : listaFacturas) {
+              /*  if (propiedad.getVendida() == true) {
+                    variableVendida = "Si";
+                } else {
+                    variableVendida = "No";
+                }*/
+
+                Object[] objeto = { factura.getIdFactura(), factura.getCompradorAsig().getNombreCompleto(), factura.getPropiedadAsig().getIdPropiedad(), factura.getCompradorAsig().getDNI(), factura.getPropiedadAsig().getDireccion(),
+                    factura.getPropiedadAsig().getTipoPropiedad().getDescripcion(), factura.getPropiedadAsig().getAmbientes(), factura.getPropiedadAsig().getPrecio(), factura.getFechaEmision()};
+                modeloTablaFacturas.addRow(objeto);
+
+            }
+        }
+
+        tablaFacturas.setModel(modeloTablaFacturas);
+
+
+    }
 }

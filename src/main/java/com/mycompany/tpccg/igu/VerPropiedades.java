@@ -19,7 +19,7 @@ public class VerPropiedades extends javax.swing.JFrame {
 
     public VerPropiedades() {
         initComponents();
-       // controlLogica = new ControladoraLogica();
+        controlLogica = new ControladoraLogica();
     }
 
     /**
@@ -224,7 +224,7 @@ public class VerPropiedades extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        //CargarTablaPropiedades();
+        CargarTablaPropiedades();
     }//GEN-LAST:event_formWindowOpened
 
     private void jBAdministrarTipoPropiedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAdministrarTipoPropiedadesActionPerformed
@@ -235,6 +235,11 @@ public class VerPropiedades extends javax.swing.JFrame {
 
     private void jBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarActionPerformed
         // TODO add your handling code here:
+        AgregarPropiedad agregarPropiedad = new AgregarPropiedad();
+        agregarPropiedad.setVisible(true);
+        agregarPropiedad.setLocationRelativeTo(null); // centra al medio la interfaz
+
+
     }//GEN-LAST:event_jBAgregarActionPerformed
 
     private void jBVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVenderActionPerformed
@@ -284,7 +289,7 @@ public class VerPropiedades extends javax.swing.JFrame {
                     variableVendida = "No";
                 }
 
-                Object[] objeto = {propiedad.getIdPropiedad(), propiedad.getTipoPropiedad(), propiedad.getDireccion(),
+                Object[] objeto = {propiedad.getIdPropiedad(), propiedad.getTipoPropiedad().getDescripcion(), propiedad.getDireccion(),
                     propiedad.getAmbientes(), propiedad.getPrecio(), variableVendida};
                 modeloTablaPropiedades.addRow(objeto);
 

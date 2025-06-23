@@ -15,12 +15,7 @@ import java.util.List;
 public class ControladoraLogica {
 
     ControladoraControllers controlControllers = new ControladoraControllers();
-   
-    
-    
-    
-    
-    
+
     //Vender propiedad
     public void ventaPropiedad(Cliente cliente, Propiedad propiedad) {
 
@@ -28,17 +23,37 @@ public class ControladoraLogica {
         factura.setFechaEmision(new Date());
         factura.setPropiedadAsig(propiedad);
         factura.setCompradorAsig(cliente);
-     
+
         controlControllers.ventaPropiedad(factura);
-        
+
     }
 
     public List<Propiedad> traerPropiedades() {
-        
+
         return controlControllers.traerPropiedades();
 
     }
 
+    public List<Factura> traerFacturas() {
+        return controlControllers.traerFacturas();
+    }
 
+    //Tiipo Propiedades
+    public List<TipoPropiedad> traerTipoPropiedades() {
+        return controlControllers.traerTipoPropiedades();
+    }
+
+    public void agregarPropiedad(String direccionCasa, TipoPropiedad tipoPropiedadCasa, int cantAmbientesCasa, Double precioCasa) {
+        Propiedad propiedad = new Propiedad();
+        
+        propiedad.setDireccion(direccionCasa);
+        propiedad.setTipoPropiedad(tipoPropiedadCasa);
+        propiedad.setAmbientes(cantAmbientesCasa);
+        propiedad.setPrecio(precioCasa);
+        propiedad.setVendida(Boolean.FALSE);
+        
+        controlControllers.agregarPropiedad(propiedad);
+
+    }
 
 }
