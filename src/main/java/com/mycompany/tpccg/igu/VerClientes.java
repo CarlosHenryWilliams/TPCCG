@@ -26,23 +26,216 @@ public class VerClientes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPContenedorGeneral = new javax.swing.JPanel();
+        jPHeader = new javax.swing.JPanel();
+        jLTitulo = new javax.swing.JLabel();
+        jPContenedorTabla = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaPropiedades = new javax.swing.JTable();
+        jPContenedorBotones = new javax.swing.JPanel();
+        jBEliminar = new javax.swing.JButton();
+        jBEditar = new javax.swing.JButton();
+        jBAgregar = new javax.swing.JButton();
+        jBSusFacturas = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPContenedorGeneral.setBackground(new java.awt.Color(204, 204, 204));
+
+        jPHeader.setBackground(new java.awt.Color(0, 153, 153));
+        jPHeader.setPreferredSize(new java.awt.Dimension(428, 110));
+
+        jLTitulo.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        jLTitulo.setText("CLIENTES");
+
+        javax.swing.GroupLayout jPHeaderLayout = new javax.swing.GroupLayout(jPHeader);
+        jPHeader.setLayout(jPHeaderLayout);
+        jPHeaderLayout.setHorizontalGroup(
+            jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPHeaderLayout.createSequentialGroup()
+                .addContainerGap(269, Short.MAX_VALUE)
+                .addComponent(jLTitulo)
+                .addContainerGap(269, Short.MAX_VALUE))
+        );
+        jPHeaderLayout.setVerticalGroup(
+            jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPHeaderLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLTitulo)
+                .addGap(25, 25, 25))
+        );
+
+        jPContenedorTabla.setBackground(new java.awt.Color(204, 204, 204));
+        jPContenedorTabla.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jScrollPane1.setBackground(new java.awt.Color(204, 204, 204));
+
+        tablaPropiedades.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tablaPropiedades.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        jScrollPane1.setViewportView(tablaPropiedades);
+
+        javax.swing.GroupLayout jPContenedorTablaLayout = new javax.swing.GroupLayout(jPContenedorTabla);
+        jPContenedorTabla.setLayout(jPContenedorTablaLayout);
+        jPContenedorTablaLayout.setHorizontalGroup(
+            jPContenedorTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorTablaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPContenedorTablaLayout.setVerticalGroup(
+            jPContenedorTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPContenedorTablaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPContenedorBotones.setBackground(new java.awt.Color(204, 204, 204));
+
+        jBEliminar.setBackground(new java.awt.Color(0, 153, 153));
+        jBEliminar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jBEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        jBEliminar.setText("ELIMINAR");
+        jBEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminarActionPerformed(evt);
+            }
+        });
+
+        jBEditar.setBackground(new java.awt.Color(0, 153, 153));
+        jBEditar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jBEditar.setForeground(new java.awt.Color(255, 255, 255));
+        jBEditar.setText("EDITAR");
+        jBEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEditarActionPerformed(evt);
+            }
+        });
+
+        jBAgregar.setBackground(new java.awt.Color(0, 153, 153));
+        jBAgregar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jBAgregar.setForeground(new java.awt.Color(255, 255, 255));
+        jBAgregar.setText("AGREGAR");
+        jBAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBAgregarActionPerformed(evt);
+            }
+        });
+
+        jBSusFacturas.setBackground(new java.awt.Color(0, 153, 153));
+        jBSusFacturas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jBSusFacturas.setForeground(new java.awt.Color(255, 255, 255));
+        jBSusFacturas.setText("VER SUS FACTURAS");
+        jBSusFacturas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSusFacturasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPContenedorBotonesLayout = new javax.swing.GroupLayout(jPContenedorBotones);
+        jPContenedorBotones.setLayout(jPContenedorBotonesLayout);
+        jPContenedorBotonesLayout.setHorizontalGroup(
+            jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPContenedorBotonesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jBAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBSusFacturas)
+                .addContainerGap())
+        );
+        jPContenedorBotonesLayout.setVerticalGroup(
+            jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorBotonesLayout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addGroup(jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBSusFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23))
+        );
+
+        javax.swing.GroupLayout jPContenedorGeneralLayout = new javax.swing.GroupLayout(jPContenedorGeneral);
+        jPContenedorGeneral.setLayout(jPContenedorGeneralLayout);
+        jPContenedorGeneralLayout.setHorizontalGroup(
+            jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 753, Short.MAX_VALUE)
+            .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPContenedorTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPContenedorBotones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        jPContenedorGeneralLayout.setVerticalGroup(
+            jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorGeneralLayout.createSequentialGroup()
+                .addComponent(jPHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPContenedorBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPContenedorTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBEliminarActionPerformed
+
+    private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
+
+    }//GEN-LAST:event_jBEditarActionPerformed
+
+    private void jBSusFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSusFacturasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBSusFacturasActionPerformed
+
+    private void jBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarActionPerformed
+
+    }//GEN-LAST:event_jBAgregarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBAgregar;
+    private javax.swing.JButton jBEditar;
+    private javax.swing.JButton jBEliminar;
+    private javax.swing.JButton jBSusFacturas;
+    private javax.swing.JLabel jLTitulo;
+    private javax.swing.JPanel jPContenedorBotones;
+    private javax.swing.JPanel jPContenedorGeneral;
+    private javax.swing.JPanel jPContenedorTabla;
+    private javax.swing.JPanel jPHeader;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tablaPropiedades;
     // End of variables declaration//GEN-END:variables
 }

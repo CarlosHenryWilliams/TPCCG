@@ -103,6 +103,11 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
         jBEditar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jBEditar.setForeground(new java.awt.Color(255, 255, 255));
         jBEditar.setText("EDITAR");
+        jBEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEditarActionPerformed(evt);
+            }
+        });
 
         jBEliminar.setBackground(new java.awt.Color(0, 153, 153));
         jBEliminar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -113,6 +118,11 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
         jBAgregar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jBAgregar.setForeground(new java.awt.Color(255, 255, 255));
         jBAgregar.setText("AGREGAR");
+        jBAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBAgregarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPContenedorBotonesLayout = new javax.swing.GroupLayout(jPContenedorBotones);
         jPContenedorBotones.setLayout(jPContenedorBotonesLayout);
@@ -120,22 +130,22 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
             jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPContenedorBotonesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jBAgregar)
+                .addComponent(jBEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jBEliminar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPContenedorBotonesLayout.setVerticalGroup(
             jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorBotonesLayout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30))
+                    .addComponent(jBAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
         );
 
         javax.swing.GroupLayout jPContenedorGeneralLayout = new javax.swing.GroupLayout(jPContenedorGeneral);
@@ -176,6 +186,20 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarActionPerformed
+        // TODO add your handling code here:
+        AgregarTipoPropiedades agregarTipoPropiedades = new AgregarTipoPropiedades();
+        agregarTipoPropiedades.setVisible(true);
+        agregarTipoPropiedades.setLocationRelativeTo(null); // centra al medio la interfaz
+    }//GEN-LAST:event_jBAgregarActionPerformed
+
+    private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
+        // TODO add your handling code here:
+        ModificarTipoPropiedades modificarTipoPropiedades = new ModificarTipoPropiedades();
+        modificarTipoPropiedades.setVisible(true);
+        modificarTipoPropiedades.setLocationRelativeTo(null); // centra al medio la interfaz
+    }//GEN-LAST:event_jBEditarActionPerformed
 
 
 
