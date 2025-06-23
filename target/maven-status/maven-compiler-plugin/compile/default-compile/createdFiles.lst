@@ -2,6 +2,7 @@ com\mycompany\tpccg\controllers\PropiedadJpaController.class
 com\mycompany\tpccg\igu\AgregarPropiedad.class
 com\mycompany\tpccg\igu\VerClientes.class
 com\mycompany\tpccg\igu\VerPropiedades$7.class
+com\mycompany\tpccg\igu\VerTipoPropiedades$4.class
 com\mycompany\tpccg\igu\VerClientes$2.class
 com\mycompany\tpccg\igu\ModificarPropiedad.class
 com\mycompany\tpccg\igu\VerTipoPropiedades$1.class

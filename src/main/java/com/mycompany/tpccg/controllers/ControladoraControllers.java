@@ -46,15 +46,6 @@ public class ControladoraControllers {
         }
     }
 
-    // FACTURAS
-    public List<Factura> traerFacturas() {
-        return facturaJPA.findFacturaEntities();
-    }
-
-    public List<TipoPropiedad> traerTipoPropiedades() {
-        return tipoPropiJPA.findTipoPropiedadEntities();
-    }
-
     public Propiedad traerPropiedad(int idPropiedad) {
         return propiedadJPA.findPropiedad(idPropiedad);
     }
@@ -65,6 +56,20 @@ public class ControladoraControllers {
         } catch (Exception ex) {
             System.out.println("Ha ocurrido un error al modificar la propiedad: " + ex.getMessage());
         }
+    }
+
+    // FACTURAS
+    public List<Factura> traerFacturas() {
+        return facturaJPA.findFacturaEntities();
+    }
+
+    // TIPO PROPIEDADES
+    public List<TipoPropiedad> traerTipoPropiedades() {
+        return tipoPropiJPA.findTipoPropiedadEntities();
+    }
+
+    public void agregarTipoPropiedad(TipoPropiedad tipoPropiedad) {
+        tipoPropiJPA.create(tipoPropiedad);
     }
 
 }

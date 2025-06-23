@@ -4,6 +4,11 @@
  */
 package com.mycompany.tpccg.igu;
 
+import com.mycompany.tpccg.model.ControladoraLogica;
+import com.mycompany.tpccg.model.TipoPropiedad;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author CharlyW
@@ -13,8 +18,12 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
     /**
      * Creates new form VerTipoPropiedades
      */
+    ControladoraLogica controlLogica;
+
     public VerTipoPropiedades() {
         initComponents();
+        controlLogica = new ControladoraLogica();
+
     }
 
     /**
@@ -194,6 +203,7 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
 
     private void jBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         AgregarTipoPropiedades agregarTipoPropiedades = new AgregarTipoPropiedades();
         agregarTipoPropiedades.setVisible(true);
         agregarTipoPropiedades.setLocationRelativeTo(null); // centra al medio la interfaz
@@ -208,8 +218,8 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
+        CargarTablaTipoPropiedades();
     }//GEN-LAST:event_formWindowOpened
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -224,4 +234,38 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaTipoPropiedades;
     // End of variables declaration//GEN-END:variables
+
+    private void CargarTablaTipoPropiedades() {
+        // SETEAR MODELO TABLA
+        DefaultTableModel modeloTablaTipoPropiedades = new DefaultTableModel() {
+
+            // que fila y columnas no sea editable
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        // setear nombre de las columnas
+        String nombreColumnas[] = {"idTipoPropiedad", "Descripcion"};
+        modeloTablaTipoPropiedades.setColumnIdentifiers(nombreColumnas);
+
+        // traer propiedades
+        List<TipoPropiedad> listaTipoPropiedades = controlLogica.traerTipoPropiedades();
+
+        String variableVendida = "";
+        if (listaTipoPropiedades != null) {
+
+            for (TipoPropiedad tipoPropiedad : listaTipoPropiedades) {
+
+        
+
+                Object[] objeto = {tipoPropiedad.getIdTipoPropiedad(), tipoPropiedad.getDescripcion() };
+
+                modeloTablaTipoPropiedades.addRow(objeto);
+
+            }
+        }
+
+        tablaTipoPropiedades.setModel(modeloTablaTipoPropiedades);
+    }
 }

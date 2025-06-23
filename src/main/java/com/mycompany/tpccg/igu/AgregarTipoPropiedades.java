@@ -4,6 +4,10 @@
  */
 package com.mycompany.tpccg.igu;
 
+import com.mycompany.tpccg.model.ControladoraLogica;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author marti
@@ -13,8 +17,10 @@ public class AgregarTipoPropiedades extends javax.swing.JFrame {
     /**
      * Creates new form AgregarTipoPropiedades
      */
+    ControladoraLogica controlLogica;
     public AgregarTipoPropiedades() {
         initComponents();
+        controlLogica = new ControladoraLogica();
     }
 
     /**
@@ -33,7 +39,7 @@ public class AgregarTipoPropiedades extends javax.swing.JFrame {
         jLFormDesc = new javax.swing.JLabel();
         txtDesc = new javax.swing.JTextField();
         btnLimpiar = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,12 +86,12 @@ public class AgregarTipoPropiedades extends javax.swing.JFrame {
             }
         });
 
-        btnEditar.setBackground(new java.awt.Color(0, 153, 153));
-        btnEditar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnEditar.setText("EDITAR");
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregar.setBackground(new java.awt.Color(0, 153, 153));
+        btnAgregar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAgregar.setText("AGREGAR");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
+                btnAgregarActionPerformed(evt);
             }
         });
 
@@ -103,7 +109,7 @@ public class AgregarTipoPropiedades extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorFormularioLayout.createSequentialGroup()
                         .addComponent(btnLimpiar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEditar)))
+                        .addComponent(btnAgregar)))
                 .addContainerGap(176, Short.MAX_VALUE))
         );
         jPContenedorFormularioLayout.setVerticalGroup(
@@ -116,7 +122,7 @@ public class AgregarTipoPropiedades extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 
@@ -151,16 +157,47 @@ public class AgregarTipoPropiedades extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-
+        txtDesc.setText("");
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
 
-    }//GEN-LAST:event_btnEditarActionPerformed
+        if (!(txtDesc.getText().equals("") || txtDesc.getText().isEmpty())) {
+            
+                String tipoPropiedadDescripcion = txtDesc.getText();
 
+
+        controlLogica.agregarTipoPropiedad(tipoPropiedadDescripcion);
+        mostrarMensaje("Tipo de Propiedad Agregada Correctamente", "Info", "Se ha agregado con exito"); 
+        this.dispose(); 
+
+        // Llamo nuevamente a la interfaz verPropiedades
+        VerTipoPropiedades verTipoPropiedades = new VerTipoPropiedades();
+        verTipoPropiedades.setVisible(true);
+        verTipoPropiedades.setLocationRelativeTo(null); 
+
+        } else {
+            mostrarMensaje("El campo descripcion esta vacio, por favor completelo", "Info", "Ha ocurrido un error"); // Llama al metodo Mostrar Mensaje
+
+        }
+
+    }//GEN-LAST:event_btnAgregarActionPerformed
+    public void mostrarMensaje(String mensaje, String tipo, String titulo) {
+
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        if (tipo.equals("Info")) {
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        } else if (tipo.equals("Error")) {
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        }
+        JDialog dialog = optionPane.createDialog(titulo);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JLabel jLFormDesc;
     private javax.swing.JLabel jLTitulo2;

@@ -240,6 +240,7 @@ public class VerPropiedades extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jBAdministrarTipoPropiedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAdministrarTipoPropiedadesActionPerformed
+        this.dispose();
         VerTipoPropiedades verTipoPropiedades = new VerTipoPropiedades();
         verTipoPropiedades.setVisible(true);
         verTipoPropiedades.setLocationRelativeTo(null); // centra al medio la interfaz

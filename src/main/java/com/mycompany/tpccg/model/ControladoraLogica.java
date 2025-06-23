@@ -28,12 +28,6 @@ public class ControladoraLogica {
 
     }
 
-    public List<Propiedad> traerPropiedades() {
-
-        return controlControllers.traerPropiedades();
-
-    }
-
     public List<Factura> traerFacturas() {
         return controlControllers.traerFacturas();
     }
@@ -41,6 +35,15 @@ public class ControladoraLogica {
     //Tiipo Propiedades
     public List<TipoPropiedad> traerTipoPropiedades() {
         return controlControllers.traerTipoPropiedades();
+    }
+
+    // METODOS PROPIEDADES
+    public List<Propiedad> traerPropiedades() {
+        return controlControllers.traerPropiedades();
+    }
+
+    public Propiedad traerPropiedad(int idPropiedad) {
+        return controlControllers.traerPropiedad(idPropiedad);
     }
 
     public void agregarPropiedad(String direccionCasa, TipoPropiedad tipoPropiedadCasa, int cantAmbientesCasa, Double precioCasa) {
@@ -62,7 +65,7 @@ public class ControladoraLogica {
         propiedadAModificar.setTipoPropiedad(tipoPropiedadCasa);
         propiedadAModificar.setAmbientes(cantAmbientesCasa);
         propiedadAModificar.setPrecio(precioCasa);
-        
+
         controlControllers.modificarPropiedad(propiedadAModificar);
     }
 
@@ -70,8 +73,11 @@ public class ControladoraLogica {
         controlControllers.borrarPropiedad(idPropiedadSeleccionado);
     }
 
-    public Propiedad traerPropiedad(int idPropiedad) {
-        return controlControllers.traerPropiedad(idPropiedad);
+    public void agregarTipoPropiedad(String tipoPropiedadDescripcion) {
+        TipoPropiedad tipoPropiedad = new TipoPropiedad();
+        tipoPropiedad.setDescripcion(tipoPropiedadDescripcion);
+        
+        controlControllers.agregarTipoPropiedad(tipoPropiedad);
     }
 
 }
