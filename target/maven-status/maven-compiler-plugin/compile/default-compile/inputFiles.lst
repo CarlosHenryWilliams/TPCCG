@@ -1,23 +1,23 @@
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\controllers\exceptions\NonexistentEntityException.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\igu\ModificarPropiedad.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\igu\VerTipoPropiedades.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\model\Factura.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\model\TipoPropiedad.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\controllers\FacturaJpaController.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\igu\VerClientes.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\controllers\exceptions\IllegalOrphanException.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\controllers\ControladoraControllers.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\igu\AgregarTipoPropiedades.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\controllers\PropiedadJpaController.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\igu\Principal.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\igu\VerPropiedades.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\model\Propiedad.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\igu\VerFacturas.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\igu\AgregarPropiedad.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\controllers\TipoPropiedadJpaController.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\model\Cliente.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\controllers\ClienteJpaController.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\controllers\exceptions\PreexistingEntityException.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\igu\ModificarTipoPropiedades.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\model\ControladoraLogica.java
-C:\Users\CharlyW\Desktop\University\Cursada Licenciatura en Informatica\3° Año\TPCCG\src\main\java\com\mycompany\tpccg\TPCCG.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\controllers\PropiedadJpaController.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\igu\VerFacturas.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\igu\AgregarTipoPropiedades.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\controllers\exceptions\IllegalOrphanException.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\igu\VerPropiedades.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\igu\ModificarPropiedad.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\controllers\FacturaJpaController.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\igu\AgregarPropiedad.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\TPCCG.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\controllers\exceptions\PreexistingEntityException.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\model\ControladoraLogica.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\controllers\exceptions\NonexistentEntityException.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\igu\VerTipoPropiedades.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\model\Factura.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\controllers\ControladoraControllers.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\igu\Principal.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\model\TipoPropiedad.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\igu\ModificarTipoPropiedades.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\controllers\ClienteJpaController.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\controllers\TipoPropiedadJpaController.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\model\Propiedad.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\igu\VerClientes.java
+C:\Users\Usuario\Desktop\Facultad\Programación 3\TPCCG\src\main\java\com\mycompany\tpccg\model\Cliente.java

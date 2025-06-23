@@ -17,6 +17,7 @@ com\mycompany\tpccg\model\ControladoraLogica.class
 com\mycompany\tpccg\igu\AgregarPropiedad$1.class
 com\mycompany\tpccg\igu\VerTipoPropiedades$7.class
 com\mycompany\tpccg\controllers\TipoPropiedadJpaController.class
+com\mycompany\tpccg\igu\VerClientes$5.class
 com\mycompany\tpccg\igu\Principal.class
 com\mycompany\tpccg\controllers\ClienteJpaController.class
 com\mycompany\tpccg\igu\VerTipoPropiedades$5.class
