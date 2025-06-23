@@ -7,6 +7,8 @@ package com.mycompany.tpccg.igu;
 import com.mycompany.tpccg.model.ControladoraLogica;
 import com.mycompany.tpccg.model.Propiedad;
 import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -129,11 +131,21 @@ public class VerPropiedades extends javax.swing.JFrame {
         jBEliminar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jBEliminar.setForeground(new java.awt.Color(255, 255, 255));
         jBEliminar.setText("ELIMINAR");
+        jBEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminarActionPerformed(evt);
+            }
+        });
 
         jBEditar.setBackground(new java.awt.Color(0, 153, 153));
         jBEditar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jBEditar.setForeground(new java.awt.Color(255, 255, 255));
         jBEditar.setText("EDITAR");
+        jBEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEditarActionPerformed(evt);
+            }
+        });
 
         jBAgregar.setBackground(new java.awt.Color(0, 153, 153));
         jBAgregar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -189,7 +201,7 @@ public class VerPropiedades extends javax.swing.JFrame {
         jPContenedorGeneral.setLayout(jPContenedorGeneralLayout);
         jPContenedorGeneralLayout.setHorizontalGroup(
             jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
+            .addComponent(jPHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 753, Short.MAX_VALUE)
             .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -234,6 +246,7 @@ public class VerPropiedades extends javax.swing.JFrame {
     }//GEN-LAST:event_jBAdministrarTipoPropiedadesActionPerformed
 
     private void jBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarActionPerformed
+        this.dispose(); // cierro la ventana verPropiedades
         // TODO add your handling code here:
         AgregarPropiedad agregarPropiedad = new AgregarPropiedad();
         agregarPropiedad.setVisible(true);
@@ -246,6 +259,66 @@ public class VerPropiedades extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBVenderActionPerformed
 
+    private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
+        // TODO add your handling code here:
+     //  Controlar que la tabla no este vacia
+        if (tablaPropiedades.getRowCount() > 0) {  // controlamos que la tabla no este vacia o sea que haya mas de un registro
+            // Controlar que la columna este seleccionada
+            if (tablaPropiedades.getSelectedRow() != -1) { // -1 significa que no hay ninguna seleccionada
+
+                // explicacion ----- getValueAt (traeme el valor de ) la fila seleccionada y la columna 0; pasamos a String porque lo trae en forma de objeto y a ese string lo pasamos a int
+                int idPropiedadSeleccionado = Integer.parseInt(String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 0)));
+                controlLogica.borrarPropiedad(idPropiedadSeleccionado);
+                mostrarMensaje("Propiedad Eliminada Correctamente", "Info", "Eliminacion Exitosa"); // Llama al metodo Mostrar Mensaje
+                CargarTablaPropiedades();
+            } else {
+                mostrarMensaje("No se ha seleccionado ninguna fila", "Error", "Error al no seleccionar");
+            }
+        } else {
+            mostrarMensaje("La tabla se encuentra vacia", "Error", "Tabla Vacia");
+        }
+
+
+    }//GEN-LAST:event_jBEliminarActionPerformed
+
+    private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
+   
+ //  Controlar que la tabla no este vacia
+        if (tablaPropiedades.getRowCount() > 0) {  // controlamos que la tabla no este vacia o sea que haya mas de un registro
+            // Controlar que la columna este seleccionada
+            if (tablaPropiedades.getSelectedRow() != -1) { // -1 significa que no hay ninguna seleccionada
+
+                // explicacion ----- getValueAt (traeme el valor de ) la fila seleccionada y la columna 0; pasamos a String porque lo trae en forma de objeto y a ese string lo pasamos a int
+              int idPropiedadSeleccionado = Integer.parseInt(String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 0)));
+                System.out.println("ID DE LA PROPIEDAD" + idPropiedadSeleccionado  );
+                ModificarPropiedad modificarPropiedad = new ModificarPropiedad(idPropiedadSeleccionado);
+                modificarPropiedad.setVisible(true);
+                modificarPropiedad.setLocationRelativeTo(null);
+             
+            } else {
+                mostrarMensaje("No se ha seleccionado ninguna fila", "Error", "Error al no seleccionar");
+            }
+        } else {
+            mostrarMensaje("La tabla se encuentra vacia", "Error", "Tabla Vacia");
+        }
+
+        
+        
+        
+    }//GEN-LAST:event_jBEditarActionPerformed
+    public void mostrarMensaje(String mensaje, String tipo, String titulo) {
+
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        if (tipo.equals("Info")) {
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        } else if (tipo.equals("Error")) {
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        }
+        JDialog dialog = optionPane.createDialog(titulo);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBAdministrarTipoPropiedades;

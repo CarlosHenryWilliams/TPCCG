@@ -4,12 +4,15 @@
  */
 package com.mycompany.tpccg.controllers;
 
+import com.mycompany.tpccg.controllers.exceptions.NonexistentEntityException;
 import com.mycompany.tpccg.model.Cliente;
 import com.mycompany.tpccg.model.Factura;
 import com.mycompany.tpccg.model.Propiedad;
 import com.mycompany.tpccg.model.TipoPropiedad;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -35,6 +38,14 @@ public class ControladoraControllers {
         propiedadJPA.create(propiedad);
     }
 
+    public void borrarPropiedad(int idPropiedadSeleccionado) {
+        try {
+            propiedadJPA.destroy(idPropiedadSeleccionado);
+        } catch (NonexistentEntityException ex) {
+            System.out.println("Ha ocurrio un error al eliminar la propiedad: " + ex.getMessage());
+        }
+    }
+
     // FACTURAS
     public List<Factura> traerFacturas() {
         return facturaJPA.findFacturaEntities();
@@ -42,6 +53,10 @@ public class ControladoraControllers {
 
     public List<TipoPropiedad> traerTipoPropiedades() {
         return tipoPropiJPA.findTipoPropiedadEntities();
+    }
+
+    public Propiedad traerPropiedad(int idPropiedad) {
+        return propiedadJPA.findPropiedad(idPropiedad);
     }
 
 }

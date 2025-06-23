@@ -56,4 +56,12 @@ public class ControladoraLogica {
 
     }
 
+    public void borrarPropiedad(int idPropiedadSeleccionado) {
+        controlControllers.borrarPropiedad(idPropiedadSeleccionado);
+    }
+
+    public Propiedad traerPropiedad(int idPropiedad) {
+       return controlControllers.traerPropiedad(idPropiedad);
+    }
+
 }

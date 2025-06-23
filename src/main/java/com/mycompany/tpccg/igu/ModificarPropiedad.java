@@ -5,6 +5,7 @@
 package com.mycompany.tpccg.igu;
 
 import com.mycompany.tpccg.model.ControladoraLogica;
+import com.mycompany.tpccg.model.Propiedad;
 import com.mycompany.tpccg.model.TipoPropiedad;
 import java.util.List;
 import javax.swing.JDialog;
@@ -14,16 +15,19 @@ import javax.swing.JOptionPane;
  *
  * @author CharlyW
  */
-public class AgregarPropiedad extends javax.swing.JFrame {
+public class ModificarPropiedad extends javax.swing.JFrame {
 
     /**
-     * Creates new form AgregarPropiedad
+     * Creates new form ModificarPropiedad
      */
     ControladoraLogica controlLogica;
+    int idPropiedad;
 
-    public AgregarPropiedad() {
+    public ModificarPropiedad(int idPropiedadQueLlega) {
         initComponents();
+        this.idPropiedad = idPropiedadQueLlega;
         controlLogica = new ControladoraLogica();
+      //  cargarDatosFormulario(idPropiedad);
     }
 
     /**
@@ -48,14 +52,9 @@ public class AgregarPropiedad extends javax.swing.JFrame {
         cmbCantAmbientes = new javax.swing.JComboBox<>();
         cmbTipoPropiedad = new javax.swing.JComboBox();
         btnLimpiar = new javax.swing.JButton();
-        btnAgregarPropiedad = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
 
         jPContenedorGeneral.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -63,7 +62,7 @@ public class AgregarPropiedad extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Agregar Propiedad");
+        jLabel1.setText("Modificar Propiedad");
 
         javax.swing.GroupLayout jPHeaderLayout = new javax.swing.GroupLayout(jPHeader);
         jPHeader.setLayout(jPHeaderLayout);
@@ -104,11 +103,11 @@ public class AgregarPropiedad extends javax.swing.JFrame {
             }
         });
 
-        btnAgregarPropiedad.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnAgregarPropiedad.setText("Agregar Propiedad");
-        btnAgregarPropiedad.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarPropiedadActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
 
@@ -144,8 +143,8 @@ public class AgregarPropiedad extends javax.swing.JFrame {
                         .addGap(147, 147, 147)
                         .addComponent(btnLimpiar)
                         .addGap(92, 92, 92)
-                        .addComponent(btnAgregarPropiedad)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                        .addComponent(btnGuardar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPContenedorTablaLayout.setVerticalGroup(
             jPContenedorTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,7 +169,7 @@ public class AgregarPropiedad extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(jPContenedorTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimpiar)
-                    .addComponent(btnAgregarPropiedad))
+                    .addComponent(btnGuardar))
                 .addGap(46, 46, 46))
         );
 
@@ -215,7 +214,7 @@ public class AgregarPropiedad extends javax.swing.JFrame {
         cmbTipoPropiedad.setSelectedIndex(0);
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
-    private void btnAgregarPropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPropiedadActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
         String direccionCasa = txtDireccion.getText();
 
@@ -234,26 +233,33 @@ public class AgregarPropiedad extends javax.swing.JFrame {
         int cantAmbientesCasa = Integer.parseInt((String) cmbCantAmbientes.getSelectedItem());
         Double precioCasa = Double.parseDouble(txtPrecio.getText());
 
-        controlLogica.agregarPropiedad(direccionCasa, tipoPropiedadCasa, cantAmbientesCasa, precioCasa);
-        mostrarMensaje("Propiedad Agregada Correctamente", "Info", "Se ha agregado con exito"); // Llama al metodo Mostrar Mensaje
+     //   controlLogica.agregarPropiedad(direccionCasa, tipoPropiedadCasa, cantAmbientesCasa, precioCasa);
+      //  mostrarMensaje("Propiedad Agregada Correctamente", "Info", "Se ha agregado con exito"); // Llama al metodo Mostrar Mensaje
         this.dispose(); // cierro la ventana agregarPropiedad
 
         // Llamo nuevamente a la interfaz verPropiedades
         VerPropiedades verPropiedades = new VerPropiedades();
         verPropiedades.setVisible(true);
-        verPropiedades.setLocationRelativeTo(null); 
- 
-    }//GEN-LAST:event_btnAgregarPropiedadActionPerformed
+        verPropiedades.setLocationRelativeTo(null);
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-        // metodo para cargar las tablas
-        CargarTipoPropiedades();
-    }//GEN-LAST:event_formWindowOpened
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
+    public void mostrarMensaje(String mensaje, String tipo, String titulo) {
+
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        if (tipo.equals("Info")) {
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        } else if (tipo.equals("Error")) {
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        }
+        JDialog dialog = optionPane.createDialog(titulo);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarPropiedad;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JComboBox<String> cmbCantAmbientes;
     private javax.swing.JComboBox cmbTipoPropiedad;
@@ -269,26 +275,58 @@ public class AgregarPropiedad extends javax.swing.JFrame {
     private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables
 
-    private void CargarTipoPropiedades() {
+    private void cargarDatosFormulario(int idPropiedad1) {
+        Propiedad propiedad = controlLogica.traerPropiedad(idPropiedad);
 
-        List<TipoPropiedad> listaTipoPropiedades = controlLogica.traerTipoPropiedades();
-        for (TipoPropiedad tipoPropi : listaTipoPropiedades) {
-            cmbTipoPropiedad.addItem(tipoPropi.getDescripcion());
+        txtDireccion.setText(propiedad.getDireccion());
+        txtPrecio.setText(String.valueOf(propiedad.getPrecio()));
+
+        switch (propiedad.getTipoPropiedad().getDescripcion()) {
+            case "Rural": cmbTipoPropiedad.setSelectedIndex(1); break;
+            case "Urbana": cmbTipoPropiedad.setSelectedIndex(2); break;
+            case "Departamento": cmbTipoPropiedad.setSelectedIndex(3); break;
         }
-        
-    }
 
-    public void mostrarMensaje(String mensaje, String tipo, String titulo) {
-
-        JOptionPane optionPane = new JOptionPane(mensaje);
-        if (tipo.equals("Info")) {
-            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
-        } else if (tipo.equals("Error")) {
-            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        switch (propiedad.getAmbientes()) {
+            case 1:
+                cmbCantAmbientes.setSelectedIndex(1);
+                break;
+            case 2:
+                cmbCantAmbientes.setSelectedIndex(2);
+                break;
+            case 3:
+                cmbCantAmbientes.setSelectedIndex(3);
+                break;
+            case 4:
+                cmbCantAmbientes.setSelectedIndex(4);
+                break;
+            case 5:
+                cmbCantAmbientes.setSelectedIndex(5);
+                break;
+            case 6:
+                cmbCantAmbientes.setSelectedIndex(6);
+                break;
+            case 7:
+                cmbCantAmbientes.setSelectedIndex(7);
+                break;
+            case 8:
+                cmbCantAmbientes.setSelectedIndex(8);
+                break;
+            case 9:
+                cmbCantAmbientes.setSelectedIndex(9);
+                break;
+            case 10:
+                cmbCantAmbientes.setSelectedIndex(10);
+                break;
+            case 11:
+                cmbCantAmbientes.setSelectedIndex(11);
+                break;
+            case 12:
+                cmbCantAmbientes.setSelectedIndex(12);
+                break;
         }
-        JDialog dialog = optionPane.createDialog(titulo);
-        dialog.setAlwaysOnTop(true);
-        dialog.setVisible(true);
 
     }
+    
+    
 }
