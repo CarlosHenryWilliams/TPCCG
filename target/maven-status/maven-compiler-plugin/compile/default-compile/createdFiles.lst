@@ -38,6 +38,7 @@ com\mycompany\tpccg\igu\Principal$4.class
 com\mycompany\tpccg\igu\VerPropiedades$5.class
 com\mycompany\tpccg\igu\AgregarPropiedad$3.class
 com\mycompany\tpccg\igu\VerTipoPropiedades.class
+com\mycompany\tpccg\igu\VerPropiedades$9.class
 com\mycompany\tpccg\igu\VerPropiedades$2.class
 com\mycompany\tpccg\igu\VerTipoPropiedades$2.class
 com\mycompany\tpccg\model\TipoPropiedad.class
@@ -52,4 +53,5 @@ com\mycompany\tpccg\igu\AgregarTipoPropiedades$2.class
 com\mycompany\tpccg\igu\ModificarPropiedad$2.class
 com\mycompany\tpccg\controllers\ControladoraControllers.class
 com\mycompany\tpccg\model\Propiedad.class
+com\mycompany\tpccg\igu\VerPropiedades$8.class
 com\mycompany\tpccg\igu\VerTipoPropiedades$3.class

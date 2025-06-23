@@ -6,6 +6,7 @@ package com.mycompany.tpccg.igu;
 
 import com.mycompany.tpccg.model.ControladoraLogica;
 import com.mycompany.tpccg.model.Propiedad;
+import com.mycompany.tpccg.model.TipoPropiedad;
 import java.util.List;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -22,6 +23,7 @@ public class VerPropiedades extends javax.swing.JFrame {
     public VerPropiedades() {
         initComponents();
         controlLogica = new ControladoraLogica();
+        CargarTipoPropiedades();
     }
 
     /**
@@ -43,8 +45,19 @@ public class VerPropiedades extends javax.swing.JFrame {
         jBAdministrarTipoPropiedades = new javax.swing.JButton();
         jBEliminar = new javax.swing.JButton();
         jBEditar = new javax.swing.JButton();
-        jBAgregar = new javax.swing.JButton();
         jBVender = new javax.swing.JButton();
+        jPContenedorFormulario = new javax.swing.JPanel();
+        jLFormDireccion = new javax.swing.JLabel();
+        jLFormPrecio = new javax.swing.JLabel();
+        jLFormCantAmb = new javax.swing.JLabel();
+        jLFormTipoProp = new javax.swing.JLabel();
+        txtPrecio = new javax.swing.JTextField();
+        cmbCantAmbientes = new javax.swing.JComboBox<>();
+        cmbTipoPropiedad = new javax.swing.JComboBox();
+        btnLimpiar = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
+        jBAgregar = new javax.swing.JButton();
+        txtDireccion = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -67,9 +80,9 @@ public class VerPropiedades extends javax.swing.JFrame {
         jPHeaderLayout.setHorizontalGroup(
             jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPHeaderLayout.createSequentialGroup()
-                .addContainerGap(213, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLTitulo)
-                .addContainerGap(214, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPHeaderLayout.setVerticalGroup(
             jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,10 +115,10 @@ public class VerPropiedades extends javax.swing.JFrame {
         jPContenedorTabla.setLayout(jPContenedorTablaLayout);
         jPContenedorTablaLayout.setHorizontalGroup(
             jPContenedorTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorTablaLayout.createSequentialGroup()
+            .addGroup(jPContenedorTablaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPContenedorTablaLayout.setVerticalGroup(
             jPContenedorTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,16 +160,6 @@ public class VerPropiedades extends javax.swing.JFrame {
             }
         });
 
-        jBAgregar.setBackground(new java.awt.Color(0, 153, 153));
-        jBAgregar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jBAgregar.setForeground(new java.awt.Color(255, 255, 255));
-        jBAgregar.setText("AGREGAR");
-        jBAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBAgregarActionPerformed(evt);
-            }
-        });
-
         jBVender.setBackground(new java.awt.Color(0, 153, 153));
         jBVender.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jBVender.setForeground(new java.awt.Color(255, 255, 255));
@@ -172,9 +175,7 @@ public class VerPropiedades extends javax.swing.JFrame {
         jPContenedorBotonesLayout.setHorizontalGroup(
             jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorBotonesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jBAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(107, 107, 107)
                 .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,22 +193,147 @@ public class VerPropiedades extends javax.swing.JFrame {
                     .addComponent(jBAdministrarTipoPropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBVender, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        jPContenedorFormulario.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLFormDireccion.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        jLFormDireccion.setForeground(new java.awt.Color(0, 0, 0));
+        jLFormDireccion.setText("Direccion");
+
+        jLFormPrecio.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        jLFormPrecio.setForeground(new java.awt.Color(0, 0, 0));
+        jLFormPrecio.setText("Precio");
+
+        jLFormCantAmb.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        jLFormCantAmb.setForeground(new java.awt.Color(0, 0, 0));
+        jLFormCantAmb.setText("Cant. Ambientes");
+
+        jLFormTipoProp.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        jLFormTipoProp.setForeground(new java.awt.Color(0, 0, 0));
+        jLFormTipoProp.setText("Tipo Propiedad");
+
+        txtPrecio.setBackground(new java.awt.Color(204, 204, 204));
+        txtPrecio.setForeground(new java.awt.Color(0, 0, 0));
+
+        cmbCantAmbientes.setBackground(new java.awt.Color(204, 204, 204));
+        cmbCantAmbientes.setForeground(new java.awt.Color(0, 0, 0));
+        cmbCantAmbientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+
+        cmbTipoPropiedad.setBackground(new java.awt.Color(204, 204, 204));
+        cmbTipoPropiedad.setForeground(new java.awt.Color(0, 0, 0));
+        cmbTipoPropiedad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-" }));
+
+        btnLimpiar.setBackground(new java.awt.Color(0, 153, 153));
+        btnLimpiar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLimpiar.setText("LIMPIAR");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+
+        btnGuardar.setBackground(new java.awt.Color(0, 153, 153));
+        btnGuardar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnGuardar.setText("GUARDAR");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+
+        jBAgregar.setBackground(new java.awt.Color(0, 153, 153));
+        jBAgregar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jBAgregar.setForeground(new java.awt.Color(255, 255, 255));
+        jBAgregar.setText("AGREGAR");
+        jBAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBAgregarActionPerformed(evt);
+            }
+        });
+
+        txtDireccion.setBackground(new java.awt.Color(204, 204, 204));
+        txtDireccion.setForeground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPContenedorFormularioLayout = new javax.swing.GroupLayout(jPContenedorFormulario);
+        jPContenedorFormulario.setLayout(jPContenedorFormularioLayout);
+        jPContenedorFormularioLayout.setHorizontalGroup(
+            jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLFormDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLFormCantAmb, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLFormTipoProp, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLFormPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLimpiar))
+                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
+                            .addGap(20, 20, 20)
+                            .addComponent(cmbTipoPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorFormularioLayout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jBAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnGuardar)))
+                    .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbCantAmbientes, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(131, Short.MAX_VALUE))
+        );
+        jPContenedorFormularioLayout.setVerticalGroup(
+            jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
+                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLFormDireccion)
+                            .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLFormTipoProp)
+                            .addComponent(cmbTipoPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLFormCantAmb)
+                            .addComponent(cmbCantAmbientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLFormPrecio)
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(84, 84, 84)
+                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPContenedorGeneralLayout = new javax.swing.GroupLayout(jPContenedorGeneral);
         jPContenedorGeneral.setLayout(jPContenedorGeneralLayout);
         jPContenedorGeneralLayout.setHorizontalGroup(
             jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 753, Short.MAX_VALUE)
+            .addComponent(jPHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 1084, Short.MAX_VALUE)
             .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPContenedorTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPContenedorBotones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGroup(jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPContenedorBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
+                        .addComponent(jPContenedorTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPContenedorFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         jPContenedorGeneralLayout.setVerticalGroup(
             jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,20 +341,30 @@ public class VerPropiedades extends javax.swing.JFrame {
                 .addComponent(jPHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPContenedorBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPContenedorTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPContenedorTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jPContenedorFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(14, 14, 14))
         );
 
         pack();
@@ -237,6 +373,7 @@ public class VerPropiedades extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         CargarTablaPropiedades();
+        btnGuardar.setEnabled(false);
     }//GEN-LAST:event_formWindowOpened
 
     private void jBAdministrarTipoPropiedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAdministrarTipoPropiedadesActionPerformed
@@ -247,12 +384,30 @@ public class VerPropiedades extends javax.swing.JFrame {
     }//GEN-LAST:event_jBAdministrarTipoPropiedadesActionPerformed
 
     private void jBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarActionPerformed
-        this.dispose(); // cierro la ventana verPropiedades
         // TODO add your handling code here:
-        AgregarPropiedad agregarPropiedad = new AgregarPropiedad();
-        agregarPropiedad.setVisible(true);
-        agregarPropiedad.setLocationRelativeTo(null); // centra al medio la interfaz
+// TODO add your handling code here:
+        String direccionCasa = txtDireccion.getText();
 
+        String tipoPropiedadCasaDescripcion = (String) cmbTipoPropiedad.getSelectedItem(); // rural
+
+        TipoPropiedad tipoPropiedadCasa = new TipoPropiedad();
+        // Recorro  para igualar un tipoPropiedad con la descripcion y cargarlo a tipoPropiedadCasa
+        List<TipoPropiedad> listaTipoPropiedades = controlLogica.traerTipoPropiedades();
+        for (TipoPropiedad tipoPropi : listaTipoPropiedades) {
+
+            if (tipoPropiedadCasaDescripcion.equals(tipoPropi.getDescripcion())) { // me fijo que el tipo propiedad coincida
+                tipoPropiedadCasa = tipoPropi; // seteo el tipo de propeidad
+            }
+
+        }
+
+        int cantAmbientesCasa = Integer.parseInt((String) cmbCantAmbientes.getSelectedItem());
+        Double precioCasa = Double.parseDouble(txtPrecio.getText());
+
+        controlLogica.agregarPropiedad(direccionCasa, tipoPropiedadCasa, cantAmbientesCasa, precioCasa);
+        mostrarMensaje("Propiedad Agregada Correctamente", "Info", "Se ha agregado con exito"); // Llama al metodo Mostrar Mensaje
+
+        CargarTablaPropiedades();
 
     }//GEN-LAST:event_jBAgregarActionPerformed
 
@@ -289,12 +444,38 @@ public class VerPropiedades extends javax.swing.JFrame {
             // Controlar que la columna este seleccionada
             if (tablaPropiedades.getSelectedRow() != -1) { // -1 significa que no hay ninguna seleccionada
 
+                // DESHABILITO EL BOTON AGREGAR SI SELECCIONO UINO
+                jBAgregar.setEnabled(false);
+                btnGuardar.setEnabled(true);
+
                 // explicacion ----- getValueAt (traeme el valor de ) la fila seleccionada y la columna 0; pasamos a String porque lo trae en forma de objeto y a ese string lo pasamos a int
                 int idPropiedadSeleccionado = Integer.parseInt(String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 0)));
-                this.dispose();
-                ModificarPropiedad modificarPropiedad = new ModificarPropiedad(idPropiedadSeleccionado);
-                modificarPropiedad.setVisible(true);
-                modificarPropiedad.setLocationRelativeTo(null);
+                String tipoPropiedadSeleccionado = String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 1));
+                String direccionSeleccionada = String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 2));
+                int ambientesSeleccionado = Integer.parseInt(String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 3)));
+                String precioSeleccionado = String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 4));
+
+                // Recorrer combob box para buscar el valor igual al que llego y setearlo en ese indice CMB AMBIENTES
+                for (int i = 0; i < cmbCantAmbientes.getItemCount(); i++) {
+                    System.out.println(cmbCantAmbientes.getItemAt(i));
+                    System.out.println(ambientesSeleccionado);
+
+                    if (cmbCantAmbientes.getItemAt(i).equals(String.valueOf(ambientesSeleccionado))) { // si es igual lo setea
+                        System.out.println("ENTRO DETECTO QUE SON IGUALES");
+                        cmbCantAmbientes.setSelectedIndex(i);
+                    }
+                }
+
+                // Recorrer combob box para buscar el valor igual al que llego y setearlo en ese indice CMB TIPO PROPIEDAD
+                for (int i = 0; i < cmbTipoPropiedad.getItemCount(); i++) {
+
+                    if (cmbTipoPropiedad.getItemAt(i).equals(tipoPropiedadSeleccionado)) { // si es igual lo setea
+                        cmbTipoPropiedad.setSelectedIndex(i);
+                    }
+                }
+
+                txtPrecio.setText(precioSeleccionado);
+                txtDireccion.setText(direccionSeleccionada);
 
             } else {
                 mostrarMensaje("No se ha seleccionado ninguna fila", "Error", "Error al no seleccionar");
@@ -305,6 +486,52 @@ public class VerPropiedades extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jBEditarActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // TODO add your handling code here:
+        txtDireccion.setText("");
+        txtPrecio.setText("");
+        cmbCantAmbientes.setSelectedIndex(0);
+        cmbTipoPropiedad.setSelectedIndex(0);
+
+        // Habilito EL BOTON AGREGAR SI SELECCIONO UINO
+        jBAgregar.setEnabled(true);
+        btnGuardar.setEnabled(false);
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+        String direccionCasa = txtDireccion.getText();
+
+        String tipoPropiedadCasaDescripcion = (String) cmbTipoPropiedad.getSelectedItem();
+        TipoPropiedad tipoPropiedadCasa = new TipoPropiedad();
+        // Recorro  para igualar un tipoPropiedad con la descripcion y cargarlo a tipoPropiedadCasa
+        List<TipoPropiedad> listaTipoPropiedades = controlLogica.traerTipoPropiedades();
+        for (TipoPropiedad tipoPropi : listaTipoPropiedades) {
+
+            if (tipoPropiedadCasaDescripcion.equals(tipoPropi.getDescripcion())) {
+                tipoPropiedadCasa = tipoPropi; // seteo el tipo de propeidad
+            }
+
+        }
+
+        int cantAmbientesCasa = Integer.parseInt((String) cmbCantAmbientes.getSelectedItem());
+        Double precioCasa = Double.parseDouble(txtPrecio.getText());
+        int idPropiedadSeleccionado = 0;
+        if (tablaPropiedades.getSelectedRow() != -1) { // -1 significa que no hay ninguna seleccionada
+
+            // explicacion ----- getValueAt (traeme el valor de ) la fila seleccionada y la columna 0; pasamos a String porque lo trae en forma de objeto y a ese string lo pasamos a int
+            idPropiedadSeleccionado = Integer.parseInt(String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 0)));
+        }
+
+        controlLogica.modificarPropiedad(idPropiedadSeleccionado, direccionCasa, tipoPropiedadCasa, cantAmbientesCasa, precioCasa);
+        mostrarMensaje("Propiedad Modfiicada Correctamente", "Info", "Se ha modificado la propiedad con exito"); // Llama al metodo Mostrar Mensaje*/
+        CargarTablaPropiedades();
+        btnLimpiar.doClick();
+       
+        
+
+    }//GEN-LAST:event_btnGuardarActionPerformed
     public void mostrarMensaje(String mensaje, String tipo, String titulo) {
 
         JOptionPane optionPane = new JOptionPane(mensaje);
@@ -320,18 +547,29 @@ public class VerPropiedades extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JComboBox<String> cmbCantAmbientes;
+    private javax.swing.JComboBox cmbTipoPropiedad;
     private javax.swing.JButton jBAdministrarTipoPropiedades;
     private javax.swing.JButton jBAgregar;
     private javax.swing.JButton jBEditar;
     private javax.swing.JButton jBEliminar;
     private javax.swing.JButton jBVender;
+    private javax.swing.JLabel jLFormCantAmb;
+    private javax.swing.JLabel jLFormDireccion;
+    private javax.swing.JLabel jLFormPrecio;
+    private javax.swing.JLabel jLFormTipoProp;
     private javax.swing.JLabel jLTitulo;
     private javax.swing.JPanel jPContenedorBotones;
+    private javax.swing.JPanel jPContenedorFormulario;
     private javax.swing.JPanel jPContenedorGeneral;
     private javax.swing.JPanel jPContenedorTabla;
     private javax.swing.JPanel jPHeader;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaPropiedades;
+    private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables
 
     private void CargarTablaPropiedades() {
@@ -372,5 +610,12 @@ public class VerPropiedades extends javax.swing.JFrame {
         }
 
         tablaPropiedades.setModel(modeloTablaPropiedades);
+    }
+
+    private void CargarTipoPropiedades() {
+        List<TipoPropiedad> listaTipoPropiedades = controlLogica.traerTipoPropiedades();
+        for (TipoPropiedad tipoPropi : listaTipoPropiedades) {
+            cmbTipoPropiedad.addItem(tipoPropi.getDescripcion());
+        }
     }
 }
