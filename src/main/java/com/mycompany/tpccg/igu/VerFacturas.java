@@ -168,7 +168,7 @@ public class VerFacturas extends javax.swing.JFrame {
         modeloTablaFacturas.setColumnIdentifiers(nombreColumnas);
 
         // traer propiedades
-        List<Factura> listaFacturas = controlLogica.traerFacturas();
+        List<Factura> listaFacturas = controlLogica.traerFacturas(); 
 
         String variableVendida = "";
         if (listaFacturas != null) {
@@ -182,7 +182,7 @@ public class VerFacturas extends javax.swing.JFrame {
 
                 Object[] objeto = { factura.getIdFactura(), factura.getCompradorAsig().getNombreCompleto(), factura.getPropiedadAsig().getIdPropiedad(), factura.getCompradorAsig().getDNI(), factura.getPropiedadAsig().getDireccion(),
                     factura.getPropiedadAsig().getTipoPropiedad().getDescripcion(), factura.getPropiedadAsig().getAmbientes(), factura.getPropiedadAsig().getPrecio(), factura.getFechaEmision()};
-                modeloTablaFacturas.addRow(objeto);
+                modeloTablaFacturas.addRow(objeto); // agrega
 
             }
         }

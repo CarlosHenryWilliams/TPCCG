@@ -218,9 +218,28 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
 
     private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
         // TODO add your handling code here:
-        ModificarTipoPropiedades modificarTipoPropiedades = new ModificarTipoPropiedades();
-        modificarTipoPropiedades.setVisible(true);
-        modificarTipoPropiedades.setLocationRelativeTo(null); // centra al medio la interfaz
+
+        //  Controlar que la tabla no este vacia
+        if (tablaTipoPropiedades.getRowCount() > 0) {  // controlamos que la tabla no este vacia o sea que haya mas de un registro
+            // Controlar que la columna este seleccionada
+            if (tablaTipoPropiedades.getSelectedRow() != -1) { // -1 significa que no hay ninguna seleccionada
+
+                // explicacion ----- getValueAt (traeme el valor de ) la fila seleccionada y la columna 0; pasamos a String porque lo trae en forma de objeto y a ese string lo pasamos a int
+                int idTipoPropiedadSeleccionado = Integer.parseInt(String.valueOf(tablaTipoPropiedades.getValueAt(tablaTipoPropiedades.getSelectedRow(), 0)));
+                this.dispose();
+
+                ModificarTipoPropiedades modificarTipoPropiedades = new ModificarTipoPropiedades(idTipoPropiedadSeleccionado);
+                modificarTipoPropiedades.setVisible(true);
+                modificarTipoPropiedades.setLocationRelativeTo(null);
+
+            } else {
+                mostrarMensaje("No se ha seleccionado ninguna fila", "Error", "Error al no seleccionar");
+            }
+        } else {
+            mostrarMensaje("La tabla se encuentra vacia", "Error", "Tabla Vacia");
+        }
+
+
     }//GEN-LAST:event_jBEditarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -246,9 +265,8 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
             mostrarMensaje("La tabla se encuentra vacia", "Error", "Tabla Vacia");
         }
         // TODO add your handling code here:
-        
-        
-        
+
+
     }//GEN-LAST:event_jBEliminarActionPerformed
 
 
@@ -287,9 +305,7 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
 
             for (TipoPropiedad tipoPropiedad : listaTipoPropiedades) {
 
-        
-
-                Object[] objeto = {tipoPropiedad.getIdTipoPropiedad(), tipoPropiedad.getDescripcion() };
+                Object[] objeto = {tipoPropiedad.getIdTipoPropiedad(), tipoPropiedad.getDescripcion()};
 
                 modeloTablaTipoPropiedades.addRow(objeto);
 
@@ -298,8 +314,8 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
 
         tablaTipoPropiedades.setModel(modeloTablaTipoPropiedades);
     }
-    
-        public void mostrarMensaje(String mensaje, String tipo, String titulo) {
+
+    public void mostrarMensaje(String mensaje, String tipo, String titulo) {
 
         JOptionPane optionPane = new JOptionPane(mensaje);
         if (tipo.equals("Info")) {

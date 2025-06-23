@@ -84,4 +84,14 @@ public class ControladoraLogica {
         controlControllers.borrarTipoPropiedad(idTipoPropiedadSeleccionado);
     }
 
+    public TipoPropiedad traerTipoPropiedad(int idTipoPropiedadQueLlega) {
+        return controlControllers.traerTipoPropiedad(idTipoPropiedadQueLlega);
+    }
+
+    public void modificarTipoPropiedad(int idTipoPropiedad, String tipoPropiedadDesc) {
+        TipoPropiedad tipoPropiedad = traerTipoPropiedad(idTipoPropiedad);
+        tipoPropiedad.setDescripcion(tipoPropiedadDesc);
+        controlControllers.ModificarTipoPropiedad(tipoPropiedad);
+    }
+
 }

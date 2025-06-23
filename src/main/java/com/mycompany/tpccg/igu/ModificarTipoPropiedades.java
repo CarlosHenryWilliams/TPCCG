@@ -4,6 +4,11 @@
  */
 package com.mycompany.tpccg.igu;
 
+import com.mycompany.tpccg.model.ControladoraLogica;
+import com.mycompany.tpccg.model.TipoPropiedad;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author marti
@@ -13,8 +18,14 @@ public class ModificarTipoPropiedades extends javax.swing.JFrame {
     /**
      * Creates new form ModificarTipoPropiedades
      */
-    public ModificarTipoPropiedades() {
+    ControladoraLogica controlLogica;
+    int idTipoPropiedad;
+
+    public ModificarTipoPropiedades(int idTipoPropiedadQueLlega) {
         initComponents();
+        controlLogica = new ControladoraLogica();
+        this.idTipoPropiedad = idTipoPropiedadQueLlega;
+        CargarDatosFormulario(idTipoPropiedadQueLlega);
     }
 
     /**
@@ -151,13 +162,42 @@ public class ModificarTipoPropiedades extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-
+        txtDesc.setText("");
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
 
-    }//GEN-LAST:event_btnAgregarActionPerformed
+        if (!(txtDesc.getText().equals("") || txtDesc.getText().isEmpty())) {
 
+            String tipoPropiedadDescripcion = txtDesc.getText();
+
+            controlLogica.modificarTipoPropiedad(this.idTipoPropiedad, tipoPropiedadDescripcion);
+            mostrarMensaje("Tipo de Propiedad Modificada Correctamente", "Info", "Modificacion exitosao");
+            this.dispose();
+
+            // Llamo nuevamente a la interfaz verPropiedades
+            VerTipoPropiedades verTipoPropiedades = new VerTipoPropiedades();
+            verTipoPropiedades.setVisible(true);
+            verTipoPropiedades.setLocationRelativeTo(null);
+
+        } else {
+            mostrarMensaje("El campo descripcion esta vacio, por favor completelo", "Info", "Ha ocurrido un error"); // Llama al metodo Mostrar Mensaje
+
+        }
+    }//GEN-LAST:event_btnAgregarActionPerformed
+    public void mostrarMensaje(String mensaje, String tipo, String titulo) {
+
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        if (tipo.equals("Info")) {
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        } else if (tipo.equals("Error")) {
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        }
+        JDialog dialog = optionPane.createDialog(titulo);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnLimpiar;
@@ -177,4 +217,10 @@ public class ModificarTipoPropiedades extends javax.swing.JFrame {
     private javax.swing.JPanel jPHeader4;
     private javax.swing.JTextField txtDesc;
     // End of variables declaration//GEN-END:variables
+
+    private void CargarDatosFormulario(int idTipoPropiedadQueLlega) {
+        TipoPropiedad tipoPropiedad = controlLogica.traerTipoPropiedad(idTipoPropiedadQueLlega);
+        txtDesc.setText(tipoPropiedad.getDescripcion());
+
+    }
 }

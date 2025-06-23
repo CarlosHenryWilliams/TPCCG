@@ -93,6 +93,7 @@ public class FacturaJpaController implements Serializable {
         }
     }
 
+    
     public List<Factura> findFacturaEntities() {
         return findFacturaEntities(true, -1, -1);
     }

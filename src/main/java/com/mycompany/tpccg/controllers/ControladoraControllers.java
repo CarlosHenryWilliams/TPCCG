@@ -80,4 +80,17 @@ public class ControladoraControllers {
         }
     }
 
+    public TipoPropiedad traerTipoPropiedad(int idTipoPropiedadQueLlega) {
+        return tipoPropiJPA.findTipoPropiedad(idTipoPropiedadQueLlega);
+    }
+
+    public void ModificarTipoPropiedad( TipoPropiedad tipoPropiedad) {
+        
+        try {
+            tipoPropiJPA.edit(tipoPropiedad);
+        } catch (Exception ex) {
+            System.out.println("Ha ocurrido un error al modificar el tipo de propiedad: " + ex.getMessage());
+        }
+    }
+
 }
