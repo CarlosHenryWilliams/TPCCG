@@ -117,14 +117,7 @@ public class ClienteJpaController implements Serializable {
             em.close();
         }
     }
-      public Cliente findClienteByDNI(String DNI) {
-        EntityManager em = getEntityManager();
-        try {
-            return em.find(Cliente.class, DNI);
-        } finally {
-            em.close();
-        }
-    }
+   
 
 
     public int getClienteCount() {
