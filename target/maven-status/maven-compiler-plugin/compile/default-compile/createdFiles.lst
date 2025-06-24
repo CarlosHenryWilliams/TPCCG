@@ -52,6 +52,7 @@ com\mycompany\tpccg\igu\ModificarTipoPropiedades$2.class
 com\mycompany\tpccg\igu\AgregarTipoPropiedades.class
 com\mycompany\tpccg\igu\VerPropiedades$1.class
 com\mycompany\tpccg\igu\AgregarPropiedad$2.class
+com\mycompany\tpccg\igu\VerClientes$6.class
 com\mycompany\tpccg\igu\AgregarTipoPropiedades$2.class
 com\mycompany\tpccg\igu\ModificarPropiedad$2.class
 com\mycompany\tpccg\controllers\ControladoraControllers.class
