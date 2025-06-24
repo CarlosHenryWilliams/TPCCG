@@ -25,7 +25,7 @@ public class VerPropiedades extends javax.swing.JFrame {
         controlLogica = new ControladoraLogica();
         CargarTipoPropiedades();
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        
+        completeInputsOnSelectRow();
     }
 
     /**
@@ -55,10 +55,10 @@ public class VerPropiedades extends javax.swing.JFrame {
         cmbCantAmbientes = new javax.swing.JComboBox<>();
         cmbTipoPropiedad = new javax.swing.JComboBox();
         btnLimpiar = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
-        jBAgregar = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
         txtDireccion = new javax.swing.JTextField();
-        jBEliminar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -212,35 +212,35 @@ public class VerPropiedades extends javax.swing.JFrame {
             }
         });
 
-        btnGuardar.setBackground(new java.awt.Color(255, 255, 255));
-        btnGuardar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/plus-pequeno(1).png"))); // NOI18N
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+        btnEditar.setBackground(new java.awt.Color(255, 255, 255));
+        btnEditar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/4735348.png"))); // NOI18N
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
+                btnEditarActionPerformed(evt);
             }
         });
 
-        jBAgregar.setBackground(new java.awt.Color(255, 255, 255));
-        jBAgregar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jBAgregar.setForeground(new java.awt.Color(255, 255, 255));
-        jBAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/4735348(1).png"))); // NOI18N
-        jBAgregar.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregar.setBackground(new java.awt.Color(255, 255, 255));
+        btnAgregar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/plus-pequeno(1).png"))); // NOI18N
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBAgregarActionPerformed(evt);
+                btnAgregarActionPerformed(evt);
             }
         });
 
         txtDireccion.setBackground(new java.awt.Color(204, 204, 204));
         txtDireccion.setForeground(new java.awt.Color(0, 0, 0));
 
-        jBEliminar.setBackground(new java.awt.Color(255, 255, 255));
-        jBEliminar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jBEliminar.setForeground(new java.awt.Color(255, 255, 255));
-        jBEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/bote-de-basura(1).png"))); // NOI18N
-        jBEliminar.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminar.setBackground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/bote-de-basura(1).png"))); // NOI18N
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBEliminarActionPerformed(evt);
+                btnEliminarActionPerformed(evt);
             }
         });
 
@@ -250,7 +250,7 @@ public class VerPropiedades extends javax.swing.JFrame {
             jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
                         .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLFormDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -270,14 +270,14 @@ public class VerPropiedades extends javax.swing.JFrame {
                                     .addComponent(cmbCantAmbientes, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
-                        .addComponent(jBEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(131, Short.MAX_VALUE))
+                        .addGap(35, 35, 35)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
         jPContenedorFormularioLayout.setVerticalGroup(
             jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,10 +303,10 @@ public class VerPropiedades extends javax.swing.JFrame {
                     .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(60, 60, 60)
                 .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
-                    .addComponent(jBAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+                    .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBEliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(36, 36, 36))
         );
 
@@ -361,10 +361,10 @@ public class VerPropiedades extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         CargarTablaPropiedades();
-        btnGuardar.setEnabled(false);
+        btnEditar.setEnabled(false);
     }//GEN-LAST:event_formWindowOpened
 
-    private void jBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
 // TODO add your handling code here:
         String direccionCasa = txtDireccion.getText();
@@ -390,33 +390,31 @@ public class VerPropiedades extends javax.swing.JFrame {
 
         CargarTablaPropiedades();
 
-    }//GEN-LAST:event_jBAgregarActionPerformed
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void jBVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVenderActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBVenderActionPerformed
 
-    private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
-        // TODO add your handling code here:
-        //  Controlar que la tabla no este vacia
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+
         if (tablaPropiedades.getRowCount() > 0) {  // controlamos que la tabla no este vacia o sea que haya mas de un registro
-            // Controlar que la columna este seleccionada
             if (tablaPropiedades.getSelectedRow() != -1) { // -1 significa que no hay ninguna seleccionada
 
                 // explicacion ----- getValueAt (traeme el valor de ) la fila seleccionada y la columna 0; pasamos a String porque lo trae en forma de objeto y a ese string lo pasamos a int
                 int idPropiedadSeleccionado = Integer.parseInt(String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 0)));
                 controlLogica.borrarPropiedad(idPropiedadSeleccionado);
                 mostrarMensaje("Propiedad Eliminada Correctamente", "Info", "Eliminacion Exitosa"); // Llama al metodo Mostrar Mensaje
+                System.out.println("Va a a refrescar la tabla");
                 CargarTablaPropiedades();
+
             } else {
                 mostrarMensaje("No se ha seleccionado ninguna fila", "Error", "Error al no seleccionar");
             }
         } else {
             mostrarMensaje("La tabla se encuentra vacia", "Error", "Tabla Vacia");
         }
-
-
-    }//GEN-LAST:event_jBEliminarActionPerformed
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
 
@@ -426,12 +424,9 @@ public class VerPropiedades extends javax.swing.JFrame {
             if (tablaPropiedades.getSelectedRow() != -1) { // -1 significa que no hay ninguna seleccionada
 
                 // DESHABILITO EL BOTON AGREGAR SI SELECCIONO UINO
-                jBAgregar.setEnabled(false);
-                btnGuardar.setEnabled(true);
+                btnAgregar.setEnabled(false);
+                btnEditar.setEnabled(true);
 
-                
-                
-                
                 // explicacion ----- getValueAt (traeme el valor de ) la fila seleccionada y la columna 0; pasamos a String porque lo trae en forma de objeto y a ese string lo pasamos a int
                 int idPropiedadSeleccionado = Integer.parseInt(String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 0)));
                 String tipoPropiedadSeleccionado = String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 1));
@@ -479,11 +474,11 @@ public class VerPropiedades extends javax.swing.JFrame {
         cmbTipoPropiedad.setSelectedIndex(0);
 
         // Habilito EL BOTON AGREGAR SI SELECCIONO UINO
-        jBAgregar.setEnabled(true);
-        btnGuardar.setEnabled(false);
+        btnAgregar.setEnabled(true);
+        btnEditar.setEnabled(false);
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
         String direccionCasa = txtDireccion.getText();
 
@@ -512,10 +507,61 @@ public class VerPropiedades extends javax.swing.JFrame {
         mostrarMensaje("Propiedad Modfiicada Correctamente", "Info", "Se ha modificado la propiedad con exito"); // Llama al metodo Mostrar Mensaje*/
         CargarTablaPropiedades();
         btnLimpiar.doClick();
-       
-        
 
-    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void completeInputsOnSelectRow() {
+        tablaPropiedades.getSelectionModel().addListSelectionListener(row -> {
+            if (!row.getValueIsAdjusting()) { // lo selecciona solo cuando suelta el click
+                if (tablaPropiedades.getSelectedRow() != -1) {
+
+                    btnAgregar.setEnabled(false);
+                    btnEditar.setEnabled(true);
+
+                    // explicacion ----- getValueAt (traeme el valor de ) la fila seleccionada y la columna 0; pasamos a String porque lo trae en forma de objeto y a ese string lo pasamos a int
+                    int idPropiedadSeleccionado = Integer.parseInt(String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 0)));
+                    String tipoPropiedadSeleccionado = String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 1));
+                    String direccionSeleccionada = String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 2));
+                    int ambientesSeleccionado = Integer.parseInt(String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 3)));
+                    String precioSeleccionado = String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 4));
+
+                    // Recorrer combob box para buscar el valor igual al que llego y setearlo en ese indice CMB AMBIENTES
+                    for (int i = 0; i < cmbCantAmbientes.getItemCount(); i++) {
+                        System.out.println(cmbCantAmbientes.getItemAt(i));
+                        System.out.println(ambientesSeleccionado);
+
+                        if (cmbCantAmbientes.getItemAt(i).equals(String.valueOf(ambientesSeleccionado))) { // si es igual lo setea
+                            System.out.println("ENTRO DETECTO QUE SON IGUALES");
+                            cmbCantAmbientes.setSelectedIndex(i);
+                        }
+                    }
+
+                    // Recorrer combob box para buscar el valor igual al que llego y setearlo en ese indice CMB TIPO PROPIEDAD
+                    for (int i = 0; i < cmbTipoPropiedad.getItemCount(); i++) {
+
+                        if (cmbTipoPropiedad.getItemAt(i).equals(tipoPropiedadSeleccionado)) { // si es igual lo setea
+                            cmbTipoPropiedad.setSelectedIndex(i);
+                        }
+                    }
+
+                    txtPrecio.setText(precioSeleccionado);
+                    txtDireccion.setText(direccionSeleccionada);
+                } else {
+                    // Si no hay ninguna fila seleccionada 
+                    btnAgregar.setEnabled(true); // Habilita agregar de nuevo
+                    btnEditar.setEnabled(false); // Deshabilita editar
+
+                    // Limpia los campos de texto
+                    txtPrecio.setText("");
+                    txtDireccion.setText("");
+                    cmbCantAmbientes.setSelectedIndex(0); 
+                    cmbTipoPropiedad.setSelectedIndex(0); 
+                }
+            }
+        });
+    }
+
     public void mostrarMensaje(String mensaje, String tipo, String titulo) {
 
         JOptionPane optionPane = new JOptionPane(mensaje);
@@ -531,13 +577,13 @@ public class VerPropiedades extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JComboBox<String> cmbCantAmbientes;
     private javax.swing.JComboBox cmbTipoPropiedad;
-    private javax.swing.JButton jBAgregar;
     private javax.swing.JButton jBEditar;
-    private javax.swing.JButton jBEliminar;
     private javax.swing.JButton jBVender;
     private javax.swing.JLabel jLFormCantAmb;
     private javax.swing.JLabel jLFormDireccion;
