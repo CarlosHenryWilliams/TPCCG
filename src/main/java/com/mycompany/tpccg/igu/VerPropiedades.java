@@ -24,6 +24,8 @@ public class VerPropiedades extends javax.swing.JFrame {
         initComponents();
         controlLogica = new ControladoraLogica();
         CargarTipoPropiedades();
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        
     }
 
     /**
@@ -42,10 +44,8 @@ public class VerPropiedades extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPropiedades = new javax.swing.JTable();
         jPContenedorBotones = new javax.swing.JPanel();
-        jBAdministrarTipoPropiedades = new javax.swing.JButton();
-        jBEliminar = new javax.swing.JButton();
-        jBEditar = new javax.swing.JButton();
         jBVender = new javax.swing.JButton();
+        jBEditar = new javax.swing.JButton();
         jPContenedorFormulario = new javax.swing.JPanel();
         jLFormDireccion = new javax.swing.JLabel();
         jLFormPrecio = new javax.swing.JLabel();
@@ -58,6 +58,7 @@ public class VerPropiedades extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         jBAgregar = new javax.swing.JButton();
         txtDireccion = new javax.swing.JTextField();
+        jBEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -130,23 +131,14 @@ public class VerPropiedades extends javax.swing.JFrame {
 
         jPContenedorBotones.setBackground(new java.awt.Color(204, 204, 204));
 
-        jBAdministrarTipoPropiedades.setBackground(new java.awt.Color(0, 153, 153));
-        jBAdministrarTipoPropiedades.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jBAdministrarTipoPropiedades.setForeground(new java.awt.Color(255, 255, 255));
-        jBAdministrarTipoPropiedades.setText("ADMIN. TIPO PROPIEDADES");
-        jBAdministrarTipoPropiedades.addActionListener(new java.awt.event.ActionListener() {
+        jBVender.setBackground(new java.awt.Color(255, 255, 255));
+        jBVender.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        jBVender.setForeground(new java.awt.Color(0, 0, 0));
+        jBVender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hands-and-gestures(1).png"))); // NOI18N
+        jBVender.setText("     VENTA");
+        jBVender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBAdministrarTipoPropiedadesActionPerformed(evt);
-            }
-        });
-
-        jBEliminar.setBackground(new java.awt.Color(0, 153, 153));
-        jBEliminar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jBEliminar.setForeground(new java.awt.Color(255, 255, 255));
-        jBEliminar.setText("ELIMINAR");
-        jBEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBEliminarActionPerformed(evt);
+                jBVenderActionPerformed(evt);
             }
         });
 
@@ -160,41 +152,25 @@ public class VerPropiedades extends javax.swing.JFrame {
             }
         });
 
-        jBVender.setBackground(new java.awt.Color(0, 153, 153));
-        jBVender.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jBVender.setForeground(new java.awt.Color(255, 255, 255));
-        jBVender.setText("VENDER");
-        jBVender.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBVenderActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPContenedorBotonesLayout = new javax.swing.GroupLayout(jPContenedorBotones);
         jPContenedorBotones.setLayout(jPContenedorBotonesLayout);
         jPContenedorBotonesLayout.setHorizontalGroup(
             jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorBotonesLayout.createSequentialGroup()
-                .addGap(107, 107, 107)
+                .addContainerGap()
                 .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jBEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
-                .addComponent(jBVender, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jBAdministrarTipoPropiedades)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBVender)
                 .addContainerGap())
         );
         jPContenedorBotonesLayout.setVerticalGroup(
             jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPContenedorBotonesLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorBotonesLayout.createSequentialGroup()
+                .addContainerGap(33, Short.MAX_VALUE)
                 .addGroup(jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBAdministrarTipoPropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBVender, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                    .addComponent(jBVender, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17))
         );
 
         jPContenedorFormulario.setBackground(new java.awt.Color(204, 204, 204));
@@ -226,28 +202,29 @@ public class VerPropiedades extends javax.swing.JFrame {
         cmbTipoPropiedad.setForeground(new java.awt.Color(0, 0, 0));
         cmbTipoPropiedad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-" }));
 
-        btnLimpiar.setBackground(new java.awt.Color(0, 153, 153));
+        btnLimpiar.setBackground(new java.awt.Color(255, 255, 255));
         btnLimpiar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnLimpiar.setText("LIMPIAR");
+        btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/escoba(1).png"))); // NOI18N
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
             }
         });
 
-        btnGuardar.setBackground(new java.awt.Color(0, 153, 153));
+        btnGuardar.setBackground(new java.awt.Color(255, 255, 255));
         btnGuardar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnGuardar.setText("GUARDAR");
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/plus-pequeno(1).png"))); // NOI18N
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
 
-        jBAgregar.setBackground(new java.awt.Color(0, 153, 153));
+        jBAgregar.setBackground(new java.awt.Color(255, 255, 255));
         jBAgregar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jBAgregar.setForeground(new java.awt.Color(255, 255, 255));
-        jBAgregar.setText("AGREGAR");
+        jBAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/4735348(1).png"))); // NOI18N
         jBAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBAgregarActionPerformed(evt);
@@ -257,36 +234,49 @@ public class VerPropiedades extends javax.swing.JFrame {
         txtDireccion.setBackground(new java.awt.Color(204, 204, 204));
         txtDireccion.setForeground(new java.awt.Color(0, 0, 0));
 
+        jBEliminar.setBackground(new java.awt.Color(255, 255, 255));
+        jBEliminar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jBEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        jBEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/bote-de-basura(1).png"))); // NOI18N
+        jBEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPContenedorFormularioLayout = new javax.swing.GroupLayout(jPContenedorFormulario);
         jPContenedorFormulario.setLayout(jPContenedorFormularioLayout);
         jPContenedorFormularioLayout.setHorizontalGroup(
             jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLFormDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLFormCantAmb, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLFormTipoProp, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLFormPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLimpiar))
-                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addComponent(cmbTipoPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
-                            .addGap(18, 18, 18)
-                            .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorFormularioLayout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jBAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnGuardar)))
+                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbCantAmbientes, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLFormDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLFormCantAmb, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLFormTipoProp, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLFormPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(cmbTipoPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmbCantAmbientes, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
+                        .addComponent(jBEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(131, Short.MAX_VALUE))
         );
         jPContenedorFormularioLayout.setVerticalGroup(
@@ -311,29 +301,28 @@ public class VerPropiedades extends javax.swing.JFrame {
                 .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLFormPrecio)
                     .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(84, 84, 84)
+                .addGap(60, 60, 60)
                 .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+                    .addComponent(jBAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBEliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(36, 36, 36))
         );
 
         javax.swing.GroupLayout jPContenedorGeneralLayout = new javax.swing.GroupLayout(jPContenedorGeneral);
         jPContenedorGeneral.setLayout(jPContenedorGeneralLayout);
         jPContenedorGeneralLayout.setHorizontalGroup(
             jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 1084, Short.MAX_VALUE)
+            .addComponent(jPHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 1105, Short.MAX_VALUE)
             .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPContenedorBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
-                        .addComponent(jPContenedorTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPContenedorFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGroup(jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPContenedorBotones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPContenedorTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPContenedorFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         jPContenedorGeneralLayout.setVerticalGroup(
             jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -347,7 +336,7 @@ public class VerPropiedades extends javax.swing.JFrame {
                     .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addComponent(jPContenedorFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -363,8 +352,7 @@ public class VerPropiedades extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(14, 14, 14))
+                .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -375,13 +363,6 @@ public class VerPropiedades extends javax.swing.JFrame {
         CargarTablaPropiedades();
         btnGuardar.setEnabled(false);
     }//GEN-LAST:event_formWindowOpened
-
-    private void jBAdministrarTipoPropiedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAdministrarTipoPropiedadesActionPerformed
-        this.dispose();
-        VerTipoPropiedades verTipoPropiedades = new VerTipoPropiedades();
-        verTipoPropiedades.setVisible(true);
-        verTipoPropiedades.setLocationRelativeTo(null); // centra al medio la interfaz
-    }//GEN-LAST:event_jBAdministrarTipoPropiedadesActionPerformed
 
     private void jBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarActionPerformed
         // TODO add your handling code here:
@@ -554,7 +535,6 @@ public class VerPropiedades extends javax.swing.JFrame {
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JComboBox<String> cmbCantAmbientes;
     private javax.swing.JComboBox cmbTipoPropiedad;
-    private javax.swing.JButton jBAdministrarTipoPropiedades;
     private javax.swing.JButton jBAgregar;
     private javax.swing.JButton jBEditar;
     private javax.swing.JButton jBEliminar;

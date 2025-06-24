@@ -26,7 +26,7 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
         initComponents();
         controlLogica = new ControladoraLogica();
         btnGuardar.setEnabled(false);
-
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     /**

@@ -20,6 +20,7 @@ com\mycompany\tpccg\controllers\TipoPropiedadJpaController.class
 com\mycompany\tpccg\igu\VerClientes$5.class
 com\mycompany\tpccg\igu\Principal.class
 com\mycompany\tpccg\controllers\ClienteJpaController.class
+com\mycompany\tpccg\igu\Principal$5.class
 com\mycompany\tpccg\igu\VerTipoPropiedades$5.class
 com\mycompany\tpccg\igu\VerPropiedades$6.class
 com\mycompany\tpccg\igu\ModificarTipoPropiedades.class
@@ -41,7 +42,6 @@ com\mycompany\tpccg\igu\VerPropiedades$5.class
 com\mycompany\tpccg\igu\AgregarPropiedad$3.class
 com\mycompany\tpccg\igu\VerTipoPropiedades$6.class
 com\mycompany\tpccg\igu\VerTipoPropiedades.class
-com\mycompany\tpccg\igu\VerPropiedades$9.class
 com\mycompany\tpccg\igu\VerPropiedades$2.class
 com\mycompany\tpccg\igu\VerTipoPropiedades$2.class
 com\mycompany\tpccg\model\TipoPropiedad.class

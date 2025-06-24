@@ -29,6 +29,7 @@ public class ModificarPropiedad extends javax.swing.JFrame {
         controlLogica = new ControladoraLogica();
         CargarTipoPropiedades();
         cargarDatosFormulario(idPropiedad);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     /**

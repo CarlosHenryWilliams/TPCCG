@@ -5,7 +5,7 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -18,6 +18,7 @@ public class Principal extends javax.swing.JFrame {
         jBVerPropiedades = new javax.swing.JButton();
         jBSalir = new javax.swing.JButton();
         jBClientes = new javax.swing.JButton();
+        jBAdministrarTipoPropiedades = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,12 +92,24 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jBAdministrarTipoPropiedades.setBackground(new java.awt.Color(0, 153, 153));
+        jBAdministrarTipoPropiedades.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jBAdministrarTipoPropiedades.setForeground(new java.awt.Color(255, 255, 255));
+        jBAdministrarTipoPropiedades.setText("TIPO DE PROPIEDADES");
+        jBAdministrarTipoPropiedades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBAdministrarTipoPropiedadesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPContenedorBotonesLayout = new javax.swing.GroupLayout(jPContenedorBotones);
         jPContenedorBotones.setLayout(jPContenedorBotonesLayout);
         jPContenedorBotonesLayout.setHorizontalGroup(
             jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorBotonesLayout.createSequentialGroup()
-                .addGap(202, 202, 202)
+            .addGroup(jPContenedorBotonesLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jBAdministrarTipoPropiedades)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jBVerFacturas, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
                     .addComponent(jBClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -112,12 +125,13 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(75, 75, 75)
                 .addGroup(jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBVerPropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBVerFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBVerFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBAdministrarTipoPropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPContenedorGeneralLayout = new javax.swing.GroupLayout(jPContenedorGeneral);
@@ -152,28 +166,35 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
-        // TODO add your handling code here:
+        this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jBVerPropiedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVerPropiedadesActionPerformed
-      VerPropiedades verPropiedades = new VerPropiedades();
-      verPropiedades.setVisible(true);
-      verPropiedades.setLocationRelativeTo(null); // centra al medio la interfaz
+        VerPropiedades verPropiedades = new VerPropiedades();
+        verPropiedades.setVisible(true);
+        verPropiedades.setLocationRelativeTo(null); // centra al medio la interfaz
     }//GEN-LAST:event_jBVerPropiedadesActionPerformed
 
     private void jBVerFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVerFacturasActionPerformed
-      VerFacturas verFacturas = new VerFacturas();
-      verFacturas.setVisible(true);
-      verFacturas.setLocationRelativeTo(null); // centra al medio la interfaz
+        VerFacturas verFacturas = new VerFacturas();
+        verFacturas.setVisible(true);
+        verFacturas.setLocationRelativeTo(null); // centra al medio la interfaz
     }//GEN-LAST:event_jBVerFacturasActionPerformed
 
     private void jBClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBClientesActionPerformed
-      VerClientes verClientes = new VerClientes();
-      verClientes.setVisible(true);
-      verClientes.setLocationRelativeTo(null); // centra al medio la interfaz
+        VerClientes verClientes = new VerClientes();
+        verClientes.setVisible(true);
+        verClientes.setLocationRelativeTo(null); // centra al medio la interfaz
     }//GEN-LAST:event_jBClientesActionPerformed
 
+    private void jBAdministrarTipoPropiedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAdministrarTipoPropiedadesActionPerformed
+        VerTipoPropiedades verTipoPropiedades = new VerTipoPropiedades();
+        verTipoPropiedades.setVisible(true);
+        verTipoPropiedades.setLocationRelativeTo(null); // centra al medio la interfaz
+    }//GEN-LAST:event_jBAdministrarTipoPropiedadesActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBAdministrarTipoPropiedades;
     private javax.swing.JButton jBClientes;
     private javax.swing.JButton jBSalir;
     private javax.swing.JButton jBVerFacturas;

@@ -11,6 +11,7 @@ public class VerFacturas extends javax.swing.JFrame {
   public VerFacturas() {
     initComponents();
     controlLogica = new ControladoraLogica();
+    setDefaultCloseOperation(DISPOSE_ON_CLOSE);
   }
   
   @SuppressWarnings("unchecked")

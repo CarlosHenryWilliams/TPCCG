@@ -24,6 +24,7 @@ public class AgregarPropiedad extends javax.swing.JFrame {
     public AgregarPropiedad() {
         initComponents();
         controlLogica = new ControladoraLogica();
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     /**

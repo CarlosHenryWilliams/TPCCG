@@ -21,6 +21,7 @@ public class AgregarTipoPropiedades extends javax.swing.JFrame {
     public AgregarTipoPropiedades() {
         initComponents();
         controlLogica = new ControladoraLogica();
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     /**

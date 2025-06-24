@@ -81,6 +81,7 @@ public class VerClientes extends javax.swing.JFrame {
     completeInputsOnSelectRow();
     refreshInputsAndButtons();
     setResultLabelStyle(false, null, null);
+    setDefaultCloseOperation(DISPOSE_ON_CLOSE);
   }
 
   @SuppressWarnings("unchecked")
