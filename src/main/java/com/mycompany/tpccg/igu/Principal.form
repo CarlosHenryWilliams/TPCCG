@@ -115,20 +115,24 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="jBAdministrarTipoPropiedades" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jBVerFacturas" pref="129" max="32767" attributes="0"/>
-                          <Component id="jBClientes" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace pref="43" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jBClientes" min="-2" pref="129" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jBAdministrarTipoPropiedades" min="-2" pref="160" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jBVerFacturas" min="-2" pref="129" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jBVerPropiedades" min="-2" pref="129" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jBSalir" min="-2" pref="117" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="281" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace type="separate" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jBSalir" pref="129" max="32767" attributes="0"/>
-                          <Component id="jBVerPropiedades" pref="129" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="202" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -139,14 +143,12 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jBVerPropiedades" alignment="3" min="-2" pref="102" max="-2" attributes="0"/>
                           <Component id="jBVerFacturas" alignment="3" min="-2" pref="102" max="-2" attributes="0"/>
-                          <Component id="jBAdministrarTipoPropiedades" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jBSalir" alignment="3" min="-2" pref="102" max="-2" attributes="0"/>
+                          <Component id="jBAdministrarTipoPropiedades" alignment="3" min="-2" pref="102" max="-2" attributes="0"/>
                           <Component id="jBClientes" alignment="3" min="-2" pref="102" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="96" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jBSalir" min="-2" pref="102" max="-2" attributes="0"/>
+                      <EmptySpace pref="102" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -237,7 +239,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="TIPO DE PROPIEDADES"/>
+                <Property name="text" type="java.lang.String" value="TIPO &#xa;DE &#xa;PROPIEDADES"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBAdministrarTipoPropiedadesActionPerformed"/>

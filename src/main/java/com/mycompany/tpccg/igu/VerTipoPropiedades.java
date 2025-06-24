@@ -296,9 +296,7 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
-
         try {
-
             int idTipoPropiedadSeleccionado = 0;
             if (tablaTipoPropiedades.getSelectedRow() != -1) { // -1 significa que no hay ninguna seleccionada
                 idTipoPropiedadSeleccionado = Integer.parseInt(String.valueOf(tablaTipoPropiedades.getValueAt(tablaTipoPropiedades.getSelectedRow(), 0)));

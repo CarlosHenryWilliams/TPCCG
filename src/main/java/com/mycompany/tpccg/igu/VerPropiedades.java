@@ -364,12 +364,11 @@ public class VerPropiedades extends javax.swing.JFrame {
                     tipoPropiedadCasa = tipoPropi; // seteo el tipo de propeidad
                 }
             }
-         
-                controlLogica.agregarPropiedad(direccionCasa, tipoPropiedadCasa, cantAmbientesCasa, precioCasa);
-                mostrarMensaje("Propiedad Agregada Correctamente", "Info", "Se ha agregado con exito"); // Llama al metodo Mostrar Mensaje
 
-                CargarTablaPropiedades();
-            
+            controlLogica.agregarPropiedad(direccionCasa, tipoPropiedadCasa, cantAmbientesCasa, precioCasa);
+            mostrarMensaje("Propiedad Agregada Correctamente", "Info", "Se ha agregado con exito"); // Llama al metodo Mostrar Mensaje
+
+            CargarTablaPropiedades();
 
         } catch (Exception e) { // validaciones generales
             mostrarMensaje("Ha ocurrido un error, complete correctamente el formulario", "Error", "Error al agregar");
@@ -385,7 +384,6 @@ public class VerPropiedades extends javax.swing.JFrame {
         if (tablaPropiedades.getRowCount() > 0) {  // controlamos que la tabla no este vacia o sea que haya mas de un registro
             if (tablaPropiedades.getSelectedRow() != -1) { // -1 significa que no hay ninguna seleccionada
 
-                // explicacion ----- getValueAt (traeme el valor de ) la fila seleccionada y la columna 0; pasamos a String porque lo trae en forma de objeto y a ese string lo pasamos a int
                 int idPropiedadSeleccionado = Integer.parseInt(String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 0)));
                 controlLogica.borrarPropiedad(idPropiedadSeleccionado);
                 mostrarMensaje("Propiedad Eliminada Correctamente", "Info", "Eliminacion Exitosa"); // Llama al metodo Mostrar Mensaje
@@ -428,7 +426,7 @@ public class VerPropiedades extends javax.swing.JFrame {
             }
 
             int cantAmbientesCasa = Integer.parseInt((String) cmbCantAmbientes.getSelectedItem());
-            Double precioCasa = Double.parseDouble(txtPrecio.getText());
+            Double precioCasa = Double.valueOf(txtPrecio.getText());
             int idPropiedadSeleccionado = 0;
             if (tablaPropiedades.getSelectedRow() != -1) { // -1 significa que no hay ninguna seleccionada
                 idPropiedadSeleccionado = Integer.parseInt(String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 0)));
@@ -437,7 +435,16 @@ public class VerPropiedades extends javax.swing.JFrame {
             controlLogica.modificarPropiedad(idPropiedadSeleccionado, direccionCasa, tipoPropiedadCasa, cantAmbientesCasa, precioCasa);
             mostrarMensaje("Propiedad Modfiicada Correctamente", "Info", "Se ha modificado la propiedad con exito");
             CargarTablaPropiedades();
-            btnLimpiar.doClick();
+
+            // Limpieza campos
+            txtDireccion.setText("");
+            txtPrecio.setText("");
+            cmbCantAmbientes.setSelectedIndex(0);
+            cmbTipoPropiedad.setSelectedIndex(0);
+
+            // Habilito EL BOTON AGREGAR SI SELECCIONO UINO
+            btnAgregar.setEnabled(true);
+            btnEditar.setEnabled(false);
         } catch (Exception e) {
             mostrarMensaje("Ha ocurrido un error, complete correctamente el formulario", "Error", "Error al editar");
         }
@@ -534,10 +541,8 @@ public class VerPropiedades extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void CargarTablaPropiedades() {
-
         // SETEAR MODELO TABLA
         DefaultTableModel modeloTablaPropiedades = new DefaultTableModel() {
-
             // que fila y columnas no sea editable
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -547,13 +552,11 @@ public class VerPropiedades extends javax.swing.JFrame {
         // setear nombre de las columnas
         String nombreColumnas[] = {"idPropiedad", "TipoPropiedad", "Direccion", "Ambientes", "Precio", "Vendida"};
         modeloTablaPropiedades.setColumnIdentifiers(nombreColumnas);
-
         // traer propiedades
         List<Propiedad> listaPropiedades = controlLogica.traerPropiedades();
 
         String variableVendida = "";
         if (listaPropiedades != null) {
-
             for (Propiedad propiedad : listaPropiedades) {
 
                 if (propiedad.getVendida() == true) {
@@ -561,15 +564,12 @@ public class VerPropiedades extends javax.swing.JFrame {
                 } else {
                     variableVendida = "No";
                 }
-
                 Object[] objeto = {propiedad.getIdPropiedad(), propiedad.getTipoPropiedad().getDescripcion(), propiedad.getDireccion(),
                     propiedad.getAmbientes(), propiedad.getPrecio(), variableVendida};
 
                 modeloTablaPropiedades.addRow(objeto);
-
             }
         }
-
         tablaPropiedades.setModel(modeloTablaPropiedades);
     }
 

@@ -95,7 +95,7 @@ public class Principal extends javax.swing.JFrame {
         jBAdministrarTipoPropiedades.setBackground(new java.awt.Color(0, 153, 153));
         jBAdministrarTipoPropiedades.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jBAdministrarTipoPropiedades.setForeground(new java.awt.Color(255, 255, 255));
-        jBAdministrarTipoPropiedades.setText("TIPO DE PROPIEDADES");
+        jBAdministrarTipoPropiedades.setText("TIPO \nDE \nPROPIEDADES");
         jBAdministrarTipoPropiedades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBAdministrarTipoPropiedadesActionPerformed(evt);
@@ -107,17 +107,20 @@ public class Principal extends javax.swing.JFrame {
         jPContenedorBotonesLayout.setHorizontalGroup(
             jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPContenedorBotonesLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jBAdministrarTipoPropiedades)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jBVerFacturas, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                    .addComponent(jBClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jBSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                    .addComponent(jBVerPropiedades, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
-                .addGap(202, 202, 202))
+                .addContainerGap(43, Short.MAX_VALUE)
+                .addGroup(jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorBotonesLayout.createSequentialGroup()
+                        .addComponent(jBClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBAdministrarTipoPropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBVerFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBVerPropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorBotonesLayout.createSequentialGroup()
+                        .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(281, 281, 281))))
         );
         jPContenedorBotonesLayout.setVerticalGroup(
             jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,12 +129,11 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBVerPropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBVerFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBAdministrarTipoPropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBAdministrarTipoPropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPContenedorGeneralLayout = new javax.swing.GroupLayout(jPContenedorGeneral);
