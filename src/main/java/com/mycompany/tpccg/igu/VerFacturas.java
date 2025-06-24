@@ -159,8 +159,8 @@ public class VerFacturas extends javax.swing.JFrame {
         Object[] objeto = { 
           factura.getIdFactura(), 
           firstname + " " + lastname, 
-          factura.getPropiedadAsig().getIdPropiedad(), 
           factura.getCompradorAsig().getDNI(), 
+          factura.getPropiedadAsig().getIdPropiedad(), 
           factura.getPropiedadAsig().getDireccion(),
           factura.getPropiedadAsig().getTipoPropiedad().getDescripcion(), 
           factura.getPropiedadAsig().getAmbientes(), 

@@ -44,8 +44,7 @@ public class VerPropiedades extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPropiedades = new javax.swing.JTable();
         jPContenedorBotones = new javax.swing.JPanel();
-        jBVender = new javax.swing.JButton();
-        jBEditar = new javax.swing.JButton();
+        btnVender = new javax.swing.JButton();
         jPContenedorFormulario = new javax.swing.JPanel();
         jLFormDireccion = new javax.swing.JLabel();
         jLFormPrecio = new javax.swing.JLabel();
@@ -131,24 +130,14 @@ public class VerPropiedades extends javax.swing.JFrame {
 
         jPContenedorBotones.setBackground(new java.awt.Color(204, 204, 204));
 
-        jBVender.setBackground(new java.awt.Color(255, 255, 255));
-        jBVender.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        jBVender.setForeground(new java.awt.Color(0, 0, 0));
-        jBVender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hands-and-gestures(1).png"))); // NOI18N
-        jBVender.setText("     VENTA");
-        jBVender.addActionListener(new java.awt.event.ActionListener() {
+        btnVender.setBackground(new java.awt.Color(255, 255, 255));
+        btnVender.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btnVender.setForeground(new java.awt.Color(0, 0, 0));
+        btnVender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hands-and-gestures(1).png"))); // NOI18N
+        btnVender.setText("     VENTA");
+        btnVender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBVenderActionPerformed(evt);
-            }
-        });
-
-        jBEditar.setBackground(new java.awt.Color(0, 153, 153));
-        jBEditar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jBEditar.setForeground(new java.awt.Color(255, 255, 255));
-        jBEditar.setText("EDITAR");
-        jBEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBEditarActionPerformed(evt);
+                btnVenderActionPerformed(evt);
             }
         });
 
@@ -157,20 +146,16 @@ public class VerPropiedades extends javax.swing.JFrame {
         jPContenedorBotonesLayout.setHorizontalGroup(
             jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorBotonesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBVender)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVender)
                 .addContainerGap())
         );
         jPContenedorBotonesLayout.setVerticalGroup(
             jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorBotonesLayout.createSequentialGroup()
                 .addContainerGap(33, Short.MAX_VALUE)
-                .addGroup(jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBVender, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17))
+                .addComponent(btnVender, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
 
         jPContenedorFormulario.setBackground(new java.awt.Color(204, 204, 204));
@@ -359,42 +344,41 @@ public class VerPropiedades extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
         CargarTablaPropiedades();
         btnEditar.setEnabled(false);
     }//GEN-LAST:event_formWindowOpened
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
-// TODO add your handling code here:
-        String direccionCasa = txtDireccion.getText();
 
-        String tipoPropiedadCasaDescripcion = (String) cmbTipoPropiedad.getSelectedItem(); // rural
+        try {
+            String direccionCasa = txtDireccion.getText();
+            String tipoPropiedadCasaDescripcion = (String) cmbTipoPropiedad.getSelectedItem(); // rural
+            int cantAmbientesCasa = Integer.parseInt((String) cmbCantAmbientes.getSelectedItem());
+            Double precioCasa = Double.valueOf(txtPrecio.getText());
 
-        TipoPropiedad tipoPropiedadCasa = new TipoPropiedad();
-        // Recorro  para igualar un tipoPropiedad con la descripcion y cargarlo a tipoPropiedadCasa
-        List<TipoPropiedad> listaTipoPropiedades = controlLogica.traerTipoPropiedades();
-        for (TipoPropiedad tipoPropi : listaTipoPropiedades) {
-
-            if (tipoPropiedadCasaDescripcion.equals(tipoPropi.getDescripcion())) { // me fijo que el tipo propiedad coincida
-                tipoPropiedadCasa = tipoPropi; // seteo el tipo de propeidad
+            TipoPropiedad tipoPropiedadCasa = new TipoPropiedad();
+            // Recorro  para igualar un tipoPropiedad con la descripcion y cargarlo a tipoPropiedadCasa
+            List<TipoPropiedad> listaTipoPropiedades = controlLogica.traerTipoPropiedades();
+            for (TipoPropiedad tipoPropi : listaTipoPropiedades) {
+                if (tipoPropiedadCasaDescripcion.equals(tipoPropi.getDescripcion())) { // me fijo que el tipo propiedad coincida
+                    tipoPropiedadCasa = tipoPropi; // seteo el tipo de propeidad
+                }
             }
+         
+                controlLogica.agregarPropiedad(direccionCasa, tipoPropiedadCasa, cantAmbientesCasa, precioCasa);
+                mostrarMensaje("Propiedad Agregada Correctamente", "Info", "Se ha agregado con exito"); // Llama al metodo Mostrar Mensaje
 
+                CargarTablaPropiedades();
+            
+
+        } catch (Exception e) { // validaciones generales
+            mostrarMensaje("Ha ocurrido un error, complete correctamente el formulario", "Error", "Error al agregar");
         }
-
-        int cantAmbientesCasa = Integer.parseInt((String) cmbCantAmbientes.getSelectedItem());
-        Double precioCasa = Double.parseDouble(txtPrecio.getText());
-
-        controlLogica.agregarPropiedad(direccionCasa, tipoPropiedadCasa, cantAmbientesCasa, precioCasa);
-        mostrarMensaje("Propiedad Agregada Correctamente", "Info", "Se ha agregado con exito"); // Llama al metodo Mostrar Mensaje
-
-        CargarTablaPropiedades();
-
     }//GEN-LAST:event_btnAgregarActionPerformed
 
-    private void jBVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVenderActionPerformed
+    private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBVenderActionPerformed
+    }//GEN-LAST:event_btnVenderActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
 
@@ -416,56 +400,6 @@ public class VerPropiedades extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
-
-        //  Controlar que la tabla no este vacia
-        if (tablaPropiedades.getRowCount() > 0) {  // controlamos que la tabla no este vacia o sea que haya mas de un registro
-            // Controlar que la columna este seleccionada
-            if (tablaPropiedades.getSelectedRow() != -1) { // -1 significa que no hay ninguna seleccionada
-
-                // DESHABILITO EL BOTON AGREGAR SI SELECCIONO UINO
-                btnAgregar.setEnabled(false);
-                btnEditar.setEnabled(true);
-
-                // explicacion ----- getValueAt (traeme el valor de ) la fila seleccionada y la columna 0; pasamos a String porque lo trae en forma de objeto y a ese string lo pasamos a int
-                int idPropiedadSeleccionado = Integer.parseInt(String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 0)));
-                String tipoPropiedadSeleccionado = String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 1));
-                String direccionSeleccionada = String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 2));
-                int ambientesSeleccionado = Integer.parseInt(String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 3)));
-                String precioSeleccionado = String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 4));
-
-                // Recorrer combob box para buscar el valor igual al que llego y setearlo en ese indice CMB AMBIENTES
-                for (int i = 0; i < cmbCantAmbientes.getItemCount(); i++) {
-                    System.out.println(cmbCantAmbientes.getItemAt(i));
-                    System.out.println(ambientesSeleccionado);
-
-                    if (cmbCantAmbientes.getItemAt(i).equals(String.valueOf(ambientesSeleccionado))) { // si es igual lo setea
-                        System.out.println("ENTRO DETECTO QUE SON IGUALES");
-                        cmbCantAmbientes.setSelectedIndex(i);
-                    }
-                }
-
-                // Recorrer combob box para buscar el valor igual al que llego y setearlo en ese indice CMB TIPO PROPIEDAD
-                for (int i = 0; i < cmbTipoPropiedad.getItemCount(); i++) {
-
-                    if (cmbTipoPropiedad.getItemAt(i).equals(tipoPropiedadSeleccionado)) { // si es igual lo setea
-                        cmbTipoPropiedad.setSelectedIndex(i);
-                    }
-                }
-
-                txtPrecio.setText(precioSeleccionado);
-                txtDireccion.setText(direccionSeleccionada);
-
-            } else {
-                mostrarMensaje("No se ha seleccionado ninguna fila", "Error", "Error al no seleccionar");
-            }
-        } else {
-            mostrarMensaje("La tabla se encuentra vacia", "Error", "Tabla Vacia");
-        }
-
-
-    }//GEN-LAST:event_jBEditarActionPerformed
-
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         // TODO add your handling code here:
         txtDireccion.setText("");
@@ -479,35 +413,34 @@ public class VerPropiedades extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        // TODO add your handling code here:
-        String direccionCasa = txtDireccion.getText();
 
-        String tipoPropiedadCasaDescripcion = (String) cmbTipoPropiedad.getSelectedItem();
-        TipoPropiedad tipoPropiedadCasa = new TipoPropiedad();
-        // Recorro  para igualar un tipoPropiedad con la descripcion y cargarlo a tipoPropiedadCasa
-        List<TipoPropiedad> listaTipoPropiedades = controlLogica.traerTipoPropiedades();
-        for (TipoPropiedad tipoPropi : listaTipoPropiedades) {
+        try {
 
-            if (tipoPropiedadCasaDescripcion.equals(tipoPropi.getDescripcion())) {
-                tipoPropiedadCasa = tipoPropi; // seteo el tipo de propeidad
+            String direccionCasa = txtDireccion.getText();
+            String tipoPropiedadCasaDescripcion = (String) cmbTipoPropiedad.getSelectedItem();
+            TipoPropiedad tipoPropiedadCasa = new TipoPropiedad();
+            // Recorro  para igualar un tipoPropiedad con la descripcion y cargarlo a tipoPropiedadCasa
+            List<TipoPropiedad> listaTipoPropiedades = controlLogica.traerTipoPropiedades();
+            for (TipoPropiedad tipoPropi : listaTipoPropiedades) {
+                if (tipoPropiedadCasaDescripcion.equals(tipoPropi.getDescripcion())) {
+                    tipoPropiedadCasa = tipoPropi; // seteo el tipo de propeidad
+                }
             }
 
+            int cantAmbientesCasa = Integer.parseInt((String) cmbCantAmbientes.getSelectedItem());
+            Double precioCasa = Double.parseDouble(txtPrecio.getText());
+            int idPropiedadSeleccionado = 0;
+            if (tablaPropiedades.getSelectedRow() != -1) { // -1 significa que no hay ninguna seleccionada
+                idPropiedadSeleccionado = Integer.parseInt(String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 0)));
+            }
+
+            controlLogica.modificarPropiedad(idPropiedadSeleccionado, direccionCasa, tipoPropiedadCasa, cantAmbientesCasa, precioCasa);
+            mostrarMensaje("Propiedad Modfiicada Correctamente", "Info", "Se ha modificado la propiedad con exito");
+            CargarTablaPropiedades();
+            btnLimpiar.doClick();
+        } catch (Exception e) {
+            mostrarMensaje("Ha ocurrido un error, complete correctamente el formulario", "Error", "Error al editar");
         }
-
-        int cantAmbientesCasa = Integer.parseInt((String) cmbCantAmbientes.getSelectedItem());
-        Double precioCasa = Double.parseDouble(txtPrecio.getText());
-        int idPropiedadSeleccionado = 0;
-        if (tablaPropiedades.getSelectedRow() != -1) { // -1 significa que no hay ninguna seleccionada
-
-            // explicacion ----- getValueAt (traeme el valor de ) la fila seleccionada y la columna 0; pasamos a String porque lo trae en forma de objeto y a ese string lo pasamos a int
-            idPropiedadSeleccionado = Integer.parseInt(String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 0)));
-        }
-
-        controlLogica.modificarPropiedad(idPropiedadSeleccionado, direccionCasa, tipoPropiedadCasa, cantAmbientesCasa, precioCasa);
-        mostrarMensaje("Propiedad Modfiicada Correctamente", "Info", "Se ha modificado la propiedad con exito"); // Llama al metodo Mostrar Mensaje*/
-        CargarTablaPropiedades();
-        btnLimpiar.doClick();
-
 
     }//GEN-LAST:event_btnEditarActionPerformed
 
@@ -555,8 +488,8 @@ public class VerPropiedades extends javax.swing.JFrame {
                     // Limpia los campos de texto
                     txtPrecio.setText("");
                     txtDireccion.setText("");
-                    cmbCantAmbientes.setSelectedIndex(0); 
-                    cmbTipoPropiedad.setSelectedIndex(0); 
+                    cmbCantAmbientes.setSelectedIndex(0);
+                    cmbTipoPropiedad.setSelectedIndex(0);
                 }
             }
         });
@@ -581,10 +514,9 @@ public class VerPropiedades extends javax.swing.JFrame {
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnVender;
     private javax.swing.JComboBox<String> cmbCantAmbientes;
     private javax.swing.JComboBox cmbTipoPropiedad;
-    private javax.swing.JButton jBEditar;
-    private javax.swing.JButton jBVender;
     private javax.swing.JLabel jLFormCantAmb;
     private javax.swing.JLabel jLFormDireccion;
     private javax.swing.JLabel jLFormPrecio;

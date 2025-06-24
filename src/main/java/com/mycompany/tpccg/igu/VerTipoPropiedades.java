@@ -25,7 +25,8 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
     public VerTipoPropiedades() {
         initComponents();
         controlLogica = new ControladoraLogica();
-        btnGuardar.setEnabled(false);
+        btnEditar.setEnabled(false);
+        completeInputsOnSelectRow();
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
@@ -45,14 +46,13 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
         jPHeader = new javax.swing.JPanel();
         jLTitulo = new javax.swing.JLabel();
         jPContenedorBotones = new javax.swing.JPanel();
-        jBEditar = new javax.swing.JButton();
-        jBEliminar = new javax.swing.JButton();
         jPContenedorFormulario = new javax.swing.JPanel();
         jLFormDesc = new javax.swing.JLabel();
         txtDesc = new javax.swing.JTextField();
-        btnGuardar = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
+        jBEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -107,59 +107,29 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
         jPHeaderLayout.setHorizontalGroup(
             jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPHeaderLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(160, 160, 160)
                 .addComponent(jLTitulo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPHeaderLayout.setVerticalGroup(
             jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPHeaderLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(24, 24, 24)
                 .addComponent(jLTitulo)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         jPContenedorBotones.setBackground(new java.awt.Color(204, 204, 204));
-
-        jBEditar.setBackground(new java.awt.Color(0, 153, 153));
-        jBEditar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jBEditar.setForeground(new java.awt.Color(255, 255, 255));
-        jBEditar.setText("EDITAR");
-        jBEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBEditarActionPerformed(evt);
-            }
-        });
-
-        jBEliminar.setBackground(new java.awt.Color(0, 153, 153));
-        jBEliminar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jBEliminar.setForeground(new java.awt.Color(255, 255, 255));
-        jBEliminar.setText("ELIMINAR");
-        jBEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBEliminarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPContenedorBotonesLayout = new javax.swing.GroupLayout(jPContenedorBotones);
         jPContenedorBotones.setLayout(jPContenedorBotonesLayout);
         jPContenedorBotonesLayout.setHorizontalGroup(
             jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPContenedorBotonesLayout.createSequentialGroup()
-                .addGap(248, 248, 248)
-                .addComponent(jBEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(105, 105, 105)
-                .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(204, Short.MAX_VALUE))
+            .addGap(0, 747, Short.MAX_VALUE)
         );
         jPContenedorBotonesLayout.setVerticalGroup(
             jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPContenedorBotonesLayout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addGroup(jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+            .addGap(0, 128, Short.MAX_VALUE)
         );
 
         jPContenedorFormulario.setBackground(new java.awt.Color(204, 204, 204));
@@ -171,31 +141,41 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
 
         txtDesc.setBackground(new java.awt.Color(204, 204, 204));
 
-        btnGuardar.setBackground(new java.awt.Color(0, 153, 153));
-        btnGuardar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnGuardar.setText("GUARDAR");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+        btnEditar.setBackground(new java.awt.Color(255, 255, 255));
+        btnEditar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/4735348.png"))); // NOI18N
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
+                btnEditarActionPerformed(evt);
             }
         });
 
-        btnAgregar.setBackground(new java.awt.Color(0, 153, 153));
+        btnAgregar.setBackground(new java.awt.Color(255, 255, 255));
         btnAgregar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
-        btnAgregar.setText("AGREGAR");
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/plus-pequeno(1).png"))); // NOI18N
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
             }
         });
 
-        btnLimpiar.setBackground(new java.awt.Color(0, 153, 153));
+        btnLimpiar.setBackground(new java.awt.Color(255, 255, 255));
         btnLimpiar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnLimpiar.setText("LIMPIAR");
+        btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/escoba(1).png"))); // NOI18N
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
+            }
+        });
+
+        jBEliminar.setBackground(new java.awt.Color(255, 255, 255));
+        jBEliminar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jBEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        jBEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/bote-de-basura(1).png"))); // NOI18N
+        jBEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminarActionPerformed(evt);
             }
         });
 
@@ -204,38 +184,40 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
         jPContenedorFormularioLayout.setHorizontalGroup(
             jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLFormDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(71, Short.MAX_VALUE))
-            .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
-                    .addGap(59, 59, 59)
-                    .addComponent(btnLimpiar)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGuardar)
-                    .addGap(59, 59, 59)))
+                .addGap(34, 34, 34)
+                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
+                        .addComponent(jBEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLFormDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         jPContenedorFormularioLayout.setVerticalGroup(
             jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorFormularioLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLFormDesc)
                     .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(133, Short.MAX_VALUE))
-            .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
-                    .addGap(76, 76, 76)
-                    .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(77, Short.MAX_VALUE)))
+                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorFormularioLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAgregar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(btnEditar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(btnLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE))))
+                .addGap(43, 43, 43))
         );
 
         javax.swing.GroupLayout jPContenedorGeneralLayout = new javax.swing.GroupLayout(jPContenedorGeneral);
@@ -251,7 +233,7 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
                         .addComponent(jPContenedorTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPContenedorFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(47, 47, 47))
+                .addGap(356, 356, 356))
         );
         jPContenedorGeneralLayout.setVerticalGroup(
             jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,7 +246,7 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPContenedorTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
-                        .addGap(97, 97, 97)
+                        .addGap(94, 94, 94)
                         .addComponent(jPContenedorFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -273,7 +255,7 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 818, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,31 +266,6 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
-        // TODO add your handling code here:
-
-        //  Controlar que la tabla no este vacia
-        if (tablaTipoPropiedades.getRowCount() > 0) {  // controlamos que la tabla no este vacia o sea que haya mas de un registro
-            // Controlar que la columna este seleccionada
-            if (tablaTipoPropiedades.getSelectedRow() != -1) { // -1 significa que no hay ninguna seleccionada
-
-                // DESHABILITO EL BOTON AGREGAR SI SELECCIONO UINO
-                btnAgregar.setEnabled(false);
-                btnGuardar.setEnabled(true);
-
-                String descripcionSelecionada = String.valueOf(tablaTipoPropiedades.getValueAt(tablaTipoPropiedades.getSelectedRow(), 1));
-                txtDesc.setText(descripcionSelecionada);
-
-            } else {
-                mostrarMensaje("No se ha seleccionado ninguna fila", "Error", "Error al no seleccionar");
-            }
-        } else {
-            mostrarMensaje("La tabla se encuentra vacia", "Error", "Tabla Vacia");
-        }
-
-
-    }//GEN-LAST:event_jBEditarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
@@ -337,50 +294,88 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jBEliminarActionPerformed
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
-        String descripcionTipo = txtDesc.getText();
 
-        int idTipoPropiedadSeleccionado = 0;
-        if (tablaTipoPropiedades.getSelectedRow() != -1) { // -1 significa que no hay ninguna seleccionada
+        try {
 
-            // explicacion ----- getValueAt (traeme el valor de ) la fila seleccionada y la columna 0; pasamos a String porque lo trae en forma de objeto y a ese string lo pasamos a int
-            idTipoPropiedadSeleccionado = Integer.parseInt(String.valueOf(tablaTipoPropiedades.getValueAt(tablaTipoPropiedades.getSelectedRow(), 0)));
+            int idTipoPropiedadSeleccionado = 0;
+            if (tablaTipoPropiedades.getSelectedRow() != -1) { // -1 significa que no hay ninguna seleccionada
+                idTipoPropiedadSeleccionado = Integer.parseInt(String.valueOf(tablaTipoPropiedades.getValueAt(tablaTipoPropiedades.getSelectedRow(), 0)));
+            }
+            String descripcionTipo = txtDesc.getText();
+            if (descripcionTipo.isBlank()) {
+                mostrarMensaje("Por favor complete el campo de descripcion", "Error", "Error completar campo descripcion");
+            } else {
+                controlLogica.modificarTipoPropiedad(idTipoPropiedadSeleccionado, descripcionTipo);
+                mostrarMensaje("TipoPropiedad Modificada Correctamente", "Info", "Se ha modificado la propiedad con exito");
+                CargarTablaTipoPropiedades();
+                txtDesc.setText("");
+                btnAgregar.setEnabled(true);
+                btnEditar.setEnabled(false);
+            }
+        } catch (Exception e) {
+            mostrarMensaje("Error al editar", "Error", "Error al editar");
+
         }
-
-        controlLogica.modificarTipoPropiedad(idTipoPropiedadSeleccionado, descripcionTipo);
-        mostrarMensaje("TipoPropiedad Modificada Correctamente", "Info", "Se ha modificado la propiedad con exito");
-        CargarTablaTipoPropiedades();
-        btnLimpiar.doClick();
-
-    }//GEN-LAST:event_btnGuardarActionPerformed
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
-        // TODO add your handling code here:
-        String descripcionTipo = txtDesc.getText();
 
-        controlLogica.agregarTipoPropiedad(descripcionTipo);
-        mostrarMensaje("Tipo Propiedad Agregado Correctamente", "Info", "Se ha agregado con exito"); // Llama al metodo Mostrar Mensaje
+        try {
+            String descripcionTipo = txtDesc.getText();
+            if (descripcionTipo.isBlank()) {
+                mostrarMensaje("Por favor complete el campo de descripcion", "Error", "Error completar campo descripcion");
+            } else {
+                controlLogica.agregarTipoPropiedad(descripcionTipo);
+                mostrarMensaje("Tipo Propiedad Agregado Correctamente", "Info", "Se ha agregado con exito");
+                CargarTablaTipoPropiedades();
+                txtDesc.setText("");
+                btnAgregar.setEnabled(true);
+                btnEditar.setEnabled(false);
+            }
 
-        CargarTablaTipoPropiedades();
+        } catch (Exception e) {
+            mostrarMensaje("Error al agregar", "Error", "Error al agregar");
+
+        }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
-    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        // TODO add your handling code here:
-        txtDesc.setText("");
+    private void completeInputsOnSelectRow() {
+        tablaTipoPropiedades.getSelectionModel().addListSelectionListener(row -> {
+            if (!row.getValueIsAdjusting()) { // lo selecciona solo cuando suelta el click
+                if (tablaTipoPropiedades.getSelectedRow() != -1) {
 
-        // Habilito EL BOTON AGREGAR SI SELECCIONO UINO
+                    // DESHABILITO EL BOTON AGREGAR SI SELECCIONO UINO
+                    btnAgregar.setEnabled(false);
+                    btnEditar.setEnabled(true);
+
+                    String descripcionSelecionada = String.valueOf(tablaTipoPropiedades.getValueAt(tablaTipoPropiedades.getSelectedRow(), 1));
+                    txtDesc.setText(descripcionSelecionada);
+
+                } else {
+                    // Si no hay ninguna fila seleccionada 
+                    btnAgregar.setEnabled(true);
+                    btnEditar.setEnabled(false); 
+                    txtDesc.setText("");
+
+                }
+            }
+        });
+    }
+
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        txtDesc.setText("");
         btnAgregar.setEnabled(true);
-        btnGuardar.setEnabled(false);
+        btnEditar.setEnabled(false);
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnLimpiar;
-    private javax.swing.JButton jBEditar;
     private javax.swing.JButton jBEliminar;
     private javax.swing.JLabel jLFormDesc;
     private javax.swing.JLabel jLTitulo;
@@ -397,7 +392,6 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
     private void CargarTablaTipoPropiedades() {
         // SETEAR MODELO TABLA
         DefaultTableModel modeloTablaTipoPropiedades = new DefaultTableModel() {
-
             // que fila y columnas no sea editable
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -410,19 +404,12 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
 
         // traer propiedades
         List<TipoPropiedad> listaTipoPropiedades = controlLogica.traerTipoPropiedades();
-
-        String variableVendida = "";
         if (listaTipoPropiedades != null) {
-
             for (TipoPropiedad tipoPropiedad : listaTipoPropiedades) {
-
                 Object[] objeto = {tipoPropiedad.getIdTipoPropiedad(), tipoPropiedad.getDescripcion()};
-
                 modeloTablaTipoPropiedades.addRow(objeto);
-
             }
         }
-
         tablaTipoPropiedades.setModel(modeloTablaTipoPropiedades);
     }
 
