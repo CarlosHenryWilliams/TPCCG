@@ -162,19 +162,19 @@ public class Principal extends javax.swing.JFrame {
     private void jBVerFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVerFacturasActionPerformed
         VerFacturas verFacturas = new VerFacturas();
         verFacturas.setVisible(true);
-        verFacturas.setLocationRelativeTo(null); // centra al medio la interfaz
+        verFacturas.setLocationRelativeTo(null);
     }//GEN-LAST:event_jBVerFacturasActionPerformed
 
     private void jBClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBClientesActionPerformed
         VerClientes verClientes = new VerClientes();
         verClientes.setVisible(true);
-        verClientes.setLocationRelativeTo(null); // centra al medio la interfaz
+        verClientes.setLocationRelativeTo(null);
     }//GEN-LAST:event_jBClientesActionPerformed
 
     private void jBAdministrarTipoPropiedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAdministrarTipoPropiedadesActionPerformed
         VerTipoPropiedades verTipoPropiedades = new VerTipoPropiedades();
         verTipoPropiedades.setVisible(true);
-        verTipoPropiedades.setLocationRelativeTo(null); // centra al medio la interfaz
+        verTipoPropiedades.setLocationRelativeTo(null);
     }//GEN-LAST:event_jBAdministrarTipoPropiedadesActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

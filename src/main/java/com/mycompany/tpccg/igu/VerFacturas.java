@@ -6,15 +6,23 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class VerFacturas extends javax.swing.JFrame {
-  ControladoraLogica controlLogica;
 
-  public VerFacturas() {
-    initComponents();
-    controlLogica = new ControladoraLogica();
-    setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-  }
-  
-  @SuppressWarnings("unchecked")
+    ControladoraLogica controlLogica;
+
+    private void refreshTableFacturas() {
+        new Thread(() -> {
+            CargarTablaFacturas();
+        }).start();
+    }
+
+    public VerFacturas() {
+        initComponents();
+        controlLogica = new ControladoraLogica();
+
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }
+
+    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -124,7 +132,7 @@ public class VerFacturas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-      CargarTablaFacturas();
+        refreshTableFacturas();
     }//GEN-LAST:event_formWindowOpened
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -136,42 +144,42 @@ public class VerFacturas extends javax.swing.JFrame {
     private javax.swing.JTable tablaFacturas;
     // End of variables declaration//GEN-END:variables
 
-  private void CargarTablaFacturas() {
-    DefaultTableModel modeloTablaFacturas =   new DefaultTableModel() {
-      @Override
-      public boolean isCellEditable(int row, int column) {
-        return false;
-      }
-    };
-    
-    // setear nombre de las columnas
-    String nombreColumnas[] = {"IdFactura", "NombreComprador", "DNI", "IdPropiedad", "Direccion", "TipoPropiedad", "Ambientes", "Precio", "Fecha"};
-    modeloTablaFacturas.setColumnIdentifiers(nombreColumnas);
-
-    // traer propiedades
-    List<Factura> listaFacturas = controlLogica.traerFacturas(); 
-
-    if (listaFacturas != null) {
-      for (Factura factura : listaFacturas) {
-        String[] partes = factura.getCompradorAsig().getNombreCompleto().split(";");
-        String firstname = partes.length > 0 ? partes[0] : "";
-        String lastname = partes.length > 1 ? partes[1] : "";
-
-        Object[] objeto = { 
-          factura.getIdFactura(), 
-          firstname + " " + lastname, 
-          factura.getCompradorAsig().getDNI(), 
-          factura.getPropiedadAsig().getIdPropiedad(), 
-          factura.getPropiedadAsig().getDireccion(),
-          factura.getPropiedadAsig().getTipoPropiedad().getDescripcion(), 
-          factura.getPropiedadAsig().getAmbientes(), 
-          factura.getPropiedadAsig().getPrecio(), 
-          factura.getFechaEmision()
+    private void CargarTablaFacturas() {
+        DefaultTableModel modeloTablaFacturas = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
         };
-        
-        modeloTablaFacturas.addRow(objeto); // agrega
-      }
+
+        // setear nombre de las columnas
+        String nombreColumnas[] = {"IdFactura", "NombreComprador", "DNI", "IdPropiedad", "Direccion", "TipoPropiedad", "Ambientes", "Precio", "Fecha"};
+        modeloTablaFacturas.setColumnIdentifiers(nombreColumnas);
+
+        // traer propiedades
+        List<Factura> listaFacturas = controlLogica.traerFacturas();
+
+        if (listaFacturas != null) {
+            for (Factura factura : listaFacturas) {
+                String[] partes = factura.getCompradorAsig().getNombreCompleto().split(";");
+                String firstname = partes.length > 0 ? partes[0] : "";
+                String lastname = partes.length > 1 ? partes[1] : "";
+
+                Object[] objeto = {
+                    factura.getIdFactura(),
+                    firstname + " " + lastname,
+                    factura.getCompradorAsig().getDNI(),
+                    factura.getPropiedadAsig().getIdPropiedad(),
+                    factura.getPropiedadAsig().getDireccion(),
+                    factura.getPropiedadAsig().getTipoPropiedad().getDescripcion(),
+                    factura.getPropiedadAsig().getAmbientes(),
+                    factura.getPropiedadAsig().getPrecio(),
+                    factura.getFechaEmision()
+                };
+
+                modeloTablaFacturas.addRow(objeto); // agrega
+            }
+        }
+        tablaFacturas.setModel(modeloTablaFacturas);
     }
-    tablaFacturas.setModel(modeloTablaFacturas);
-  }
 }

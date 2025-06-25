@@ -5,10 +5,8 @@ import com.mycompany.tpccg.model.Cliente;
 import com.mycompany.tpccg.model.Factura;
 import com.mycompany.tpccg.model.Propiedad;
 import com.mycompany.tpccg.model.TipoPropiedad;
-import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 public class ControladoraControllers {
 
@@ -17,11 +15,24 @@ public class ControladoraControllers {
     FacturaJpaController facturaJPA = new FacturaJpaController();
     TipoPropiedadJpaController tipoPropiJPA = new TipoPropiedadJpaController();
 
+    // FACTURAS
     public void ventaPropiedad(Factura factura) {
         facturaJPA.create(factura);
     }
 
+    public List<Factura> traerFacturas() {
+        return facturaJPA.findFacturaEntities();
+    }
+
     // PROPIEDADES
+    public void venderPropiedadBooleanTrue(Propiedad propi) {
+        try {
+            propiedadJPA.edit(propi);
+        } catch (Exception ex) {
+            System.out.println("Ha ocurrido un error al modificar el tipo de propiedad: " + ex.getMessage());
+        }
+    }
+
     public List<Propiedad> traerPropiedades() {
         return propiedadJPA.findPropiedadEntities();
     }
@@ -48,11 +59,6 @@ public class ControladoraControllers {
         } catch (Exception ex) {
             System.out.println("Ha ocurrido un error al modificar la propiedad: " + ex.getMessage());
         }
-    }
-
-    // FACTURAS
-    public List<Factura> traerFacturas() {
-        return facturaJPA.findFacturaEntities();
     }
 
     // TIPO PROPIEDADES
@@ -90,13 +96,4 @@ public class ControladoraControllers {
         return clienteJPA.findClienteByDNI(dniIngresado);
 
     }
-
-    public void venderPropiedadBooleanTrue(Propiedad propi) {
-        try {
-            propiedadJPA.edit(propi);
-        } catch (Exception ex) {
-            System.out.println("Ha ocurrido un error al modificar el tipo de propiedad: " + ex.getMessage());
-        }
-    }
-
 }
