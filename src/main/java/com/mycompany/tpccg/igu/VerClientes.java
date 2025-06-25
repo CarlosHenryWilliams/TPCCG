@@ -67,7 +67,7 @@ public class VerClientes extends javax.swing.JFrame {
   private void refreshInputsAndButtons() {
     this.IDCliente = -1;
     createBtn.setEnabled(true);
-    refreshInputs.setEnabled(false);
+    refreshInputs.setEnabled(true);
     deleteBtn.setEnabled(false);
     editBtn.setEnabled(false);
     FirstNameInput.setText("");
@@ -85,311 +85,276 @@ public class VerClientes extends javax.swing.JFrame {
   }
 
   @SuppressWarnings("unchecked")
-  // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-  private void initComponents() {
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
-    jPContenedorGeneral = new javax.swing.JPanel();
-    jPHeader = new javax.swing.JPanel();
-    jLTitulo = new javax.swing.JLabel();
-    closeBtn = new javax.swing.JButton();
-    jPContenedorTabla = new javax.swing.JPanel();
-    jScrollPane1 = new javax.swing.JScrollPane();
-    clientTable = new javax.swing.JTable();
-    jPContenedorBotones = new javax.swing.JPanel();
-    FirstNameLabel = new javax.swing.JLabel();
-    FirstNameInput = new javax.swing.JTextField();
-    FirstNameLabel1 = new javax.swing.JLabel();
-    LastNameInput = new javax.swing.JTextField();
-    FirstNameLabel2 = new javax.swing.JLabel();
-    dniInput = new javax.swing.JTextField();
-    editBtn = new javax.swing.JButton();
-    deleteBtn = new javax.swing.JButton();
-    createBtn = new javax.swing.JButton();
-    refreshInputs = new javax.swing.JButton();
-    LabelResultData = new javax.swing.JLabel();
+        jPContenedorGeneral = new javax.swing.JPanel();
+        jPHeader = new javax.swing.JPanel();
+        jLTitulo = new javax.swing.JLabel();
+        jPContenedorTabla = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        clientTable = new javax.swing.JTable();
+        jPContenedorFormulario = new javax.swing.JPanel();
+        FirstNameInput = new javax.swing.JTextField();
+        FirstNameLabel = new javax.swing.JLabel();
+        LastNameInput = new javax.swing.JTextField();
+        FirstNameLabel1 = new javax.swing.JLabel();
+        FirstNameLabel2 = new javax.swing.JLabel();
+        dniInput = new javax.swing.JTextField();
+        deleteBtn = new javax.swing.JButton();
+        refreshInputs = new javax.swing.JButton();
+        editBtn = new javax.swing.JButton();
+        createBtn = new javax.swing.JButton();
+        LabelResultData = new javax.swing.JLabel();
 
-    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-    jPContenedorGeneral.setBackground(new java.awt.Color(204, 204, 204));
+        jPContenedorGeneral.setBackground(new java.awt.Color(255, 255, 255));
 
-    jPHeader.setBackground(new java.awt.Color(0, 153, 153));
-    jPHeader.setPreferredSize(new java.awt.Dimension(428, 110));
+        jPHeader.setBackground(new java.awt.Color(0, 153, 153));
+        jPHeader.setPreferredSize(new java.awt.Dimension(428, 110));
 
-    jLTitulo.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-    jLTitulo.setForeground(new java.awt.Color(255, 255, 255));
-    jLTitulo.setText("CLIENTES");
+        jLTitulo.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        jLTitulo.setText("CLIENTES");
 
-    closeBtn.setBackground(new java.awt.Color(102, 102, 102));
-    closeBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-    closeBtn.setText("Cerrar");
-    closeBtn.setBorderPainted(false);
-    closeBtn.setFocusPainted(false);
-    closeBtn.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        closeBtnActionPerformed(evt);
-      }
-    });
-
-    javax.swing.GroupLayout jPHeaderLayout = new javax.swing.GroupLayout(jPHeader);
-    jPHeader.setLayout(jPHeaderLayout);
-    jPHeaderLayout.setHorizontalGroup(
-      jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPHeaderLayout.createSequentialGroup()
-        .addContainerGap()
-        .addComponent(closeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(jLTitulo)
-        .addGap(347, 347, 347))
-    );
-    jPHeaderLayout.setVerticalGroup(
-      jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(jPHeaderLayout.createSequentialGroup()
-        .addGroup(jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addGroup(jPHeaderLayout.createSequentialGroup()
-            .addGap(18, 18, 18)
-            .addComponent(jLTitulo))
-          .addGroup(jPHeaderLayout.createSequentialGroup()
-            .addContainerGap()
-            .addComponent(closeBtn)))
-        .addContainerGap(28, Short.MAX_VALUE))
-    );
-
-    jPContenedorTabla.setBackground(new java.awt.Color(204, 204, 204));
-    jPContenedorTabla.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-    jScrollPane1.setBackground(new java.awt.Color(204, 204, 204));
-
-    clientTable.setModel(new javax.swing.table.DefaultTableModel(
-      new Object [][] {
-        {null, null, null, null},
-        {null, null, null, null},
-        {null, null, null, null},
-        {null, null, null, null}
-      },
-      new String [] {
-        "IDCliente", "Nombre", "Apellido", "DNI"
-      }
-    ) {
-      Class[] types = new Class [] {
-        java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-      };
-      boolean[] canEdit = new boolean [] {
-        false, false, false, false
-      };
-
-      public Class getColumnClass(int columnIndex) {
-        return types [columnIndex];
-      }
-
-      public boolean isCellEditable(int rowIndex, int columnIndex) {
-        return canEdit [columnIndex];
-      }
-    });
-    clientTable.setSelectionBackground(new java.awt.Color(204, 204, 204));
-    jScrollPane1.setViewportView(clientTable);
-    if (clientTable.getColumnModel().getColumnCount() > 0) {
-      clientTable.getColumnModel().getColumn(0).setMinWidth(0);
-      clientTable.getColumnModel().getColumn(0).setMaxWidth(0);
-    }
-
-    javax.swing.GroupLayout jPContenedorTablaLayout = new javax.swing.GroupLayout(jPContenedorTabla);
-    jPContenedorTabla.setLayout(jPContenedorTablaLayout);
-    jPContenedorTablaLayout.setHorizontalGroup(
-      jPContenedorTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
-    );
-    jPContenedorTablaLayout.setVerticalGroup(
-      jPContenedorTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-    );
-
-    jPContenedorBotones.setBackground(new java.awt.Color(204, 204, 204));
-
-    javax.swing.GroupLayout jPContenedorBotonesLayout = new javax.swing.GroupLayout(jPContenedorBotones);
-    jPContenedorBotones.setLayout(jPContenedorBotonesLayout);
-    jPContenedorBotonesLayout.setHorizontalGroup(
-      jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 0, Short.MAX_VALUE)
-    );
-    jPContenedorBotonesLayout.setVerticalGroup(
-      jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 130, Short.MAX_VALUE)
-    );
-
-    FirstNameLabel.setBackground(new java.awt.Color(0, 0, 0));
-    FirstNameLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-    FirstNameLabel.setForeground(new java.awt.Color(0, 0, 0));
-    FirstNameLabel.setText("Nombre");
-
-    FirstNameInput.setBackground(new java.awt.Color(255, 255, 255));
-    FirstNameInput.setForeground(new java.awt.Color(0, 0, 0));
-    FirstNameInput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-    FirstNameLabel1.setBackground(new java.awt.Color(0, 0, 0));
-    FirstNameLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-    FirstNameLabel1.setForeground(new java.awt.Color(0, 0, 0));
-    FirstNameLabel1.setText("Apellido");
-
-    LastNameInput.setBackground(new java.awt.Color(255, 255, 255));
-    LastNameInput.setForeground(new java.awt.Color(0, 0, 0));
-    LastNameInput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-    FirstNameLabel2.setBackground(new java.awt.Color(0, 0, 0));
-    FirstNameLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-    FirstNameLabel2.setForeground(new java.awt.Color(0, 0, 0));
-    FirstNameLabel2.setText("DNI");
-
-    dniInput.setBackground(new java.awt.Color(255, 255, 255));
-    dniInput.setForeground(new java.awt.Color(0, 0, 0));
-    dniInput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-    editBtn.setBackground(new java.awt.Color(0, 153, 153));
-    editBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-    editBtn.setText("Editar");
-    editBtn.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        editBtnActionPerformed(evt);
-      }
-    });
-
-    deleteBtn.setBackground(new java.awt.Color(0, 153, 153));
-    deleteBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-    deleteBtn.setText("Eliminar");
-    deleteBtn.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        deleteBtnActionPerformed(evt);
-      }
-    });
-
-    createBtn.setBackground(new java.awt.Color(0, 153, 153));
-    createBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-    createBtn.setText("Crear");
-    createBtn.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        createBtnActionPerformed(evt);
-      }
-    });
-
-    refreshInputs.setBackground(new java.awt.Color(0, 153, 153));
-    refreshInputs.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-    refreshInputs.setText("Limpiar");
-    refreshInputs.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        refreshInputsActionPerformed(evt);
-      }
-    });
-
-    LabelResultData.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-    LabelResultData.setForeground(new java.awt.Color(0, 0, 0));
-    LabelResultData.setText("jLabel1");
-
-    javax.swing.GroupLayout jPContenedorGeneralLayout = new javax.swing.GroupLayout(jPContenedorGeneral);
-    jPContenedorGeneral.setLayout(jPContenedorGeneralLayout);
-    jPContenedorGeneralLayout.setHorizontalGroup(
-      jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
-        .addContainerGap()
-        .addComponent(jPContenedorTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(18, 18, 18)
-        .addGroup(jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
-            .addGroup(jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(FirstNameLabel)
-              .addComponent(FirstNameLabel1)
-              .addComponent(FirstNameLabel2))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(dniInput, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-              .addComponent(FirstNameInput, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(LastNameInput, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(jPContenedorBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-          .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
-            .addGroup(jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(LabelResultData)
-              .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
-                .addComponent(refreshInputs, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(createBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGap(0, 12, Short.MAX_VALUE)))
-        .addContainerGap())
-      .addComponent(jPHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 917, Short.MAX_VALUE)
-    );
-    jPContenedorGeneralLayout.setVerticalGroup(
-      jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorGeneralLayout.createSequentialGroup()
-        .addComponent(jPHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGroup(jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
-            .addGap(59, 59, 59)
-            .addGroup(jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
-                .addComponent(jPContenedorBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-              .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
-                .addGroup(jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                  .addComponent(FirstNameLabel)
-                  .addComponent(FirstNameInput))
-                .addGap(27, 27, 27)
-                .addGroup(jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                  .addComponent(FirstNameLabel1)
-                  .addComponent(LastNameInput))
-                .addGap(27, 27, 27)
-                .addGroup(jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                  .addComponent(FirstNameLabel2)
-                  .addComponent(dniInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addGroup(jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                  .addComponent(refreshInputs)
-                  .addComponent(deleteBtn)
-                  .addComponent(editBtn)
-                  .addComponent(createBtn))
+        javax.swing.GroupLayout jPHeaderLayout = new javax.swing.GroupLayout(jPHeader);
+        jPHeader.setLayout(jPHeaderLayout);
+        jPHeaderLayout.setHorizontalGroup(
+            jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPHeaderLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLTitulo)
+                .addGap(368, 368, 368))
+        );
+        jPHeaderLayout.setVerticalGroup(
+            jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPHeaderLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
+                .addComponent(jLTitulo)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        jPContenedorTabla.setBackground(new java.awt.Color(255, 255, 255));
+        jPContenedorTabla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+
+        jScrollPane1.setBackground(new java.awt.Color(204, 204, 204));
+
+        clientTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "IDCliente", "Nombre", "Apellido", "DNI"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        clientTable.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        jScrollPane1.setViewportView(clientTable);
+        if (clientTable.getColumnModel().getColumnCount() > 0) {
+            clientTable.getColumnModel().getColumn(0).setMinWidth(0);
+            clientTable.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
+
+        javax.swing.GroupLayout jPContenedorTablaLayout = new javax.swing.GroupLayout(jPContenedorTabla);
+        jPContenedorTabla.setLayout(jPContenedorTablaLayout);
+        jPContenedorTablaLayout.setHorizontalGroup(
+            jPContenedorTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPContenedorTablaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPContenedorTablaLayout.setVerticalGroup(
+            jPContenedorTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPContenedorTablaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPContenedorFormulario.setBackground(new java.awt.Color(255, 255, 255));
+        jPContenedorFormulario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+
+        FirstNameInput.setBackground(new java.awt.Color(255, 255, 255));
+        FirstNameInput.setForeground(new java.awt.Color(0, 0, 0));
+        FirstNameInput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        FirstNameInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FirstNameInputActionPerformed(evt);
+            }
+        });
+
+        FirstNameLabel.setBackground(new java.awt.Color(0, 0, 0));
+        FirstNameLabel.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        FirstNameLabel.setForeground(new java.awt.Color(0, 0, 0));
+        FirstNameLabel.setText("Nombre");
+
+        LastNameInput.setBackground(new java.awt.Color(255, 255, 255));
+        LastNameInput.setForeground(new java.awt.Color(0, 0, 0));
+        LastNameInput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        FirstNameLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        FirstNameLabel1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        FirstNameLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        FirstNameLabel1.setText("Apellido");
+
+        FirstNameLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        FirstNameLabel2.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        FirstNameLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        FirstNameLabel2.setText("DNI");
+
+        dniInput.setBackground(new java.awt.Color(255, 255, 255));
+        dniInput.setForeground(new java.awt.Color(0, 0, 0));
+        dniInput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        deleteBtn.setBackground(new java.awt.Color(255, 255, 255));
+        deleteBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        deleteBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/bote-de-basura(1).png"))); // NOI18N
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtnActionPerformed(evt);
+            }
+        });
+
+        refreshInputs.setBackground(new java.awt.Color(255, 255, 255));
+        refreshInputs.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        refreshInputs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/escoba(1).png"))); // NOI18N
+        refreshInputs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshInputsActionPerformed(evt);
+            }
+        });
+
+        editBtn.setBackground(new java.awt.Color(255, 255, 255));
+        editBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        editBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/4735348.png"))); // NOI18N
+        editBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editBtnActionPerformed(evt);
+            }
+        });
+
+        createBtn.setBackground(new java.awt.Color(255, 255, 255));
+        createBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        createBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/plus-pequeno(1).png"))); // NOI18N
+        createBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createBtnActionPerformed(evt);
+            }
+        });
+
+        LabelResultData.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        LabelResultData.setForeground(new java.awt.Color(0, 0, 0));
+        LabelResultData.setText("jLabel1");
+
+        javax.swing.GroupLayout jPContenedorFormularioLayout = new javax.swing.GroupLayout(jPContenedorFormulario);
+        jPContenedorFormulario.setLayout(jPContenedorFormularioLayout);
+        jPContenedorFormularioLayout.setHorizontalGroup(
+            jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LabelResultData)
+                    .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
+                        .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(refreshInputs, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(createBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
+                        .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(FirstNameLabel)
+                            .addComponent(FirstNameLabel1)
+                            .addComponent(FirstNameLabel2))
+                        .addGap(52, 52, 52)
+                        .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LastNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(FirstNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dniInput, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+        jPContenedorFormularioLayout.setVerticalGroup(
+            jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FirstNameLabel)
+                    .addComponent(FirstNameInput))
+                .addGap(20, 20, 20)
+                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FirstNameLabel1)
+                    .addComponent(LastNameInput))
+                .addGap(20, 20, 20)
+                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FirstNameLabel2)
+                    .addComponent(dniInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(refreshInputs, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addComponent(LabelResultData)
-                .addGap(57, 57, 57))))
-          .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jPContenedorTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(0, 0, Short.MAX_VALUE))))
-    );
+                .addGap(50, 50, 50))
+        );
 
-    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-    getContentPane().setLayout(layout);
-    layout.setHorizontalGroup(
-      layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-    );
-    layout.setVerticalGroup(
-      layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-    );
+        javax.swing.GroupLayout jPContenedorGeneralLayout = new javax.swing.GroupLayout(jPContenedorGeneral);
+        jPContenedorGeneral.setLayout(jPContenedorGeneralLayout);
+        jPContenedorGeneralLayout.setHorizontalGroup(
+            jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPContenedorTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPContenedorFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+            .addComponent(jPHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 951, Short.MAX_VALUE)
+        );
+        jPContenedorGeneralLayout.setVerticalGroup(
+            jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorGeneralLayout.createSequentialGroup()
+                .addComponent(jPHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addGroup(jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPContenedorFormulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPContenedorTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 50, Short.MAX_VALUE))
+        );
 
-    pack();
-  }// </editor-fold>//GEN-END:initComponents
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
-  private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
-    if(!validateDataInputs(FirstNameInput.getText(), LastNameInput.getText(), dniInput.getText())) {
-      return;
-    }
-    Cliente client = new Cliente();
-    client.setNombreCompleto(FirstNameInput.getText() + ";" + LastNameInput.getText());
-    client.setIdCliente(IDCliente);
-    client.setDNI(dniInput.getText());
-    try {
-      clientController.edit(client);
-      setResultLabelStyle(true, "Cliente guardado correctamente", Color.GREEN);
-      refreshTableClients();
-      refreshInputsAndButtons();
-    } catch (Exception e) {
-      setResultLabelStyle(true, "Error al guardar el cliente", Color.red);
-    } 
-  }//GEN-LAST:event_editBtnActionPerformed
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
 
   private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
     try {
@@ -419,33 +384,50 @@ public class VerClientes extends javax.swing.JFrame {
     }
   }//GEN-LAST:event_createBtnActionPerformed
 
-  private void refreshInputsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshInputsActionPerformed
-    refreshInputsAndButtons();
-  }//GEN-LAST:event_refreshInputsActionPerformed
+    private void refreshInputsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshInputsActionPerformed
+        refreshInputsAndButtons();
+    }//GEN-LAST:event_refreshInputsActionPerformed
 
-  private void closeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtnActionPerformed
-    this.dispose();
-  }//GEN-LAST:event_closeBtnActionPerformed
+    private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
+        if(!validateDataInputs(FirstNameInput.getText(), LastNameInput.getText(), dniInput.getText())) {
+            return;
+        }
+        Cliente client = new Cliente();
+        client.setNombreCompleto(FirstNameInput.getText() + ";" + LastNameInput.getText());
+        client.setIdCliente(IDCliente);
+        client.setDNI(dniInput.getText());
+        try {
+            clientController.edit(client);
+            setResultLabelStyle(true, "Cliente guardado correctamente", Color.GREEN);
+            refreshTableClients();
+            refreshInputsAndButtons();
+        } catch (Exception e) {
+            setResultLabelStyle(true, "Error al guardar el cliente", Color.red);
+        }
+    }//GEN-LAST:event_editBtnActionPerformed
 
-  // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JTextField FirstNameInput;
-  private javax.swing.JLabel FirstNameLabel;
-  private javax.swing.JLabel FirstNameLabel1;
-  private javax.swing.JLabel FirstNameLabel2;
-  private javax.swing.JLabel LabelResultData;
-  private javax.swing.JTextField LastNameInput;
-  private javax.swing.JTable clientTable;
-  private javax.swing.JButton closeBtn;
-  private javax.swing.JButton createBtn;
-  private javax.swing.JButton deleteBtn;
-  private javax.swing.JTextField dniInput;
-  private javax.swing.JButton editBtn;
-  private javax.swing.JLabel jLTitulo;
-  private javax.swing.JPanel jPContenedorBotones;
-  private javax.swing.JPanel jPContenedorGeneral;
-  private javax.swing.JPanel jPContenedorTabla;
-  private javax.swing.JPanel jPHeader;
-  private javax.swing.JScrollPane jScrollPane1;
-  private javax.swing.JButton refreshInputs;
-  // End of variables declaration//GEN-END:variables
+    private void FirstNameInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirstNameInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FirstNameInputActionPerformed
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField FirstNameInput;
+    private javax.swing.JLabel FirstNameLabel;
+    private javax.swing.JLabel FirstNameLabel1;
+    private javax.swing.JLabel FirstNameLabel2;
+    private javax.swing.JLabel LabelResultData;
+    private javax.swing.JTextField LastNameInput;
+    private javax.swing.JTable clientTable;
+    private javax.swing.JButton createBtn;
+    private javax.swing.JButton deleteBtn;
+    private javax.swing.JTextField dniInput;
+    private javax.swing.JButton editBtn;
+    private javax.swing.JLabel jLTitulo;
+    private javax.swing.JPanel jPContenedorFormulario;
+    private javax.swing.JPanel jPContenedorGeneral;
+    private javax.swing.JPanel jPContenedorTabla;
+    private javax.swing.JPanel jPHeader;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton refreshInputs;
+    // End of variables declaration//GEN-END:variables
 }

@@ -16,13 +16,12 @@ public class Principal extends javax.swing.JFrame {
         jPContenedorBotones = new javax.swing.JPanel();
         jBVerFacturas = new javax.swing.JButton();
         jBVerPropiedades = new javax.swing.JButton();
-        jBSalir = new javax.swing.JButton();
         jBClientes = new javax.swing.JButton();
         jBAdministrarTipoPropiedades = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPContenedorGeneral.setBackground(new java.awt.Color(204, 204, 204));
+        jPContenedorGeneral.setBackground(new java.awt.Color(255, 255, 255));
 
         jPHeader.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -36,9 +35,9 @@ public class Principal extends javax.swing.JFrame {
         jPHeaderLayout.setHorizontalGroup(
             jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPHeaderLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(335, Short.MAX_VALUE)
                 .addComponent(jLTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(335, Short.MAX_VALUE))
         );
         jPHeaderLayout.setVerticalGroup(
             jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -48,22 +47,24 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jPContenedorBotones.setBackground(new java.awt.Color(204, 204, 204));
+        jPContenedorBotones.setBackground(new java.awt.Color(255, 255, 255));
 
-        jBVerFacturas.setBackground(new java.awt.Color(0, 153, 153));
+        jBVerFacturas.setBackground(new java.awt.Color(255, 255, 255));
         jBVerFacturas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jBVerFacturas.setForeground(new java.awt.Color(255, 255, 255));
-        jBVerFacturas.setText("FACTURAS");
+        jBVerFacturas.setForeground(new java.awt.Color(0, 0, 0));
+        jBVerFacturas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/factura.png"))); // NOI18N
+        jBVerFacturas.setText("  FACTURAS");
         jBVerFacturas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBVerFacturasActionPerformed(evt);
             }
         });
 
-        jBVerPropiedades.setBackground(new java.awt.Color(0, 153, 153));
+        jBVerPropiedades.setBackground(new java.awt.Color(255, 255, 255));
         jBVerPropiedades.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jBVerPropiedades.setForeground(new java.awt.Color(255, 255, 255));
-        jBVerPropiedades.setText("PROPIEDADES");
+        jBVerPropiedades.setForeground(new java.awt.Color(0, 0, 0));
+        jBVerPropiedades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/home.png"))); // NOI18N
+        jBVerPropiedades.setText("  PROPIEDADES");
         jBVerPropiedades.setMaximumSize(new java.awt.Dimension(103, 23));
         jBVerPropiedades.setMinimumSize(new java.awt.Dimension(103, 23));
         jBVerPropiedades.addActionListener(new java.awt.event.ActionListener() {
@@ -72,30 +73,22 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jBSalir.setBackground(new java.awt.Color(0, 153, 153));
-        jBSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jBSalir.setForeground(new java.awt.Color(255, 255, 255));
-        jBSalir.setText("SALIR");
-        jBSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBSalirActionPerformed(evt);
-            }
-        });
-
-        jBClientes.setBackground(new java.awt.Color(0, 153, 153));
+        jBClientes.setBackground(new java.awt.Color(255, 255, 255));
         jBClientes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jBClientes.setForeground(new java.awt.Color(255, 255, 255));
-        jBClientes.setText("CLIENTES");
+        jBClientes.setForeground(new java.awt.Color(0, 0, 0));
+        jBClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/usuario.png"))); // NOI18N
+        jBClientes.setText("  CLIENTES");
         jBClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBClientesActionPerformed(evt);
             }
         });
 
-        jBAdministrarTipoPropiedades.setBackground(new java.awt.Color(0, 153, 153));
-        jBAdministrarTipoPropiedades.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jBAdministrarTipoPropiedades.setForeground(new java.awt.Color(255, 255, 255));
-        jBAdministrarTipoPropiedades.setText("TIPO \nDE \nPROPIEDADES");
+        jBAdministrarTipoPropiedades.setBackground(new java.awt.Color(255, 255, 255));
+        jBAdministrarTipoPropiedades.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jBAdministrarTipoPropiedades.setForeground(new java.awt.Color(0, 0, 0));
+        jBAdministrarTipoPropiedades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/departamento.png"))); // NOI18N
+        jBAdministrarTipoPropiedades.setText("  T. PROPIEDADES");
         jBAdministrarTipoPropiedades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBAdministrarTipoPropiedadesActionPerformed(evt);
@@ -107,33 +100,27 @@ public class Principal extends javax.swing.JFrame {
         jPContenedorBotonesLayout.setHorizontalGroup(
             jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPContenedorBotonesLayout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
-                .addGroup(jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorBotonesLayout.createSequentialGroup()
-                        .addComponent(jBClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBAdministrarTipoPropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBVerFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBVerPropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorBotonesLayout.createSequentialGroup()
-                        .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(281, 281, 281))))
+                .addGap(124, 124, 124)
+                .addComponent(jBVerPropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jBAdministrarTipoPropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jBClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jBVerFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPContenedorBotonesLayout.setVerticalGroup(
             jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPContenedorBotonesLayout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addGroup(jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBVerPropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBVerFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBAdministrarTipoPropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addGap(100, 100, 100)
+                .addGroup(jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPContenedorBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jBVerPropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBAdministrarTipoPropiedades, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBVerFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(100, 100, 100))
         );
 
         javax.swing.GroupLayout jPContenedorGeneralLayout = new javax.swing.GroupLayout(jPContenedorGeneral);
@@ -141,14 +128,15 @@ public class Principal extends javax.swing.JFrame {
         jPContenedorGeneralLayout.setHorizontalGroup(
             jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPContenedorBotones, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPContenedorBotones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPContenedorGeneralLayout.setVerticalGroup(
             jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
                 .addComponent(jPHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPContenedorBotones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPContenedorBotones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -159,17 +147,11 @@ public class Principal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
-        this.dispose();        // TODO add your handling code here:
-    }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jBVerPropiedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVerPropiedadesActionPerformed
         VerPropiedades verPropiedades = new VerPropiedades();
@@ -198,7 +180,6 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBAdministrarTipoPropiedades;
     private javax.swing.JButton jBClientes;
-    private javax.swing.JButton jBSalir;
     private javax.swing.JButton jBVerFacturas;
     private javax.swing.JButton jBVerPropiedades;
     private javax.swing.JLabel jLTitulo;
