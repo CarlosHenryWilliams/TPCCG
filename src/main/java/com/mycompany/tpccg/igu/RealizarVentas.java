@@ -27,22 +27,177 @@ public class RealizarVentas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPContenedorGeneral = new javax.swing.JPanel();
+        jPHeader = new javax.swing.JPanel();
+        jLTitulo = new javax.swing.JLabel();
+        jPContenedorFormulario1 = new javax.swing.JPanel();
+        jLFormDireccion = new javax.swing.JLabel();
+        jLFormPrecio = new javax.swing.JLabel();
+        jLFormCantAmb = new javax.swing.JLabel();
+        jLFormTipoProp = new javax.swing.JLabel();
+        txtPrecio = new javax.swing.JTextField();
+        cmbCantAmbientes = new javax.swing.JComboBox<>();
+        cmbTipoPropiedad = new javax.swing.JComboBox();
+        txtDireccion = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPContenedorGeneral.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPHeader.setBackground(new java.awt.Color(0, 153, 153));
+
+        jLTitulo.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        jLTitulo.setText("REALIZAR VENTAS");
+
+        javax.swing.GroupLayout jPHeaderLayout = new javax.swing.GroupLayout(jPHeader);
+        jPHeader.setLayout(jPHeaderLayout);
+        jPHeaderLayout.setHorizontalGroup(
+            jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPHeaderLayout.createSequentialGroup()
+                .addContainerGap(454, Short.MAX_VALUE)
+                .addComponent(jLTitulo)
+                .addGap(176, 176, 176))
+        );
+        jPHeaderLayout.setVerticalGroup(
+            jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPHeaderLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLTitulo)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        jPContenedorFormulario1.setBackground(new java.awt.Color(255, 255, 255));
+        jPContenedorFormulario1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+
+        jLFormDireccion.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        jLFormDireccion.setForeground(new java.awt.Color(0, 0, 0));
+        jLFormDireccion.setText("Direccion");
+
+        jLFormPrecio.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        jLFormPrecio.setForeground(new java.awt.Color(0, 0, 0));
+        jLFormPrecio.setText("Precio");
+
+        jLFormCantAmb.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        jLFormCantAmb.setForeground(new java.awt.Color(0, 0, 0));
+        jLFormCantAmb.setText("Cant. Ambientes");
+
+        jLFormTipoProp.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        jLFormTipoProp.setForeground(new java.awt.Color(0, 0, 0));
+        jLFormTipoProp.setText("Tipo Propiedad");
+
+        txtPrecio.setBackground(new java.awt.Color(255, 255, 255));
+        txtPrecio.setForeground(new java.awt.Color(0, 0, 0));
+
+        cmbCantAmbientes.setBackground(new java.awt.Color(255, 255, 255));
+        cmbCantAmbientes.setForeground(new java.awt.Color(0, 0, 0));
+        cmbCantAmbientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        cmbCantAmbientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCantAmbientesActionPerformed(evt);
+            }
+        });
+
+        cmbTipoPropiedad.setBackground(new java.awt.Color(255, 255, 255));
+        cmbTipoPropiedad.setForeground(new java.awt.Color(0, 0, 0));
+        cmbTipoPropiedad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-" }));
+
+        txtDireccion.setBackground(new java.awt.Color(255, 255, 255));
+        txtDireccion.setForeground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPContenedorFormulario1Layout = new javax.swing.GroupLayout(jPContenedorFormulario1);
+        jPContenedorFormulario1.setLayout(jPContenedorFormulario1Layout);
+        jPContenedorFormulario1Layout.setHorizontalGroup(
+            jPContenedorFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPContenedorFormulario1Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPContenedorFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLFormDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLFormCantAmb, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLFormTipoProp, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLFormPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPContenedorFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmbCantAmbientes, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbTipoPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+        jPContenedorFormulario1Layout.setVerticalGroup(
+            jPContenedorFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPContenedorFormulario1Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPContenedorFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLFormCantAmb)
+                    .addComponent(cmbCantAmbientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPContenedorFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLFormDireccion)
+                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPContenedorFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLFormTipoProp)
+                    .addComponent(cmbTipoPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPContenedorFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLFormPrecio)
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPContenedorGeneralLayout = new javax.swing.GroupLayout(jPContenedorGeneral);
+        jPContenedorGeneral.setLayout(jPContenedorGeneralLayout);
+        jPContenedorGeneralLayout.setHorizontalGroup(
+            jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
+                .addComponent(jPContenedorFormulario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPContenedorGeneralLayout.setVerticalGroup(
+            jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
+                .addComponent(jPHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(jPContenedorFormulario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(522, 522, 522))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 257, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cmbCantAmbientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCantAmbientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbCantAmbientesActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cmbCantAmbientes;
+    private javax.swing.JComboBox cmbTipoPropiedad;
+    private javax.swing.JLabel jLFormCantAmb;
+    private javax.swing.JLabel jLFormDireccion;
+    private javax.swing.JLabel jLFormPrecio;
+    private javax.swing.JLabel jLFormTipoProp;
+    private javax.swing.JLabel jLTitulo;
+    private javax.swing.JPanel jPContenedorFormulario1;
+    private javax.swing.JPanel jPContenedorGeneral;
+    private javax.swing.JPanel jPHeader;
+    private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables
 }
