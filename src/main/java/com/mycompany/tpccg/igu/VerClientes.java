@@ -21,12 +21,6 @@ public class VerClientes extends javax.swing.JFrame {
         }).start();
     }
 
-    private void setResultLabelStyle(boolean visible, String text, Color color) {
-        LabelResultData.setVisible(visible);
-        LabelResultData.setText(text);
-        LabelResultData.setForeground(color);
-    }
-
     private boolean validateDataInputs(String firstname, String lastname, String dni) {
         if (StringUtils.isEmpty(firstname) || StringUtils.isEmpty(lastname) || StringUtils.isEmpty(dni)) {
             mostrarMensaje("Error en los datos del cliente", "Info", "Error");
@@ -87,7 +81,6 @@ public class VerClientes extends javax.swing.JFrame {
         refreshTableClients();
         completeInputsOnSelectRow();
         refreshInputsAndButtons();
-        setResultLabelStyle(false, null, null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
@@ -112,7 +105,6 @@ public class VerClientes extends javax.swing.JFrame {
         refreshInputs = new javax.swing.JButton();
         editBtn = new javax.swing.JButton();
         createBtn = new javax.swing.JButton();
-        LabelResultData = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -130,9 +122,9 @@ public class VerClientes extends javax.swing.JFrame {
         jPHeaderLayout.setHorizontalGroup(
             jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPHeaderLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(375, Short.MAX_VALUE)
                 .addComponent(jLTitulo)
-                .addGap(368, 368, 368))
+                .addGap(375, 375, 375))
         );
         jPHeaderLayout.setVerticalGroup(
             jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,7 +194,7 @@ public class VerClientes extends javax.swing.JFrame {
 
         FirstNameInput.setBackground(new java.awt.Color(255, 255, 255));
         FirstNameInput.setForeground(new java.awt.Color(0, 0, 0));
-        FirstNameInput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        FirstNameInput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         FirstNameInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FirstNameInputActionPerformed(evt);
@@ -216,7 +208,7 @@ public class VerClientes extends javax.swing.JFrame {
 
         LastNameInput.setBackground(new java.awt.Color(255, 255, 255));
         LastNameInput.setForeground(new java.awt.Color(0, 0, 0));
-        LastNameInput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        LastNameInput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
 
         FirstNameLabel1.setBackground(new java.awt.Color(0, 0, 0));
         FirstNameLabel1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -230,7 +222,7 @@ public class VerClientes extends javax.swing.JFrame {
 
         dniInput.setBackground(new java.awt.Color(255, 255, 255));
         dniInput.setForeground(new java.awt.Color(0, 0, 0));
-        dniInput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        dniInput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
 
         deleteBtn.setBackground(new java.awt.Color(255, 255, 255));
         deleteBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -268,10 +260,6 @@ public class VerClientes extends javax.swing.JFrame {
             }
         });
 
-        LabelResultData.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        LabelResultData.setForeground(new java.awt.Color(0, 0, 0));
-        LabelResultData.setText("jLabel1");
-
         javax.swing.GroupLayout jPContenedorFormularioLayout = new javax.swing.GroupLayout(jPContenedorFormulario);
         jPContenedorFormulario.setLayout(jPContenedorFormularioLayout);
         jPContenedorFormularioLayout.setHorizontalGroup(
@@ -279,7 +267,6 @@ public class VerClientes extends javax.swing.JFrame {
             .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LabelResultData)
                     .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
                         .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
@@ -321,8 +308,6 @@ public class VerClientes extends javax.swing.JFrame {
                     .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(editBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(createBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(LabelResultData)
                 .addGap(50, 50, 50))
         );
 
@@ -331,12 +316,12 @@ public class VerClientes extends javax.swing.JFrame {
         jPContenedorGeneralLayout.setHorizontalGroup(
             jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addComponent(jPContenedorTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPContenedorFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
-            .addComponent(jPHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 952, Short.MAX_VALUE)
+            .addComponent(jPHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 965, Short.MAX_VALUE)
         );
         jPContenedorGeneralLayout.setVerticalGroup(
             jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -445,7 +430,6 @@ public class VerClientes extends javax.swing.JFrame {
     private javax.swing.JLabel FirstNameLabel;
     private javax.swing.JLabel FirstNameLabel1;
     private javax.swing.JLabel FirstNameLabel2;
-    private javax.swing.JLabel LabelResultData;
     private javax.swing.JTextField LastNameInput;
     private javax.swing.JTable clientTable;
     private javax.swing.JButton createBtn;
