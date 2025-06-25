@@ -165,7 +165,7 @@ public class VerPropiedades extends javax.swing.JFrame {
         btnLimpiar.setBackground(new java.awt.Color(255, 255, 255));
         btnLimpiar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
-        btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/escoba(1).png"))); // NOI18N
+        btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/clean.png"))); // NOI18N
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
@@ -174,7 +174,7 @@ public class VerPropiedades extends javax.swing.JFrame {
 
         btnEditar.setBackground(new java.awt.Color(255, 255, 255));
         btnEditar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/4735348.png"))); // NOI18N
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/edit.png"))); // NOI18N
         btnEditar.setEnabled(false);
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,7 +185,7 @@ public class VerPropiedades extends javax.swing.JFrame {
         btnAgregar.setBackground(new java.awt.Color(255, 255, 255));
         btnAgregar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
-        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/plus-pequeno(1).png"))); // NOI18N
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/add.png"))); // NOI18N
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
@@ -198,7 +198,7 @@ public class VerPropiedades extends javax.swing.JFrame {
         btnEliminar.setBackground(new java.awt.Color(255, 255, 255));
         btnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/bote-de-basura(1).png"))); // NOI18N
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/delete.png"))); // NOI18N
         btnEliminar.setEnabled(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,8 +209,9 @@ public class VerPropiedades extends javax.swing.JFrame {
         btnVender.setBackground(new java.awt.Color(255, 255, 255));
         btnVender.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         btnVender.setForeground(new java.awt.Color(0, 0, 0));
-        btnVender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hands-and-gestures(1).png"))); // NOI18N
+        btnVender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buy.png"))); // NOI18N
         btnVender.setText("     VENTA");
+        btnVender.setEnabled(false);
         btnVender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVenderActionPerformed(evt);
@@ -348,9 +349,15 @@ public class VerPropiedades extends javax.swing.JFrame {
 
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
         // TODO add your handling code here:
-        RealizarVentas realizarVentas = new RealizarVentas();
-        realizarVentas.setVisible(true);
-        realizarVentas.setLocationRelativeTo(null); // centra al medio la interfaz
+        if (tablaPropiedades.getSelectedRow() != -1) { // -1 significa que no hay ninguna seleccionada
+
+            int idPropiedadSeleccionado = Integer.parseInt(String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 0)));
+            this.dispose();
+            RealizarVentas realizarVentas = new RealizarVentas(idPropiedadSeleccionado);
+            realizarVentas.setVisible(true);
+            realizarVentas.setLocationRelativeTo(null); // centra al medio la interfaz
+        }
+
     }//GEN-LAST:event_btnVenderActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -433,6 +440,14 @@ public class VerPropiedades extends javax.swing.JFrame {
         tablaPropiedades.getSelectionModel().addListSelectionListener(row -> {
             if (!row.getValueIsAdjusting()) { // lo selecciona solo cuando suelta el click
                 if (tablaPropiedades.getSelectedRow() != -1) {
+
+                    // ACTIVAR BOTON VENTA
+                    String esVendida = String.valueOf(tablaPropiedades.getValueAt(tablaPropiedades.getSelectedRow(), 5));
+                    if (esVendida.equals("Si")) {
+                        btnVender.setEnabled(false);
+                    } else {
+                        btnVender.setEnabled(true);
+                    }
 
                     btnAgregar.setEnabled(false);
                     btnEditar.setEnabled(true);

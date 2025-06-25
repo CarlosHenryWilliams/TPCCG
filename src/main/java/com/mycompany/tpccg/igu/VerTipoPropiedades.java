@@ -130,7 +130,7 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
 
         btnEditar.setBackground(new java.awt.Color(255, 255, 255));
         btnEditar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/4735348.png"))); // NOI18N
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/edit.png"))); // NOI18N
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
@@ -140,7 +140,7 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
         btnAgregar.setBackground(new java.awt.Color(255, 255, 255));
         btnAgregar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
-        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/plus-pequeno(1).png"))); // NOI18N
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/add.png"))); // NOI18N
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
@@ -149,7 +149,7 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
 
         btnLimpiar.setBackground(new java.awt.Color(255, 255, 255));
         btnLimpiar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/escoba(1).png"))); // NOI18N
+        btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/clean.png"))); // NOI18N
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
@@ -159,7 +159,7 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
         jBEliminar.setBackground(new java.awt.Color(255, 255, 255));
         jBEliminar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jBEliminar.setForeground(new java.awt.Color(255, 255, 255));
-        jBEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/bote-de-basura(1).png"))); // NOI18N
+        jBEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/delete.png"))); // NOI18N
         jBEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBEliminarActionPerformed(evt);
@@ -196,7 +196,7 @@ public class VerTipoPropiedades extends javax.swing.JFrame {
                     .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorFormularioLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                         .addComponent(jBEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
                         .addGap(30, 30, 30)

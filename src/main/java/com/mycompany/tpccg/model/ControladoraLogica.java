@@ -9,8 +9,10 @@ public class ControladoraLogica {
     ControladoraControllers controlControllers = new ControladoraControllers();
 
     //Vender propiedad
-    public void ventaPropiedad(Cliente cliente, Propiedad propiedad) {
-
+    public void ventaPropiedad(int idPropiedad, Cliente cliente) {
+        Propiedad propiedad = traerPropiedad(idPropiedad);
+        propiedad.setVendida(Boolean.TRUE);
+        venderPropiedadBooleanTrue(propiedad);
         Factura factura = new Factura();
         factura.setFechaEmision(new Date());
         factura.setPropiedadAsig(propiedad);
@@ -18,6 +20,10 @@ public class ControladoraLogica {
 
         controlControllers.ventaPropiedad(factura);
 
+    }
+
+    public void venderPropiedadBooleanTrue(Propiedad propi) {
+        controlControllers.venderPropiedadBooleanTrue(propi);
     }
 
     public List<Factura> traerFacturas() {
@@ -68,7 +74,7 @@ public class ControladoraLogica {
     public void agregarTipoPropiedad(String tipoPropiedadDescripcion) {
         TipoPropiedad tipoPropiedad = new TipoPropiedad();
         tipoPropiedad.setDescripcion(tipoPropiedadDescripcion);
-        
+
         controlControllers.agregarTipoPropiedad(tipoPropiedad);
     }
 
@@ -84,6 +90,10 @@ public class ControladoraLogica {
         TipoPropiedad tipoPropiedad = traerTipoPropiedad(idTipoPropiedad);
         tipoPropiedad.setDescripcion(tipoPropiedadDesc);
         controlControllers.ModificarTipoPropiedad(tipoPropiedad);
+    }
+
+    public Cliente traerClientePorDNI(String dniIngresado) {
+        return controlControllers.traerClientePorDNI(dniIngresado);
     }
 
 }

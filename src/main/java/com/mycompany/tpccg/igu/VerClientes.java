@@ -234,7 +234,7 @@ public class VerClientes extends javax.swing.JFrame {
 
         deleteBtn.setBackground(new java.awt.Color(255, 255, 255));
         deleteBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        deleteBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/bote-de-basura(1).png"))); // NOI18N
+        deleteBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/delete.png"))); // NOI18N
         deleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteBtnActionPerformed(evt);
@@ -243,7 +243,7 @@ public class VerClientes extends javax.swing.JFrame {
 
         refreshInputs.setBackground(new java.awt.Color(255, 255, 255));
         refreshInputs.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        refreshInputs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/escoba(1).png"))); // NOI18N
+        refreshInputs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/clean.png"))); // NOI18N
         refreshInputs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshInputsActionPerformed(evt);
@@ -252,7 +252,7 @@ public class VerClientes extends javax.swing.JFrame {
 
         editBtn.setBackground(new java.awt.Color(255, 255, 255));
         editBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        editBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/4735348.png"))); // NOI18N
+        editBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/edit.png"))); // NOI18N
         editBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editBtnActionPerformed(evt);
@@ -261,7 +261,7 @@ public class VerClientes extends javax.swing.JFrame {
 
         createBtn.setBackground(new java.awt.Color(255, 255, 255));
         createBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        createBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/plus-pequeno(1).png"))); // NOI18N
+        createBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/add.png"))); // NOI18N
         createBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createBtnActionPerformed(evt);
@@ -336,7 +336,7 @@ public class VerClientes extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPContenedorFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
-            .addComponent(jPHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 951, Short.MAX_VALUE)
+            .addComponent(jPHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 952, Short.MAX_VALUE)
         );
         jPContenedorGeneralLayout.setVerticalGroup(
             jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

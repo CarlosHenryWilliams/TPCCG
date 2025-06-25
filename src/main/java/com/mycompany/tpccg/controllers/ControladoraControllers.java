@@ -76,10 +76,24 @@ public class ControladoraControllers {
         return tipoPropiJPA.findTipoPropiedad(idTipoPropiedadQueLlega);
     }
 
-    public void ModificarTipoPropiedad( TipoPropiedad tipoPropiedad) {
-        
+    public void ModificarTipoPropiedad(TipoPropiedad tipoPropiedad) {
+
         try {
             tipoPropiJPA.edit(tipoPropiedad);
+        } catch (Exception ex) {
+            System.out.println("Ha ocurrido un error al modificar el tipo de propiedad: " + ex.getMessage());
+        }
+    }
+
+    public Cliente traerClientePorDNI(String dniIngresado) {
+
+        return clienteJPA.findClienteByDNI(dniIngresado);
+
+    }
+
+    public void venderPropiedadBooleanTrue(Propiedad propi) {
+        try {
+            propiedadJPA.edit(propi);
         } catch (Exception ex) {
             System.out.println("Ha ocurrido un error al modificar el tipo de propiedad: " + ex.getMessage());
         }

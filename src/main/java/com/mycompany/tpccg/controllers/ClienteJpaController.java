@@ -7,6 +7,7 @@ import jakarta.persistence.EntityManagerFactory;
 import java.io.Serializable;
 import jakarta.persistence.Query;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
@@ -118,7 +119,21 @@ public class ClienteJpaController implements Serializable {
         }
     }
    
-
+   // Nuevo método para encontrar un cliente por DNI
+    public Cliente findClienteByDNI(String dni) {
+        EntityManager em = getEntityManager();
+        try {
+            // JPQL (Java Persistence Query Language) para buscar por DNI
+            Query consulta = em.createQuery("SELECT c FROM Cliente c WHERE c.DNI = :dni", Cliente.class);
+            consulta.setParameter("dni", dni);
+            return (Cliente) consulta.getSingleResult();
+        } catch (NoResultException e) {
+            // Si no se encuentra ningún cliente con ese DNI, devuelve null
+            return null;
+        } finally {
+            em.close();
+        }
+    }
 
     public int getClienteCount() {
         EntityManager em = getEntityManager();

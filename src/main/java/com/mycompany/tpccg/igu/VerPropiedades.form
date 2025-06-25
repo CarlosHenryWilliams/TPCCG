@@ -386,7 +386,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/iconos/escoba(1).png"/>
+                  <Image iconType="3" name="/iconos/clean.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -402,7 +402,7 @@
                   <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/iconos/4735348.png"/>
+                  <Image iconType="3" name="/iconos/edit.png"/>
                 </Property>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
@@ -422,7 +422,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/iconos/plus-pequeno(1).png"/>
+                  <Image iconType="3" name="/iconos/add.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -451,7 +451,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/iconos/bote-de-basura(1).png"/>
+                  <Image iconType="3" name="/iconos/delete.png"/>
                 </Property>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
@@ -471,9 +471,10 @@
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/iconos/hands-and-gestures(1).png"/>
+                  <Image iconType="3" name="/iconos/buy.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="     VENTA"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVenderActionPerformed"/>

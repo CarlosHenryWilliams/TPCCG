@@ -4,6 +4,14 @@
  */
 package com.mycompany.tpccg.igu;
 
+import com.mycompany.tpccg.model.Cliente;
+import com.mycompany.tpccg.model.ControladoraLogica;
+import com.mycompany.tpccg.model.Propiedad;
+import com.mycompany.tpccg.model.TipoPropiedad;
+import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author marti
@@ -13,9 +21,24 @@ public class RealizarVentas extends javax.swing.JFrame {
     /**
      * Creates new form RealizarVentas
      */
-    public RealizarVentas() {
+    ControladoraLogica controlLogica;
+    int idPropiedad;
+
+    public RealizarVentas(int idPropiedadQueLlega) {
         initComponents();
+        controlLogica = new ControladoraLogica();
+        this.idPropiedad = idPropiedadQueLlega;
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }
+
+    private void cargarPropiedad() {
+        Propiedad propi = controlLogica.traerPropiedad(idPropiedad);
+
+        txtCodigoPropiedad.setText(String.valueOf(propi.getIdPropiedad()));
+        txtCantAmbientes.setText(String.valueOf(propi.getAmbientes()));
+        txtDireccion.setText(propi.getDireccion());
+        txtTipoPropiedad.setText(propi.getTipoPropiedad().getDescripcion());
+        txtPrecio.setText(String.valueOf(propi.getPrecio()));
     }
 
     /**
@@ -36,11 +59,27 @@ public class RealizarVentas extends javax.swing.JFrame {
         jLFormCantAmb = new javax.swing.JLabel();
         jLFormTipoProp = new javax.swing.JLabel();
         txtPrecio = new javax.swing.JTextField();
-        cmbCantAmbientes = new javax.swing.JComboBox<>();
-        cmbTipoPropiedad = new javax.swing.JComboBox();
         txtDireccion = new javax.swing.JTextField();
+        jLFormCantAmb1 = new javax.swing.JLabel();
+        txtCodigoPropiedad = new javax.swing.JTextField();
+        txtCantAmbientes = new javax.swing.JTextField();
+        txtTipoPropiedad = new javax.swing.JTextField();
+        jPContenedorFormulario = new javax.swing.JPanel();
+        txtNombreCliente = new javax.swing.JTextField();
+        FirstNameLabel = new javax.swing.JLabel();
+        FirstNameLabel2 = new javax.swing.JLabel();
+        txtDNICliente = new javax.swing.JTextField();
+        FirstNameLabel3 = new javax.swing.JLabel();
+        txtDniIngresado = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
+        btnVenderPropiedad = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPContenedorGeneral.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -48,23 +87,23 @@ public class RealizarVentas extends javax.swing.JFrame {
 
         jLTitulo.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        jLTitulo.setText("REALIZAR VENTAS");
+        jLTitulo.setText("REALIZAR VENTA");
 
         javax.swing.GroupLayout jPHeaderLayout = new javax.swing.GroupLayout(jPHeader);
         jPHeader.setLayout(jPHeaderLayout);
         jPHeaderLayout.setHorizontalGroup(
             jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPHeaderLayout.createSequentialGroup()
-                .addContainerGap(454, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPHeaderLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLTitulo)
-                .addGap(176, 176, 176))
+                .addGap(245, 245, 245))
         );
         jPHeaderLayout.setVerticalGroup(
             jPHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPHeaderLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPHeaderLayout.createSequentialGroup()
+                .addContainerGap(44, Short.MAX_VALUE)
                 .addComponent(jLTitulo)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPContenedorFormulario1.setBackground(new java.awt.Color(255, 255, 255));
@@ -80,7 +119,7 @@ public class RealizarVentas extends javax.swing.JFrame {
 
         jLFormCantAmb.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLFormCantAmb.setForeground(new java.awt.Color(0, 0, 0));
-        jLFormCantAmb.setText("Cant. Ambientes");
+        jLFormCantAmb.setText("Codigo Propiedad");
 
         jLFormTipoProp.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLFormTipoProp.setForeground(new java.awt.Color(0, 0, 0));
@@ -88,22 +127,39 @@ public class RealizarVentas extends javax.swing.JFrame {
 
         txtPrecio.setBackground(new java.awt.Color(255, 255, 255));
         txtPrecio.setForeground(new java.awt.Color(0, 0, 0));
-
-        cmbCantAmbientes.setBackground(new java.awt.Color(255, 255, 255));
-        cmbCantAmbientes.setForeground(new java.awt.Color(0, 0, 0));
-        cmbCantAmbientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-        cmbCantAmbientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbCantAmbientesActionPerformed(evt);
-            }
-        });
-
-        cmbTipoPropiedad.setBackground(new java.awt.Color(255, 255, 255));
-        cmbTipoPropiedad.setForeground(new java.awt.Color(0, 0, 0));
-        cmbTipoPropiedad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-" }));
+        txtPrecio.setFocusable(false);
 
         txtDireccion.setBackground(new java.awt.Color(255, 255, 255));
         txtDireccion.setForeground(new java.awt.Color(0, 0, 0));
+        txtDireccion.setFocusable(false);
+
+        jLFormCantAmb1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        jLFormCantAmb1.setForeground(new java.awt.Color(0, 0, 0));
+        jLFormCantAmb1.setText("Cant. Ambientes");
+
+        txtCodigoPropiedad.setBackground(new java.awt.Color(255, 255, 255));
+        txtCodigoPropiedad.setForeground(new java.awt.Color(0, 0, 0));
+        txtCodigoPropiedad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtCodigoPropiedad.setFocusable(false);
+        txtCodigoPropiedad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoPropiedadActionPerformed(evt);
+            }
+        });
+
+        txtCantAmbientes.setBackground(new java.awt.Color(255, 255, 255));
+        txtCantAmbientes.setForeground(new java.awt.Color(0, 0, 0));
+        txtCantAmbientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtCantAmbientes.setFocusable(false);
+        txtCantAmbientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCantAmbientesActionPerformed(evt);
+            }
+        });
+
+        txtTipoPropiedad.setBackground(new java.awt.Color(255, 255, 255));
+        txtTipoPropiedad.setForeground(new java.awt.Color(0, 0, 0));
+        txtTipoPropiedad.setFocusable(false);
 
         javax.swing.GroupLayout jPContenedorFormulario1Layout = new javax.swing.GroupLayout(jPContenedorFormulario1);
         jPContenedorFormulario1.setLayout(jPContenedorFormulario1Layout);
@@ -112,33 +168,44 @@ public class RealizarVentas extends javax.swing.JFrame {
             .addGroup(jPContenedorFormulario1Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(jPContenedorFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLFormDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLFormCantAmb, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLFormTipoProp, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLFormPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPContenedorFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cmbCantAmbientes, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbTipoPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(55, Short.MAX_VALUE))
+                    .addGroup(jPContenedorFormulario1Layout.createSequentialGroup()
+                        .addGroup(jPContenedorFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLFormPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLFormCantAmb1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPContenedorFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLFormDireccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLFormTipoProp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPContenedorFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCantAmbientes, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTipoPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPContenedorFormulario1Layout.createSequentialGroup()
+                        .addComponent(jLFormCantAmb)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCodigoPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         jPContenedorFormulario1Layout.setVerticalGroup(
             jPContenedorFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPContenedorFormulario1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(14, 14, 14)
                 .addGroup(jPContenedorFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLFormCantAmb)
-                    .addComponent(cmbCantAmbientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                    .addComponent(txtCodigoPropiedad))
+                .addGap(15, 15, 15)
+                .addGroup(jPContenedorFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLFormCantAmb1)
+                    .addComponent(txtCantAmbientes))
+                .addGap(22, 22, 22)
                 .addGroup(jPContenedorFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLFormDireccion)
                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPContenedorFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLFormTipoProp)
-                    .addComponent(cmbTipoPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTipoPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPContenedorFormulario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLFormPrecio)
@@ -146,22 +213,133 @@ public class RealizarVentas extends javax.swing.JFrame {
                 .addContainerGap(61, Short.MAX_VALUE))
         );
 
+        jPContenedorFormulario.setBackground(new java.awt.Color(255, 255, 255));
+        jPContenedorFormulario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+
+        txtNombreCliente.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombreCliente.setForeground(new java.awt.Color(0, 0, 0));
+        txtNombreCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtNombreCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreClienteActionPerformed(evt);
+            }
+        });
+
+        FirstNameLabel.setBackground(new java.awt.Color(0, 0, 0));
+        FirstNameLabel.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        FirstNameLabel.setForeground(new java.awt.Color(0, 0, 0));
+        FirstNameLabel.setText("Nombre Completo");
+
+        FirstNameLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        FirstNameLabel2.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        FirstNameLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        FirstNameLabel2.setText("DNI");
+
+        txtDNICliente.setBackground(new java.awt.Color(255, 255, 255));
+        txtDNICliente.setForeground(new java.awt.Color(0, 0, 0));
+        txtDNICliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPContenedorFormularioLayout = new javax.swing.GroupLayout(jPContenedorFormulario);
+        jPContenedorFormulario.setLayout(jPContenedorFormularioLayout);
+        jPContenedorFormularioLayout.setHorizontalGroup(
+            jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(FirstNameLabel)
+                    .addComponent(FirstNameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorFormularioLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtDNICliente, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+        );
+        jPContenedorFormularioLayout.setVerticalGroup(
+            jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPContenedorFormularioLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FirstNameLabel)
+                    .addComponent(txtNombreCliente))
+                .addGap(18, 18, 18)
+                .addGroup(jPContenedorFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FirstNameLabel2)
+                    .addComponent(txtDNICliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(90, 90, 90))
+        );
+
+        FirstNameLabel3.setBackground(new java.awt.Color(0, 0, 0));
+        FirstNameLabel3.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        FirstNameLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        FirstNameLabel3.setText("INGRESE UN DNI");
+
+        txtDniIngresado.setBackground(new java.awt.Color(255, 255, 255));
+        txtDniIngresado.setForeground(new java.awt.Color(0, 0, 0));
+        txtDniIngresado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        btnBuscar.setBackground(new java.awt.Color(255, 255, 255));
+        btnBuscar.setForeground(new java.awt.Color(0, 0, 0));
+        btnBuscar.setText("🔍");
+        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
+        btnVenderPropiedad.setText("VENDER PROPIEDAD");
+        btnVenderPropiedad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVenderPropiedadActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPContenedorGeneralLayout = new javax.swing.GroupLayout(jPContenedorGeneral);
         jPContenedorGeneral.setLayout(jPContenedorGeneralLayout);
         jPContenedorGeneralLayout.setHorizontalGroup(
             jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
                 .addComponent(jPContenedorFormulario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(FirstNameLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtDniIngresado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(167, 167, 167))
+                    .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPContenedorFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(12, Short.MAX_VALUE))))
             .addComponent(jPHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPContenedorGeneralLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVenderPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(332, 332, 332))
         );
         jPContenedorGeneralLayout.setVerticalGroup(
             jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
                 .addComponent(jPHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(jPContenedorFormulario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addGap(44, 44, 44)
+                .addGroup(jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPContenedorFormulario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPContenedorGeneralLayout.createSequentialGroup()
+                        .addGroup(jPContenedorGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(FirstNameLabel3)
+                            .addComponent(txtDniIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPContenedorFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnVenderPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -169,35 +347,118 @@ public class RealizarVentas extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(522, 522, 522))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 257, Short.MAX_VALUE))
+            .addComponent(jPContenedorGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmbCantAmbientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCantAmbientesActionPerformed
+    private void txtNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbCantAmbientesActionPerformed
+    }//GEN-LAST:event_txtNombreClienteActionPerformed
 
+    private void txtCodigoPropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoPropiedadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoPropiedadActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+
+        // BOTON BUSCAR
+        String dniIngresado = txtDniIngresado.getText();
+        if (!dniIngresado.isBlank()) {
+            try {
+                Cliente cliente = controlLogica.traerClientePorDNI(dniIngresado);
+
+                txtNombreCliente.setText(cliente.getNombreCompleto());
+                txtDNICliente.setText(cliente.getDNI());
+
+            } catch (Exception e) {
+                mostrarMensaje("Ha ocurrido un error el  DNI no coincide, ingrese un DNI valido", "Error", "Error DNI no encontrado");
+
+            }
+
+        } else {
+            mostrarMensaje("Ha ocurrido un error, ingrese un DNI valido", "Error", "Error");
+        }
+
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void txtCantAmbientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantAmbientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCantAmbientesActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        cargarPropiedad();
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btnVenderPropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderPropiedadActionPerformed
+        // TODO add your handling code here:
+
+        String dniCliente = txtDNICliente.getText();
+        if (dniCliente.isBlank()) {
+                mostrarMensaje("Por favor seleccione un DNI ", "Error", "Error dni vacio");
+
+        } else {
+
+            Cliente cliente = controlLogica.traerClientePorDNI(dniCliente);
+            
+            
+            try {
+                // DATOS CLIENTE
+                controlLogica.ventaPropiedad(this.idPropiedad, cliente);
+                //  controlLogica.agregarPropiedad(direccionCasa, tipoPropiedadCasa, cantAmbientesCasa, precioCasa);
+                mostrarMensaje("Propiedad Vendida Correctamente", "Info", "Se ha vendido la propiedad");
+                this.dispose();
+                VerPropiedades verPropiedades = new VerPropiedades();
+                verPropiedades.setVisible(true);
+                verPropiedades.setLocationRelativeTo(null); // centra al medio la interfaz
+            } catch (Exception e) {
+                mostrarMensaje("Error al  vender la propiedad", "Error", "Error al vender");
+            }
+        }
+    }//GEN-LAST:event_btnVenderPropiedadActionPerformed
+
+    public void mostrarMensaje(String mensaje, String tipo, String titulo) {
+
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        if (tipo.equals("Info")) {
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        } else if (tipo.equals("Error")) {
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        }
+        JDialog dialog = optionPane.createDialog(titulo);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cmbCantAmbientes;
-    private javax.swing.JComboBox cmbTipoPropiedad;
+    private javax.swing.JLabel FirstNameLabel;
+    private javax.swing.JLabel FirstNameLabel2;
+    private javax.swing.JLabel FirstNameLabel3;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnVenderPropiedad;
     private javax.swing.JLabel jLFormCantAmb;
+    private javax.swing.JLabel jLFormCantAmb1;
     private javax.swing.JLabel jLFormDireccion;
     private javax.swing.JLabel jLFormPrecio;
     private javax.swing.JLabel jLFormTipoProp;
     private javax.swing.JLabel jLTitulo;
+    private javax.swing.JPanel jPContenedorFormulario;
     private javax.swing.JPanel jPContenedorFormulario1;
     private javax.swing.JPanel jPContenedorGeneral;
     private javax.swing.JPanel jPHeader;
+    private javax.swing.JTextField txtCantAmbientes;
+    private javax.swing.JTextField txtCodigoPropiedad;
+    private javax.swing.JTextField txtDNICliente;
     private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtDniIngresado;
+    private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtTipoPropiedad;
     // End of variables declaration//GEN-END:variables
 }
