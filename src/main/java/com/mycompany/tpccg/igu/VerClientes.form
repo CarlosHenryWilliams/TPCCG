@@ -50,7 +50,7 @@
                   <Component id="jPContenedorFormulario" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
-              <Component id="jPHeader" alignment="0" pref="951" max="32767" attributes="0"/>
+              <Component id="jPHeader" alignment="0" pref="952" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">

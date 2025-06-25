@@ -5,86 +5,93 @@ import com.mycompany.tpccg.controllers.ClienteJpaController;
 import java.util.List;
 import com.mycompany.tpccg.model.*;
 import java.awt.Color;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class VerClientes extends javax.swing.JFrame {
-  static ClienteJpaController clientController = new ClienteJpaController();
 
-  private int IDCliente;
+    static ClienteJpaController clientController = new ClienteJpaController();
 
-  private void refreshTableClients() {
-    new Thread(() -> { loadClientTable(clientController.findClienteEntities()); }).start();
-  }
-  
-  private void setResultLabelStyle(boolean visible, String text, Color color) {
-    LabelResultData.setVisible(visible);
-    LabelResultData.setText(text);
-    LabelResultData.setForeground(color);
-  }
-  
-  private boolean validateDataInputs(String firstname, String lastname, String dni) {
-    if (StringUtils.isEmpty(firstname) ||  StringUtils.isEmpty(lastname) || StringUtils.isEmpty(dni)) {
-      setResultLabelStyle(true, "Error en los datos del cliente", Color.red);
-      return false;
+    private int IDCliente;
+
+    private void refreshTableClients() {
+        new Thread(() -> {
+            loadClientTable(clientController.findClienteEntities());
+        }).start();
     }
-    return true;
-  }
 
-  private void loadClientTable(List<Cliente> clientList) {
-    DefaultTableModel model = (DefaultTableModel) clientTable.getModel();
-    model.setRowCount(0);
-    for (Cliente obj : clientList) {
-      String[] partes = obj.getNombreCompleto().split(";");
-      String firstname = partes.length > 0 ? partes[0] : "";
-      String lastname = partes.length > 1 ? partes[1] : "";
-      model.addRow(new Object[] {
-        obj.getIdCliente(),
-        firstname,
-        lastname,
-        obj.getDNI()
-      });
+    private void setResultLabelStyle(boolean visible, String text, Color color) {
+        LabelResultData.setVisible(visible);
+        LabelResultData.setText(text);
+        LabelResultData.setForeground(color);
     }
-  }
 
-  private void completeInputsOnSelectRow() {
-    clientTable.getSelectionModel().addListSelectionListener(row -> {
-      if (!row.getValueIsAdjusting()) {
-        int fila = clientTable.getSelectedRow();
-        if (fila != -1) {
-          refreshInputs.setEnabled(true); // SELECCIONO UN CLIENTE EXISTENTE
-          editBtn.setEnabled(true); 
-          deleteBtn.setEnabled(true);
-          createBtn.setEnabled(false); 
-          this.IDCliente = Integer.parseInt(clientTable.getValueAt(fila, 0).toString());
-          FirstNameInput.setText(clientTable.getValueAt(fila, 1).toString()); // Nombre
-          LastNameInput.setText(clientTable.getValueAt(fila, 2).toString()); // Apellido
-          dniInput.setText(clientTable.getValueAt(fila, 3).toString()); // DNI
-        } 
-      }
-    });
-  }
-  
-  private void refreshInputsAndButtons() {
-    this.IDCliente = -1;
-    createBtn.setEnabled(true);
-    refreshInputs.setEnabled(true);
-    deleteBtn.setEnabled(false);
-    editBtn.setEnabled(false);
-    FirstNameInput.setText("");
-    LastNameInput.setText("");
-    dniInput.setText("");
-  }
-  
-  public VerClientes() {
-    initComponents();
-    refreshTableClients();
-    completeInputsOnSelectRow();
-    refreshInputsAndButtons();
-    setResultLabelStyle(false, null, null);
-    setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-  }
+    private boolean validateDataInputs(String firstname, String lastname, String dni) {
+        if (StringUtils.isEmpty(firstname) || StringUtils.isEmpty(lastname) || StringUtils.isEmpty(dni)) {
+            mostrarMensaje("Error en los datos del cliente", "Info", "Error");
 
-  @SuppressWarnings("unchecked")
+           // setResultLabelStyle(true, "Error en los datos del cliente", Color.red);
+            return false;
+        }
+        return true;
+    }
+
+    private void loadClientTable(List<Cliente> clientList) {
+        DefaultTableModel model = (DefaultTableModel) clientTable.getModel();
+        model.setRowCount(0);
+        for (Cliente obj : clientList) {
+            String[] partes = obj.getNombreCompleto().split(";");
+            String firstname = partes.length > 0 ? partes[0] : "";
+            String lastname = partes.length > 1 ? partes[1] : "";
+            model.addRow(new Object[]{
+                obj.getIdCliente(),
+                firstname,
+                lastname,
+                obj.getDNI()
+            });
+        }
+    }
+
+    private void completeInputsOnSelectRow() {
+        clientTable.getSelectionModel().addListSelectionListener(row -> {
+            if (!row.getValueIsAdjusting()) {
+                int fila = clientTable.getSelectedRow();
+                if (fila != -1) {
+                    refreshInputs.setEnabled(true); // SELECCIONO UN CLIENTE EXISTENTE
+                    editBtn.setEnabled(true);
+                    deleteBtn.setEnabled(true);
+                    createBtn.setEnabled(false);
+                    this.IDCliente = Integer.parseInt(clientTable.getValueAt(fila, 0).toString());
+                    FirstNameInput.setText(clientTable.getValueAt(fila, 1).toString()); // Nombre
+                    LastNameInput.setText(clientTable.getValueAt(fila, 2).toString()); // Apellido
+                    dniInput.setText(clientTable.getValueAt(fila, 3).toString()); // DNI
+                }
+            }
+        });
+    }
+
+    private void refreshInputsAndButtons() {
+        this.IDCliente = -1;
+        createBtn.setEnabled(true);
+        refreshInputs.setEnabled(true);
+        deleteBtn.setEnabled(false);
+        editBtn.setEnabled(false);
+        FirstNameInput.setText("");
+        LastNameInput.setText("");
+        dniInput.setText("");
+    }
+
+    public VerClientes() {
+        initComponents();
+        refreshTableClients();
+        completeInputsOnSelectRow();
+        refreshInputsAndButtons();
+        setResultLabelStyle(false, null, null);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }
+
+    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -357,31 +364,38 @@ public class VerClientes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
   private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
-    try {
-      clientController.destroy(IDCliente);
-      setResultLabelStyle(true, "Cliente eliminado correctamente", Color.GREEN);
-      refreshTableClients();
-      refreshInputsAndButtons();
-    } catch (Exception e) {
-      setResultLabelStyle(true, "Error al eliminar el cliente", Color.red);
-    }
+      try {
+          clientController.destroy(IDCliente);
+          mostrarMensaje("Cliente eliminado correctamente", "Info", "Eliminacion exitosa");
+          // setResultLabelStyle(true, "Cliente eliminado correctamente", Color.GREEN);
+          refreshTableClients();
+          refreshInputsAndButtons();
+      } catch (Exception e) {
+          mostrarMensaje("Error al eliminar el cliente", "Info", "Error");
+
+          // setResultLabelStyle(true, "Error al eliminar el cliente", Color.red);
+      }
   }//GEN-LAST:event_deleteBtnActionPerformed
 
   private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
-    if(!validateDataInputs(FirstNameInput.getText(), LastNameInput.getText(), dniInput.getText())) {
-      return;
-    }
-    Cliente client = new Cliente();
-    client.setNombreCompleto(FirstNameInput.getText() + ";" + LastNameInput.getText());
-    client.setDNI(dniInput.getText());
-    try {
-      clientController.create(client);
-      setResultLabelStyle(true, "Cliente guardado correctamente", Color.GREEN);
-      refreshTableClients();
-      refreshInputsAndButtons();
-    } catch (Exception e) {
-      setResultLabelStyle(true, "Error al guardar el cliente", Color.red);
-    }
+      if (!validateDataInputs(FirstNameInput.getText(), LastNameInput.getText(), dniInput.getText())) {
+          return;
+      }
+      Cliente client = new Cliente();
+      client.setNombreCompleto(FirstNameInput.getText() + ";" + LastNameInput.getText());
+      client.setDNI(dniInput.getText());
+      try {
+          clientController.create(client);
+          mostrarMensaje("Cliente agregado correctamente", "Info", "Se ha agregado con exito");
+
+          //setResultLabelStyle(true, "Cliente guardado correctamente", Color.GREEN);
+          refreshTableClients();
+          refreshInputsAndButtons();
+      } catch (Exception e) {
+          mostrarMensaje("Error al agregar el cliente", "Info", "Error");
+
+          //      setResultLabelStyle(true, "Error al guardar el cliente", Color.red);
+      }
   }//GEN-LAST:event_createBtnActionPerformed
 
     private void refreshInputsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshInputsActionPerformed
@@ -389,7 +403,7 @@ public class VerClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_refreshInputsActionPerformed
 
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
-        if(!validateDataInputs(FirstNameInput.getText(), LastNameInput.getText(), dniInput.getText())) {
+        if (!validateDataInputs(FirstNameInput.getText(), LastNameInput.getText(), dniInput.getText())) {
             return;
         }
         Cliente client = new Cliente();
@@ -398,14 +412,30 @@ public class VerClientes extends javax.swing.JFrame {
         client.setDNI(dniInput.getText());
         try {
             clientController.edit(client);
-            setResultLabelStyle(true, "Cliente guardado correctamente", Color.GREEN);
+            mostrarMensaje("La informacion del cliente se ha editado correctamente", "Info", "Se ha editado con exito");
+
+           // setResultLabelStyle(true, "Cliente guardado correctamente", Color.GREEN);
             refreshTableClients();
             refreshInputsAndButtons();
         } catch (Exception e) {
-            setResultLabelStyle(true, "Error al guardar el cliente", Color.red);
+            mostrarMensaje("Error al editar el cliente", "Info", "Error");
+
+            //   setResultLabelStyle(true, "Error al guardar el cliente", Color.red);
         }
     }//GEN-LAST:event_editBtnActionPerformed
+    public void mostrarMensaje(String mensaje, String tipo, String titulo) {
 
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        if (tipo.equals("Info")) {
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        } else if (tipo.equals("Error")) {
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        }
+        JDialog dialog = optionPane.createDialog(titulo);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+
+    }
     private void FirstNameInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirstNameInputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FirstNameInputActionPerformed
