@@ -1,6 +1,7 @@
 package com.mycompany.tpccg.controllers;
 
 import com.mycompany.tpccg.controllers.exceptions.NonexistentEntityException;
+import com.mycompany.tpccg.dao.ClienteDAO;
 import com.mycompany.tpccg.model.Cliente;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -13,7 +14,7 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import java.util.List;
 
-public class ClienteJpaController implements Serializable {
+public class ClienteJpaController implements Serializable, ClienteDAO {
 
     public ClienteJpaController(EntityManagerFactory emf) {
         this.emf = emf;

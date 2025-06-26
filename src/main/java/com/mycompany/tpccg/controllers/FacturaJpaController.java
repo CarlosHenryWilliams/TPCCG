@@ -5,6 +5,7 @@
 package com.mycompany.tpccg.controllers;
 
 import com.mycompany.tpccg.controllers.exceptions.NonexistentEntityException;
+import com.mycompany.tpccg.dao.FacturaDAO;
 import com.mycompany.tpccg.model.Factura;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -20,7 +21,7 @@ import java.util.List;
  *
  * @author CharlyW
  */
-public class FacturaJpaController implements Serializable {
+public class FacturaJpaController implements Serializable, FacturaDAO {
 
     public FacturaJpaController(EntityManagerFactory emf) {
         this.emf = emf;

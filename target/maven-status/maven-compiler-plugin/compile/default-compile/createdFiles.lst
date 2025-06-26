@@ -5,6 +5,7 @@ com\mycompany\tpccg\igu\VerTipoPropiedades$4.class
 com\mycompany\tpccg\igu\RealizarVentas$5.class
 com\mycompany\tpccg\igu\VerClientes$2.class
 com\mycompany\tpccg\igu\VerTipoPropiedades$1.class
+com\mycompany\tpccg\dao\PropiedadDAO.class
 com\mycompany\tpccg\igu\Principal$3.class
 com\mycompany\tpccg\igu\VerPropiedades$4.class
 com\mycompany\tpccg\controllers\exceptions\NonexistentEntityException.class
@@ -33,12 +34,15 @@ com\mycompany\tpccg\igu\VerFacturas$1.class
 com\mycompany\tpccg\igu\Principal$4.class
 com\mycompany\tpccg\igu\VerPropiedades$5.class
 com\mycompany\tpccg\igu\VerTipoPropiedades$6.class
+com\mycompany\tpccg\dao\FacturaDAO.class
 com\mycompany\tpccg\igu\VerTipoPropiedades.class
+com\mycompany\tpccg\dao\TipoPropiedadDAO.class
 com\mycompany\tpccg\igu\RealizarVentas$3.class
 com\mycompany\tpccg\igu\VerPropiedades$2.class
 com\mycompany\tpccg\igu\VerTipoPropiedades$2.class
 com\mycompany\tpccg\model\TipoPropiedad.class
 com\mycompany\tpccg\igu\Principal$1.class
+com\mycompany\tpccg\dao\ClienteDAO.class
 com\mycompany\tpccg\igu\VerClientes$3.class
 com\mycompany\tpccg\igu\RealizarVentas.class
 com\mycompany\tpccg\igu\RealizarVentas$6.class
