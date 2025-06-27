@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.tpccg.controllers;
 
 import com.mycompany.tpccg.controllers.exceptions.NonexistentEntityException;
@@ -17,11 +13,9 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import java.util.List;
 
-/**
- *
- * @author CharlyW
- */
 public class FacturaJpaController implements Serializable, FacturaDAO {
+    
+    private EntityManagerFactory emf = null;
 
     public FacturaJpaController(EntityManagerFactory emf) {
         this.emf = emf;
@@ -30,12 +24,13 @@ public class FacturaJpaController implements Serializable, FacturaDAO {
     public FacturaJpaController() {
         emf = Persistence.createEntityManagerFactory("PersistenceParcialPU");
     }
-    private EntityManagerFactory emf = null;
 
+    @Override
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
+    @Override
     public void create(Factura factura) {
         EntityManager em = null;
         try {
@@ -50,6 +45,7 @@ public class FacturaJpaController implements Serializable, FacturaDAO {
         }
     }
 
+    @Override
     public void edit(Factura factura) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -73,6 +69,7 @@ public class FacturaJpaController implements Serializable, FacturaDAO {
         }
     }
 
+    @Override
     public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -95,15 +92,18 @@ public class FacturaJpaController implements Serializable, FacturaDAO {
     }
 
     
+    @Override
     public List<Factura> findFacturaEntities() {
         return findFacturaEntities(true, -1, -1);
     }
 
+    @Override
     public List<Factura> findFacturaEntities(int maxResults, int firstResult) {
         return findFacturaEntities(false, maxResults, firstResult);
     }
 
-    private List<Factura> findFacturaEntities(boolean all, int maxResults, int firstResult) {
+    @Override
+    public List<Factura> findFacturaEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
@@ -119,6 +119,7 @@ public class FacturaJpaController implements Serializable, FacturaDAO {
         }
     }
 
+    @Override
     public Factura findFactura(int id) {
         EntityManager em = getEntityManager();
         try {
@@ -128,6 +129,7 @@ public class FacturaJpaController implements Serializable, FacturaDAO {
         }
     }
 
+    @Override
     public int getFacturaCount() {
         EntityManager em = getEntityManager();
         try {

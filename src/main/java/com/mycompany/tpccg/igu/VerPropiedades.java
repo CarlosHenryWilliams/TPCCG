@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.mycompany.tpccg.igu;
 
 import com.mycompany.tpccg.model.ControladoraLogica;
@@ -12,10 +8,6 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author CharlyW
- */
 public class VerPropiedades extends javax.swing.JFrame {
 
     ControladoraLogica controlLogica;

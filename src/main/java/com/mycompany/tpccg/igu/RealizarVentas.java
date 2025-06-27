@@ -1,21 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.mycompany.tpccg.igu;
 
 import com.mycompany.tpccg.model.Cliente;
 import com.mycompany.tpccg.model.ControladoraLogica;
 import com.mycompany.tpccg.model.Propiedad;
-import com.mycompany.tpccg.model.TipoPropiedad;
-import java.util.List;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author marti
- */
 public class RealizarVentas extends javax.swing.JFrame {
 
     /**

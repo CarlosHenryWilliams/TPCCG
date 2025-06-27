@@ -4,7 +4,6 @@ import com.microsoft.sqlserver.jdbc.StringUtils;
 import com.mycompany.tpccg.controllers.ClienteJpaController;
 import java.util.List;
 import com.mycompany.tpccg.model.*;
-import java.awt.Color;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;

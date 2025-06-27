@@ -1,6 +1,7 @@
 package com.mycompany.tpccg.controllers;
 
 import com.mycompany.tpccg.controllers.exceptions.NonexistentEntityException;
+import com.mycompany.tpccg.dao.TipoPropiedadDAO;
 import com.mycompany.tpccg.model.TipoPropiedad;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -12,7 +13,9 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import java.util.List;
 
-public class TipoPropiedadJpaController implements Serializable {
+public class TipoPropiedadJpaController implements Serializable, TipoPropiedadDAO {
+    
+    private EntityManagerFactory emf = null;
 
     public TipoPropiedadJpaController(EntityManagerFactory emf) {
         this.emf = emf;
@@ -21,12 +24,13 @@ public class TipoPropiedadJpaController implements Serializable {
     public TipoPropiedadJpaController() {
         emf = Persistence.createEntityManagerFactory("PersistenceParcialPU");
     }
-    private EntityManagerFactory emf = null;
 
+    @Override
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
+    @Override
     public void create(TipoPropiedad tipoPropiedad) {
         EntityManager em = null;
         try {
@@ -41,6 +45,7 @@ public class TipoPropiedadJpaController implements Serializable {
         }
     }
 
+    @Override
     public void edit(TipoPropiedad tipoPropiedad) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -64,6 +69,7 @@ public class TipoPropiedadJpaController implements Serializable {
         }
     }
 
+    @Override
     public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -85,15 +91,18 @@ public class TipoPropiedadJpaController implements Serializable {
         }
     }
 
+    @Override
     public List<TipoPropiedad> findTipoPropiedadEntities() {
         return findTipoPropiedadEntities(true, -1, -1);
     }
 
+    @Override
     public List<TipoPropiedad> findTipoPropiedadEntities(int maxResults, int firstResult) {
         return findTipoPropiedadEntities(false, maxResults, firstResult);
     }
 
-    private List<TipoPropiedad> findTipoPropiedadEntities(boolean all, int maxResults, int firstResult) {
+    @Override
+    public List<TipoPropiedad> findTipoPropiedadEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
@@ -109,6 +118,7 @@ public class TipoPropiedadJpaController implements Serializable {
         }
     }
 
+    @Override
     public TipoPropiedad findTipoPropiedad(int id) {
         EntityManager em = getEntityManager();
         try {
@@ -118,6 +128,7 @@ public class TipoPropiedadJpaController implements Serializable {
         }
     }
 
+    @Override
     public int getTipoPropiedadCount() {
         EntityManager em = getEntityManager();
         try {

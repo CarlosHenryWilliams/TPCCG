@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package com.mycompany.tpccg.dao;
 
 import com.mycompany.tpccg.controllers.exceptions.NonexistentEntityException;
@@ -10,10 +6,6 @@ import jakarta.persistence.EntityManager;
 
 import java.util.List;
 
-/**
- *
- * @author CharlyW
- */
 public interface ClienteDAO {
 
     public EntityManager getEntityManager();
@@ -27,12 +19,12 @@ public interface ClienteDAO {
     public List<Cliente> findClienteEntities();
 
     public List<Cliente> findClienteEntities(int maxResults, int firstResult);
+    
+    public List<Cliente> findClienteEntities(boolean all, int maxResults, int firstResult);
 
     public Cliente findCliente(int id) ;
    
-   // Nuevo método para encontrar un cliente por DNI
     public Cliente findClienteByDNI(String dni) ;
 
     public int getClienteCount();
-    
 }

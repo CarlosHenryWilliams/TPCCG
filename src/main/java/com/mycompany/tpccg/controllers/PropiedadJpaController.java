@@ -1,6 +1,7 @@
 package com.mycompany.tpccg.controllers;
 
 import com.mycompany.tpccg.controllers.exceptions.NonexistentEntityException;
+import com.mycompany.tpccg.dao.PropiedadDAO;
 import com.mycompany.tpccg.model.Propiedad;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -12,7 +13,9 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import java.util.List;
 
-public class PropiedadJpaController implements Serializable {
+public class PropiedadJpaController implements Serializable, PropiedadDAO {
+    
+    private EntityManagerFactory emf = null;
 
     public PropiedadJpaController(EntityManagerFactory emf) {
         this.emf = emf;
@@ -21,12 +24,13 @@ public class PropiedadJpaController implements Serializable {
     public PropiedadJpaController() {
         emf = Persistence.createEntityManagerFactory("PersistenceParcialPU");
     }
-    private EntityManagerFactory emf = null;
 
+    @Override
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
+    @Override
     public void create(Propiedad propiedad) {
         EntityManager em = null;
         try {
@@ -41,6 +45,7 @@ public class PropiedadJpaController implements Serializable {
         }
     }
 
+    @Override
     public void edit(Propiedad propiedad) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -64,6 +69,7 @@ public class PropiedadJpaController implements Serializable {
         }
     }
 
+    @Override
     public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -85,15 +91,18 @@ public class PropiedadJpaController implements Serializable {
         }
     }
 
+    @Override
     public List<Propiedad> findPropiedadEntities() {
         return findPropiedadEntities(true, -1, -1);
     }
 
+    @Override
     public List<Propiedad> findPropiedadEntities(int maxResults, int firstResult) {
         return findPropiedadEntities(false, maxResults, firstResult);
     }
 
-    private List<Propiedad> findPropiedadEntities(boolean all, int maxResults, int firstResult) {
+    @Override
+    public List<Propiedad> findPropiedadEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
@@ -109,6 +118,7 @@ public class PropiedadJpaController implements Serializable {
         }
     }
 
+    @Override
     public Propiedad findPropiedad(int id) {
         EntityManager em = getEntityManager();
         try {
@@ -118,6 +128,7 @@ public class PropiedadJpaController implements Serializable {
         }
     }
 
+    @Override
     public int getPropiedadCount() {
         EntityManager em = getEntityManager();
         try {

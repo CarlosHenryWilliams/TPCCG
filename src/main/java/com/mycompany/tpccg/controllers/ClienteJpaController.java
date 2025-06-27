@@ -15,6 +15,8 @@ import jakarta.persistence.criteria.Root;
 import java.util.List;
 
 public class ClienteJpaController implements Serializable, ClienteDAO {
+    
+    private EntityManagerFactory emf = null;
 
     public ClienteJpaController(EntityManagerFactory emf) {
         this.emf = emf;
@@ -23,12 +25,13 @@ public class ClienteJpaController implements Serializable, ClienteDAO {
     public ClienteJpaController() {
          emf = Persistence.createEntityManagerFactory("PersistenceParcialPU");
     }
-    private EntityManagerFactory emf = null;
 
+    @Override
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
+    @Override
     public void create(Cliente cliente) {
         EntityManager em = null;
         try {
@@ -43,6 +46,7 @@ public class ClienteJpaController implements Serializable, ClienteDAO {
         }
     }
 
+    @Override
     public void edit(Cliente cliente) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -66,6 +70,7 @@ public class ClienteJpaController implements Serializable, ClienteDAO {
         }
     }
 
+    @Override
     public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -87,15 +92,18 @@ public class ClienteJpaController implements Serializable, ClienteDAO {
         }
     }
 
+    @Override
     public List<Cliente> findClienteEntities() {
         return findClienteEntities(true, -1, -1);
     }
 
+    @Override
     public List<Cliente> findClienteEntities(int maxResults, int firstResult) {
         return findClienteEntities(false, maxResults, firstResult);
     }
 
-    private List<Cliente> findClienteEntities(boolean all, int maxResults, int firstResult) {
+    @Override
+    public List<Cliente> findClienteEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
@@ -111,6 +119,7 @@ public class ClienteJpaController implements Serializable, ClienteDAO {
         }
     }
 
+    @Override
     public Cliente findCliente(int id) {
         EntityManager em = getEntityManager();
         try {
@@ -121,6 +130,7 @@ public class ClienteJpaController implements Serializable, ClienteDAO {
     }
    
    // Nuevo método para encontrar un cliente por DNI
+    @Override
     public Cliente findClienteByDNI(String dni) {
         EntityManager em = getEntityManager();
         try {
@@ -136,6 +146,7 @@ public class ClienteJpaController implements Serializable, ClienteDAO {
         }
     }
 
+    @Override
     public int getClienteCount() {
         EntityManager em = getEntityManager();
         try {
